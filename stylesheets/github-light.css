@@ -31,7 +31,7 @@
 
 .pl-s .pl-s1 /* string source */,
 .pl-smi      /* storage.modifier.import, storage.modifier.package, storage.type.java, variable.other, variable.parameter.function */ {
-  color: #000;
+  color: #000000;
 }
 
 .pl-ent /* entity.name.tag */ {
@@ -91,7 +91,7 @@
 }
 
 .pl-mb /* markup.bold */ {
-  color: #333;
+  color: #000000;
   font-weight: bold;
 }
 
