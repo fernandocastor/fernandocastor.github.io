@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>Fernando Castor&#39;s rants</title>
+    <description>The opinions expressed here are the sole responsibility of the author.
 </description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Oct 2015 11:39:13 -0300</pubDate>
-    <lastBuildDate>Mon, 26 Oct 2015 11:39:13 -0300</lastBuildDate>
+    <link>http://fernandocastor.github.io/</link>
+    <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 27 Oct 2015 01:00:53 -0300</pubDate>
+    <lastBuildDate>Tue, 27 Oct 2015 01:00:53 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Haskell one-liner</title>
+        <description>&lt;p&gt;One of these days, &lt;a href=&quot;http://www.twitter.com/1haskelladay&quot;&gt;@1HaskellADay&lt;/a&gt; posted the following programming challenge: &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;#1Liner You’re given either fst or snd, but don’t know which. Define a function that returns its dual: dual :: ((a,a) -&amp;gt; a) -&amp;gt; ((a,a) -&amp;gt; a)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;My answer to the challenge was fairly straightforward: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;nf&quot;&gt;dual&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s not bad, but nothing compared to &lt;a href=&quot;http://www.twitter.com/frsoares&quot;&gt;Francisco Soares&lt;/a&gt;’ &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;nf&quot;&gt;dual&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uncurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curry&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the kind of thinking that separates jedis from padawans.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 26 Oct 2015 08:39:06 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>Haskell one-liner</title>
+        <description>&lt;p&gt;One of these days, &lt;a href=&quot;http://www.twitter.com/1haskelladay&quot;&gt;@1HaskellADay&lt;/a&gt; posted the following programming challenge: &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;#1Liner You&#39;re given either fst or snd, but don&#39;t know which. Define a function that returns its dual: dual :: ((a,a) -&amp;gt; a) -&amp;gt; ((a,a) -&amp;gt; a)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This is my first post in this blog. Hopefully, there will be many more. The choice of starting blogging during my birthday was coincidental but not unwelcome. Birthdays are great opportunities to &lt;code&gt;start something new&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;To avoid getting suck in the Hello World cliché, here’s a code snippet I wrote&lt;/p&gt;
+
+&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
@@ -28,13 +61,11 @@
 
 </description>
         <pubDate>Mon, 26 Oct 2015 08:39:06 -0300</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2015/10/26/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/10/26/welcome-to-jekyll.html</guid>
+        <link>http://fernandocastor.github.io/general/2015/10/26/first-post.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/10/26/first-post.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>general</category>
         
       </item>
     

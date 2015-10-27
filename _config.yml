@@ -1,12 +1,12 @@
 # Site settings
 title: Fernando Castor's rants
-#email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-This is the blog of [Fernando Castor](http://www.cin.ufpe.br/~fjclf), assistant professor at the Informatics Center (CIn) of the Federal University of Pernambuco (UFPE), Brazil. The opinions expressed here are personal and the sole responsibility of the author.
+#email: castor@cin.ufpe.br
+description: > # this means to ignore newlines until "baseurl:" 
+    The opinions expressed here are the sole responsibility of the author.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://fernandocastor.github.io" # the base hostname & protocol for your site
 twitter_username: fernandocastor
 github_username:  fernandocastor
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
