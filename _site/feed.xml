@@ -6,8 +6,8 @@
 </description>
     <link>http://fernandocastor.github.io/</link>
     <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 27 Oct 2015 01:00:53 -0300</pubDate>
-    <lastBuildDate>Tue, 27 Oct 2015 01:00:53 -0300</lastBuildDate>
+    <pubDate>Tue, 27 Oct 2015 01:14:00 -0300</pubDate>
+    <lastBuildDate>Tue, 27 Oct 2015 01:14:00 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -24,45 +24,11 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;nf&quot;&gt;dual&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uncurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curry&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;This is the kind of thinking that separates jedis from padawans.&lt;/p&gt;
+&lt;p&gt;This is how real Haskell programmers do it. Those that &lt;a href=&quot;http://www.bernstein-plus-sons.com/RPDEQ.html&quot; title=&quot;Real programmers don&#39;t eat quiche&quot;&gt;do not eat quiche&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Mon, 26 Oct 2015 08:39:06 -0300</pubDate>
         <link>http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html</link>
         <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html</guid>
-        
-        
-        <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>Haskell one-liner</title>
-        <description>&lt;p&gt;One of these days, &lt;a href=&quot;http://www.twitter.com/1haskelladay&quot;&gt;@1HaskellADay&lt;/a&gt; posted the following programming challenge: &lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;#1Liner You&#39;re given either fst or snd, but don&#39;t know which. Define a function that returns its dual: dual :: ((a,a) -&amp;gt; a) -&amp;gt; ((a,a) -&amp;gt; a)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This is my first post in this blog. Hopefully, there will be many more. The choice of starting blogging during my birthday was coincidental but not unwelcome. Birthdays are great opportunities to &lt;code&gt;start something new&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;To avoid getting suck in the Hello World cliché, here’s a code snippet I wrote&lt;/p&gt;
-
-&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 26 Oct 2015 08:39:06 -0300</pubDate>
-        <link>http://fernandocastor.github.io/general/2015/10/26/first-post.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/10/26/first-post.html</guid>
         
         
         <category>general</category>

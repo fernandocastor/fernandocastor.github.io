@@ -20,4 +20,4 @@ It's not bad, but nothing compared to [Francisco Soares](http://www.twitter.com/
  dual = uncurry.flip.curry
 {% endhighlight %}
 
-This is the kind of thinking that separates jedis from padawans.
+This is how real Haskell programmers do it. Those that [do not eat quiche](http://www.bernstein-plus-sons.com/RPDEQ.html "Real programmers don't eat quiche").
