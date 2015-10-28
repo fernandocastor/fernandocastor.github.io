@@ -2,7 +2,7 @@
 layout: post
 title:  "The Most Popular Questions About Concurrency on StackOverflow"
 date:   2015-10-28 11:39:06
-categories: mining software repositories, stackoverflow, concurrency
+categories: concurrency
 ---
 We have conducted a study on the most popular questions about concurrent programming on [StackOverflow](http://www.stackoverflow.com). Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:
 
