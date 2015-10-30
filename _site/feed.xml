@@ -6,12 +6,49 @@
 </description>
     <link>http://fernandocastor.github.io/</link>
     <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Oct 2015 15:12:33 -0300</pubDate>
-    <lastBuildDate>Wed, 28 Oct 2015 15:12:33 -0300</lastBuildDate>
+    <pubDate>Fri, 30 Oct 2015 16:40:37 -0300</pubDate>
+    <lastBuildDate>Fri, 30 Oct 2015 16:40:37 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>The Most Popular Questions on StackOverflow</title>
+        <title>Two very interesting empirical studies presented at SPLASH&#39;2015</title>
+        <description>&lt;p&gt;Today at &lt;a href=&quot;http://www.splashcon.com&quot;&gt;SPLASH&lt;/a&gt;, there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them caught my attention in particular, due to affinity of my own research [&lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&amp;amp;d=1&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/msr_2015_submitted.pdf?attredirects=0&amp;amp;d=1&quot;&gt;2&lt;/a&gt;,&lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/msr_2014_cr.pdf?attredirects=0&amp;amp;d=1&quot;&gt;3&lt;/a&gt;,&lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/Ebert_2015_ESE_JSS.pdf?attredirects=0&amp;amp;d=1&quot;&gt;4&lt;/a&gt;] with their areas. I discuss them below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://2015.splashcon.org&quot;&gt;&lt;img src=&quot;http://www.dynamic-languages-symposium.org/dls-15/media/splash15_logo.png&quot; alt=&quot;SPLASH&#39;2015 logo&quot; title=&quot;2015.splashcon.org&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;how-scale-affects-structure-in-java-programshttpdlacmorgcitationcfmid2814300cfid555774425cftoken10047354-by-crista-lopes-joel-ossher&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2814300&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354&quot;&gt;How Scale Affects Structure in Java Programs&lt;/a&gt; by Crista Lopes, Joel Ossher&lt;/h4&gt;
+
+&lt;p&gt;I was already familiar with this paper, having discussed it with some students in &lt;a href=&quot;http://twiki.cin.ufpe.br/twiki/bin/view/TAES/TAES2201502&quot;&gt;class&lt;/a&gt; a couple of weeks ago. It is a very interesting piece of work showing how the size of a software system is correlated with certain characteristics (nothing new there) but also showing that &lt;strong&gt;this relationship changes as the size of a system grows&lt;/strong&gt; (previously an &lt;strong&gt;unverified&lt;/strong&gt; hypothesis, at least on a large scale study). This is strongly related to the 1975 &lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=2&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0CCgQFjABahUKEwjAmfvx8-rIAhWF1h4KHZCdAvY&amp;amp;url=http%3A%2F%2Fwww.cs.umd.edu%2Fclass%2Fspring2005%2Fcmsc838p%2FGeneral%2Fpitl.pdf&amp;amp;usg=AFQjCNH4ihfX6lE2HK9tVhJUm9-7lIEG4g&amp;amp;sig2=A_ORzeazyaS54QTxN63rbg&quot;&gt;paper&lt;/a&gt; by DeRemer and Kron. The first sentence of this classifical paper summarizes its ideas very well: &lt;em&gt;“We distinguish the activity of writing large programs from that of writing small ones”&lt;/em&gt;. Lopes and Ossher’s study provides a considerable amount of data showing that this idea is verifiable. &lt;/p&gt;
+
+&lt;p&gt;I also like how the paper emphasizes the importance of &lt;strong&gt;studying non-linear relationships&lt;/strong&gt; between variables pertaining to programs. For example, the study reports that the number of lines of code (LoC) in a program grows exponentially with respect to the number of modules (classes + interfaces), even though the exponent is small (1.0939). Thus as the paper itself explains, if a program with 10 modules has 400 LoC, we can expect a program with 100 modules to have 4965 LoC, instead of just 4000. Of course, this is a general trend and not something that will be observed for every program. Nonetheless, the observed data comprises more than 30.000 Java projects. This number suggests that the findings are robust and not likely to stem from chance. &lt;/p&gt;
+
+&lt;p&gt;It is important to point out that the paper only investigated one &lt;strong&gt;software population&lt;/strong&gt;, that of Java projects hosted on Google Code until 2012. This does not necessarily reflect the characteristics of populations from other forges or based on different programming languages. Moreover, the study did not investigate the temporal dimension of these relationships. These are great news for researchers interested in this topic!&lt;/p&gt;
+
+&lt;h4 id=&quot;use-at-your-own-risk-the-java-unsafe-api-in-the-wildhttpdlacmorgcitationcfmid2814313cfid555774425cftoken10047354-by-luis-mastrangelo-luca-ponzanelli-andrea-mocci-michele-lanza-matthias-hauswirth-nathaniel-nystrom&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2814313&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354&quot;&gt;Use at Your Own Risk: The Java Unsafe API in the Wild&lt;/a&gt; by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom&lt;/h4&gt;
+
+&lt;p&gt;This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and &lt;a href=&quot;http://research.microsoft.com/apps/pubs/default.aspx?id=68466&quot;&gt;type sound&lt;/a&gt;) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as &lt;code&gt;Exception&lt;/code&gt;s or, in the worst case scenario (e.g., due to lack of heap space), as an &lt;code&gt;Error&lt;/code&gt;. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, &lt;code&gt;sun.misc.Unsafe&lt;/code&gt; which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java’s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object. &lt;/p&gt;
+
+&lt;p&gt;The study of Mastrangelo and colleagues was exploratory in nature. It aimed to assess the extent to which &lt;code&gt;Unsafe&lt;/code&gt; is used and how it is used. For that end, they used Apache’s Maven Central Repository as the data source. This repository has more than 950,000 artifacts (the results of builds). Considering only the latest versions of the artifacts and filtering out the undesired ones, they ended up with a corpus of 86479 artifacts amounting to 74GB of data. Among these artifacts, 817 use &lt;code&gt;Unsafe&lt;/code&gt;, less than 1%. This low number led the authors to investigate whether these artifacts are widely used or if they are isolated pieces of software. As it turns out, large-scale, well-known projects employ them. Notable examples include Scala, Ruby, Spring, Hibernate, Grails, Stream, Cassandra, Hadoop, Akka, Storm, and Neo4J. In their corpus, 21,297 artifacts indirectly use &lt;code&gt;Unsafe&lt;/code&gt;, almost 25% of all the analyzed artifacts. It is not clear to me whether “indirectly” means transitively or with just one level of indirection. I’ll have to check that out in the paper later. &lt;/p&gt;
+
+&lt;p&gt;Proceeding with the analysis, they investigated which features of &lt;code&gt;Unsafe&lt;/code&gt; are often used and why. Examples include instructions to (i) query the memory layout; (ii) put and get elements in specific memory locations, e.g., in the heap; and (iii) compare-and-set instructions, which are very important for concurrent applications. These instructions are often used to improve performance. The authors documented 14 usage patterns, including processing of byte arrays in block, the aforementioned atomic operations and, amazingly, &lt;strong&gt;updates to &lt;code&gt;final&lt;/code&gt; fields&lt;/strong&gt;! The authors also analyzed questions that developers ask about &lt;code&gt;Unsafe&lt;/code&gt; at &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt;. There don’t seem to be many questions on the topic, which is not surprising. The authors found out that lack of documentation is an important problem, though.&lt;/p&gt;
+
+&lt;p&gt;This left me (and at least another member of the audience, it seems) wondering about which parts of &lt;code&gt;Unsafe&lt;/code&gt; are unsafe-r. The authors did not go that far, however. I’m not sure there is enough data to conduct that study yet.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-bottom-line&quot;&gt;The bottom line&lt;/h4&gt;
+
+&lt;p&gt;Both studies raise new avenues for research, as I have discussed previously. In particular, for the first study, it would be interesting to (i) replicate it with different populations; (ii) examine the temporal dimension and how the discovered relationships change throughout system versions; (iii) examine different attributes, e.g., usage of constructs related to concurrency or testing. For the second one, I can imagine a number of controlled experiments focusing on the usage of &lt;code&gt;Unsafe&lt;/code&gt; features and examination of bug reports (for a large number of systems) in an attempt to identify the unsafe-st parts of the API.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 Oct 2015 11:54:06 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2015/10/30/unsafe-java-api.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/10/30/unsafe-java-api.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>The Most Popular Questions About Concurrency on StackOverflow</title>
         <description>&lt;p&gt;We have conducted a study on the most popular questions about concurrent programming on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt;. Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -125,17 +162,9 @@
 &lt;p&gt;For more information, take a look at our &lt;a href=&quot;http://gustavopinto.org/lost+found/plateau2015.pdf&quot;&gt;paper&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 28 Oct 2015 08:39:06 -0300</pubDate>
-        <link>http://fernandocastor.github.io/mining/software/repositories,/stackoverflow,/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/mining/software/repositories,/stackoverflow,/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html</guid>
+        <link>http://fernandocastor.github.io/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html</guid>
         
-        
-        <category>mining</category>
-        
-        <category>software</category>
-        
-        <category>repositories,</category>
-        
-        <category>stackoverflow,</category>
         
         <category>concurrency</category>
         

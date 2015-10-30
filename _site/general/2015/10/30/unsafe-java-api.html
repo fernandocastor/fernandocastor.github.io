@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Two very interesting empirical studies presented at SPLASH'2015</title>
+  <meta name="description" content="Today at SPLASH, there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them c...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://fernandocastor.github.io/general/2015/10/30/unsafe-java-api.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor's rants</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Two very interesting empirical studies presented at SPLASH'2015</h1>
+    <p class="post-meta">Oct 30, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>Today at <a href="http://www.splashcon.com">SPLASH</a>, there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them caught my attention in particular, due to affinity of my own research [<a href="https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&amp;d=1">1</a>,<a href="https://sites.google.com/a/cin.ufpe.br/castor/msr_2015_submitted.pdf?attredirects=0&amp;d=1">2</a>,<a href="https://sites.google.com/a/cin.ufpe.br/castor/msr_2014_cr.pdf?attredirects=0&amp;d=1">3</a>,<a href="https://sites.google.com/a/cin.ufpe.br/castor/Ebert_2015_ESE_JSS.pdf?attredirects=0&amp;d=1">4</a>] with their areas. I discuss them below.</p>
+
+<p><a href="http://2015.splashcon.org"><img src="http://www.dynamic-languages-symposium.org/dls-15/media/splash15_logo.png" alt="SPLASH'2015 logo" title="2015.splashcon.org" /></a></p>
+
+<h4 id="how-scale-affects-structure-in-java-programshttpdlacmorgcitationcfmid2814300cfid555774425cftoken10047354-by-crista-lopes-joel-ossher"><a href="http://dl.acm.org/citation.cfm?id=2814300&amp;CFID=555774425&amp;CFTOKEN=10047354">How Scale Affects Structure in Java Programs</a> by Crista Lopes, Joel Ossher</h4>
+
+<p>I was already familiar with this paper, having discussed it with some students in <a href="http://twiki.cin.ufpe.br/twiki/bin/view/TAES/TAES2201502">class</a> a couple of weeks ago. It is a very interesting piece of work showing how the size of a software system is correlated with certain characteristics (nothing new there) but also showing that <strong>this relationship changes as the size of a system grows</strong> (previously an <strong>unverified</strong> hypothesis, at least on a large scale study). This is strongly related to the 1975 <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0CCgQFjABahUKEwjAmfvx8-rIAhWF1h4KHZCdAvY&amp;url=http%3A%2F%2Fwww.cs.umd.edu%2Fclass%2Fspring2005%2Fcmsc838p%2FGeneral%2Fpitl.pdf&amp;usg=AFQjCNH4ihfX6lE2HK9tVhJUm9-7lIEG4g&amp;sig2=A_ORzeazyaS54QTxN63rbg">paper</a> by DeRemer and Kron. The first sentence of this classifical paper summarizes its ideas very well: <em>“We distinguish the activity of writing large programs from that of writing small ones”</em>. Lopes and Ossher’s study provides a considerable amount of data showing that this idea is verifiable. </p>
+
+<p>I also like how the paper emphasizes the importance of <strong>studying non-linear relationships</strong> between variables pertaining to programs. For example, the study reports that the number of lines of code (LoC) in a program grows exponentially with respect to the number of modules (classes + interfaces), even though the exponent is small (1.0939). Thus as the paper itself explains, if a program with 10 modules has 400 LoC, we can expect a program with 100 modules to have 4965 LoC, instead of just 4000. Of course, this is a general trend and not something that will be observed for every program. Nonetheless, the observed data comprises more than 30.000 Java projects. This number suggests that the findings are robust and not likely to stem from chance. </p>
+
+<p>It is important to point out that the paper only investigated one <strong>software population</strong>, that of Java projects hosted on Google Code until 2012. This does not necessarily reflect the characteristics of populations from other forges or based on different programming languages. Moreover, the study did not investigate the temporal dimension of these relationships. These are great news for researchers interested in this topic!</p>
+
+<h4 id="use-at-your-own-risk-the-java-unsafe-api-in-the-wildhttpdlacmorgcitationcfmid2814313cfid555774425cftoken10047354-by-luis-mastrangelo-luca-ponzanelli-andrea-mocci-michele-lanza-matthias-hauswirth-nathaniel-nystrom"><a href="http://dl.acm.org/citation.cfm?id=2814313&amp;CFID=555774425&amp;CFTOKEN=10047354">Use at Your Own Risk: The Java Unsafe API in the Wild</a> by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom</h4>
+
+<p>This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and <a href="http://research.microsoft.com/apps/pubs/default.aspx?id=68466">type sound</a>) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as <code>Exception</code>s or, in the worst case scenario (e.g., due to lack of heap space), as an <code>Error</code>. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, <code>sun.misc.Unsafe</code> which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java’s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object. </p>
+
+<p>The study of Mastrangelo and colleagues was exploratory in nature. It aimed to assess the extent to which <code>Unsafe</code> is used and how it is used. For that end, they used Apache’s Maven Central Repository as the data source. This repository has more than 950,000 artifacts (the results of builds). Considering only the latest versions of the artifacts and filtering out the undesired ones, they ended up with a corpus of 86479 artifacts amounting to 74GB of data. Among these artifacts, 817 use <code>Unsafe</code>, less than 1%. This low number led the authors to investigate whether these artifacts are widely used or if they are isolated pieces of software. As it turns out, large-scale, well-known projects employ them. Notable examples include Scala, Ruby, Spring, Hibernate, Grails, Stream, Cassandra, Hadoop, Akka, Storm, and Neo4J. In their corpus, 21,297 artifacts indirectly use <code>Unsafe</code>, almost 25% of all the analyzed artifacts. It is not clear to me whether “indirectly” means transitively or with just one level of indirection. I’ll have to check that out in the paper later. </p>
+
+<p>Proceeding with the analysis, they investigated which features of <code>Unsafe</code> are often used and why. Examples include instructions to (i) query the memory layout; (ii) put and get elements in specific memory locations, e.g., in the heap; and (iii) compare-and-set instructions, which are very important for concurrent applications. These instructions are often used to improve performance. The authors documented 14 usage patterns, including processing of byte arrays in block, the aforementioned atomic operations and, amazingly, <strong>updates to <code>final</code> fields</strong>! The authors also analyzed questions that developers ask about <code>Unsafe</code> at <a href="http://www.stackoverflow.com">StackOverflow</a>. There don’t seem to be many questions on the topic, which is not surprising. The authors found out that lack of documentation is an important problem, though.</p>
+
+<p>This left me (and at least another member of the audience, it seems) wondering about which parts of <code>Unsafe</code> are unsafe-r. The authors did not go that far, however. I’m not sure there is enough data to conduct that study yet.</p>
+
+<h4 id="the-bottom-line">The bottom line</h4>
+
+<p>Both studies raise new avenues for research, as I have discussed previously. In particular, for the first study, it would be interesting to (i) replicate it with different populations; (ii) examine the temporal dimension and how the discovered relationships change throughout system versions; (iii) examine different attributes, e.g., usage of constructs related to concurrency or testing. For the second one, I can imagine a number of controlled experiments focusing on the usage of <code>Unsafe</code> features and examination of bug reports (for a large number of systems) in an attempt to identify the unsafe-st parts of the API.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor's rants</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor's rants</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
