@@ -4,7 +4,7 @@ title:  "The Most Popular Questions About Concurrency on StackOverflow"
 date:   2015-10-28 11:39:06
 categories: concurrency
 ---
-We have conducted a study on the most popular questions about concurrent programming on [StackOverflow](http://www.stackoverflow.com). Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:
+We (mainly [Gustavo Pinto](http://www.gustavopinto.org), with a little help from [myself](https://sites.google.com/a/cin.ufpe.br/castor/) and [Weslley Torres](https://twitter.com/weslleytorres)) have conducted a study on the most popular questions about concurrent programming on [StackOverflow](http://www.stackoverflow.com). Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:
 
 1. [Q588866](http://stackoverflow.com/questions/588866/) "What's the difference between the atomic and nonatomic attributes?"
 

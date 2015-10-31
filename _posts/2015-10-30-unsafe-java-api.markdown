@@ -6,7 +6,7 @@ categories: general
 ---
 
 
-Today at [SPLASH](http://www.splashcon.com), there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them caught my attention in particular, due to affinity of my own research [[1](https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&d=1),[2](https://sites.google.com/a/cin.ufpe.br/castor/msr_2015_submitted.pdf?attredirects=0&d=1),[3](https://sites.google.com/a/cin.ufpe.br/castor/msr_2014_cr.pdf?attredirects=0&d=1),[4](https://sites.google.com/a/cin.ufpe.br/castor/Ebert_2015_ESE_JSS.pdf?attredirects=0&d=1)] with their areas. I discuss them below.
+Today at [SPLASH](http://www.splashcon.com), there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them caught my attention because they are more related to work I have conducted in the past [[1](https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&d=1),[2](https://sites.google.com/a/cin.ufpe.br/castor/msr_2015_submitted.pdf?attredirects=0&d=1),[3](https://sites.google.com/a/cin.ufpe.br/castor/msr_2014_cr.pdf?attredirects=0&d=1),[4](https://sites.google.com/a/cin.ufpe.br/castor/Ebert_2015_ESE_JSS.pdf?attredirects=0&d=1)]. I discuss them below.
 
 [![SPLASH'2015 logo](http://www.dynamic-languages-symposium.org/dls-15/media/splash15_logo.png "2015.splashcon.org")](http://2015.splashcon.org)
 
