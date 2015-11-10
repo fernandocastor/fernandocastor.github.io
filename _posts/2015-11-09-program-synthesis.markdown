@@ -5,7 +5,7 @@ date:   2015-11-10 12:39:06
 categories: general
 ---
 
-Starting a couple of months ago, [CIn](http://www.cin.ufpe.br/)-[UFPE](http://www.ufpe.br)'s Software Engineering Laboratory started organizing  seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I've greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science). Last week we had one given by Prof. [Alexandre Mota](https://sites.google.com/site/acmrecife/). One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.
+Starting a couple of months ago, [CIn](http://www.cin.ufpe.br/)-[UFPE](http://www.ufpe.br)'s Software Engineering Laboratory started organizing  seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I've greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science) from Prof. [Vinicius Garcia](http://viniciusgarcia.com). Last week we had one given by Prof. [Alexandre Mota](https://sites.google.com/site/acmrecife/). One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.
 
 
 
