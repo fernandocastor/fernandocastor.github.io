@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Most Popular Questions About Concurrency on StackOverflow</title>
+  <meta name="description" content="The opinions expressed here are the sole responsibility of the author.
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://fernandocastor.github.io/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor's rants</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">The Most Popular Questions About Concurrency on StackOverflow</h1>
+    <p class="post-meta">Oct 28, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>We (mainly <a href='http://www.gustavopinto.org'>Gustavo Pinto</a>, with a little help from <a href='https://sites.google.com/a/cin.ufpe.br/castor/'>myself</a> and <a href='https://twitter.com/weslleytorres'>Weslley Torres</a>) have conducted a study on the most popular questions about concurrent programming on <a href='http://www.stackoverflow.com'>StackOverflow</a>. Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:</p>
+
+<ol>
+<li>
+<p><a href='http://stackoverflow.com/questions/588866/'>Q588866</a> &#8220;What&#8217;s the difference between the atomic and nonatomic attributes?&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/541487/'>Q541487</a> &#8220;&#8216;implements Runnable&#8217; vs. &#8216;extends Thread&#8217;&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/6319146/'>Q6319146</a> &#8220;C++11 introduced a standardized memory model. What does it mean? And how is it going to affect C++ programming?&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/200469/'>Q200469</a> &#8220;What is the difference between a process and a thread&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/661561/'>Q661561</a> &#8220;How to update the GUI from another thread in C#?&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/1036754/'>Q1036754</a> &#8220;Difference between wait() and sleep()&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/62814/'>Q62814</a> &#8220;Difference between binary semaphore and mutex&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/817856/'>Q817856</a> &#8220;When and how should I use a ThreadLocal variable?&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/510632/'>Q510632</a> &#8220;What&#8217;s the difference between ConcurrentHashMap and Collections.synchronizedMap(Map)?&#8221;</p>
+</li>
+
+<li>
+<p><a href='http://stackoverflow.com/questions/323972/'>Q323972</a> &#8220;Is there any way to kill a Thread in Python?&#8221;</p>
+</li>
+</ol>
+
+<p>Among the top 10, we have questions specific to Objective-C (1), Java (2,6,9), C++ (3), C# (5), and Python (10). There are also a couple of questions asking about general concepts (3,7) and one that may be thought of as language specific or not (8).</p>
+
+<h2 id='what_are_concurrencyrelated_questions'>What are concurrency-related questions?</h2>
+
+<p>We used the same keywords as the well-known <a href='http://dl.acm.org/citation.cfm?id=1346323'>study</a> by Shan Lu and colleagues to select the questions based on the tags associated to them: &#8220;race(s)&#8221;, &#8220;deadlock(s)&#8221;, &#8220;livelock(s)&#8221;, &#8220;concurrency&#8221;, &#8220;lock(s)&#8221;, &#8220;mutex(es)&#8221;, &#8220;atomic&#8221;, &#8220;compete(s)&#8221;, and &#8220;multithreading&#8221;.</p>
+
+<p>This produced a list with more than 22000 questions. We then ranked them by popularity, extracted only the 250 most popular, and manually inspected those to ascertain that they were actually concurrency-related. We ended up with 231 questions.</p>
+
+<h2 id='how_did_we_measure_popularity'>How did we measure popularity?</h2>
+
+<p>To calculate the popularity of each question, we obtained, for each one: (i) number of up-votes; (ii) number of times the question is marked as favorite; (iii) number of views; (iv) number of comments; and (v) and number of answers. Each of these metrics was then normalized with respect to the average value considering all the questions in StackOverflow. The <strong>P</strong> popularity measure is the result of calculating the geometric mean of these normalized metrics.</p>
+
+<h2 id='summary'>Summary</h2>
+
+<p>Most of the questions pertained to either Java (77) or C# (60). Also, 28 pertained to mobile computing, focusing on one of the most popular platforms: iOS (6), Android (7), and Windows Phone (15).</p>
+
+<p>We classified the questions in terms of 7 categories:</p>
+
+<ul>
+<li>
+<p>Theoretical Concepts (59)</p>
+
+<ul>
+<li>Q34510 &#8220;What is a race condition?&#8221;</li>
+
+<li>Q588866 &#8220;What’s the difference between the atomic and nonatomic attributes?&#8221;</li>
+
+<li>Q200469 &#8220;What is the difference between a process and a thread?&#8221;</li>
+</ul>
+</li>
+
+<li>
+<p>Practical Concepts (51)</p>
+
+<ul>
+<li>Q817856 &#8220;When and how should I use a ThreadLocal variable?&#8221;</li>
+
+<li>Q154551 &#8220;Which <span>synchronization</span> approach should be used <span>to increment an int</span>?&#8221;</li>
+
+<li>Q251391 &#8220;Why is lock(this) bad?&#8221;</li>
+</ul>
+</li>
+
+<li>
+<p>First Steps (29)</p>
+
+<ul>
+<li>Q2846653 &#8220;Trying to find a simple example that clearly shows a single task being divided for multi-threading.&#8221;</li>
+
+<li>Q3360555 &#8220;How to pass parameters to ThreadStart method in Thread?&#8221;</li>
+
+<li>Q2734025 &#8220;Is javascript guaranteed to be single-threaded?&#8221;</li>
+</ul>
+</li>
+
+<li>
+<p>Thread Life-Cycle (18)</p>
+
+<ul>
+<li>Q1520887 &#8220;How to pause / sleep thread or process in Android?&#8221;</li>
+
+<li>Q323972 &#8220;Is there any way to kill a Thread in Python?&#8221;</li>
+
+<li>Q289434 &#8220;How to make a Java thread wait for another thread’s output?&#8221;</li>
+</ul>
+</li>
+
+<li>
+<p>Technical Problems (53)</p>
+
+<ul>
+<li>Q661561 &#8220;How to update the GUI from another thread in C#?&#8221;</li>
+
+<li>Q530211 &#8221;<span>How to</span> create a blocking Queue<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;T&gt; in .NET?&quot;</pre></li>
+
+<li>Q16159203 &#8220;Why does this Java program terminate despite that apparently it shouldn’t (and didn’t)?&#8221;</li>
+</ul>
+</li>
+
+<li>
+<p>Concurrent Lib/Framework (15 Q)</p>
+
+<ul>
+<li>Q3629784 &#8220;How is Node.js inherently faster when it still relies on Threads internally?&#8221;</li>
+
+<li>Q6916385 &#8220;Is there a concurrent List in Java’s JDK?&#8221;</li>
+
+<li>Q3847108 &#8220;What is the Haskell response to Node.js?</li>
+</ul>
+</li>
+
+<li>
+<p>Correctness (10 Q)</p>
+
+<ul>
+<li>Q9666 &#8220;Is accessing a variable in C# an atomic operation?&#8221;</li>
+
+<li>Q7095 &#8220;Is the C# constructor thread safe?&#8221;</li>
+
+<li>Q680097 &#8220;I’ve heard i++ isn’t thread safe, is ++i thread-safe?&#8221;</li>
+</ul>
+</li>
+</ul>
+
+<p>Among all the questions, only one pertained to GPUs and not a single one asked specifically about improving performance, which is surprising. I could say that we learned three main things from this study:</p>
+
+<ul>
+<li>Developers do not understand the problems that existing tools report about concurrency errors, because they often do not understand the errors themselves. Error reports that provide actual code examples have a stronger potential to be useful (see the third point below)</li>
+
+<li>Tools that help developers to build the software right, instead of trying to right the system after it&#8217;s built are useful. For example, a simple tool that indicates to developers which parts of the code execute atomically is straightforward to build and could be easily integrated into existing IDEs</li>
+
+<li>Developers want examples, both minimal examples of things that work correctly and minimal examples of code that help them understand concurrency problems.</li>
+</ul>
+
+<p>For more information, take a look at our <a href='http://gustavopinto.org/lost+found/plateau2015.pdf'>paper</a>.</p>
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor's rants</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor's rants</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

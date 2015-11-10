@@ -1,0 +1,44 @@
+<p>Starting a couple of months ago, <a href='http://www.cin.ufpe.br/'>CIn</a>-<a href='http://www.ufpe.br'>UFPE</a>&#8217;s Software Engineering Laboratory started organizing seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I&#8217;ve greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science). Last week we had one given by Prof. <a href='https://sites.google.com/site/acmrecife/'>Alexandre Mota</a>. One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.</p>
+
+<p>Alexandre&#8217;s talk started with an overview of formal methods. According to Alexandre, formal methods are a combination of notations, tools, and a semantics based on mathematics. Their use can help developers to ascertain that there is no ambiguity, imprecision, and (for some systems) incompleteness in a system specification. This is the <strong>good</strong> side of formal methods. The <strong>bad</strong> side is that, to get from a specification to a correct system, there is a myriad different paths and each one of them is tough to traverse. And this is assuming that a formal specification exists. Going from an informal specification to a formal one is a very difficult problem in and of itself. It requires a thorough validation and the assistance of specialists.</p>
+
+<p>Alexandre also discussed the process of program refinement, going from a formal specification to executable code in a way that guarantees that the generated code satisfies the specification. According to him, there are two paths to go from formal specification to a correct system: (i) by data and operation refinement; and (ii) by <a href='http://www.cs.ox.ac.uk/publications/books/PfS/'>refinement calculus</a> (using a set of refinement rules). In the former approach, we&#8217;re transitioning from a specification <em>S0</em> to a specification <em>S1</em> and <em>S1</em> is not determined by pre-established laws. One needs to propose and verify each refinement. It is possible to apply more broad-scoped transformations using this approach. In the latter, the transformations one can apply to the specification are constrained by the laws one is using. This is good because the proof obligations are relatively straightforward. The bad part is that it is more constraining and requires very experienced engineers. The &#8220;search&#8221; in refinement calculus may never end. Both approaches require searching for the specifications and for the theorems that must be proved. It is a search problem and leads us to the problem of program synthesis.</p>
+
+<p>After presenting a (critical) view of formal methods, he narrowed down the scope of his talk, focusing more on the subject of program synthesis. The problem of program synthesis can be summarized as follows: Build a system that, given a specification and optionally a set of program fragments, produces as output a program that satisfies (<em>refines</em>?) the given specification and also includes the given program fragments. Program synthesis is a search problem because a large part of the work performed by a program synthesis system consists of searching through a space of candidate programs and checking whether they satisfy the specification. This problem is tough. In fact, it is <a href='https://en.wikipedia.org/wiki/Boolean_satisfiability_problem'>SAT</a>, the most famous <a href='https://en.wikipedia.org/wiki/NP-completeness'>NP-complete</a> problem.</p>
+
+<p>The area of program synthesis started a long time ago, before computers. In 1932, famous soviet mathematician <a href='https://en.wikipedia.org/wiki/Andrey_Kolmogorov'>Andrey Kolmogorov</a> already talked about algorithms with proofs that come from constructive mathematics. This is very distant from what is currently discussed as program synthesis. A particularly important system in this area, which appeared much latter, was the <a href='http://www.kestrel.edu/home/projects/kids/'>Kestrel Interactive Development System</a> (KIDS). KIDS supported program synthesis from a complex program specification by means of a series of manually applied refinement steps (maybe it couldn&#8217;t be strictly called a program systhesis system) and, according to its homepage, has been used to develop many applications in such diverse areas as scheduling, combinatorial design, sorting and searching, computational geometry, pattern matching, and mathematical programming. KIDS came close to a commercial breakthrough, which is impressive.</p>
+
+<p>According to Alexandre, there are three main approaches to program synthesis:</p>
+
+<ul>
+<li>
+<p><strong>Synthesizers that are specialized in a particular domain</strong>. An example of such approaches is the use of the VHDL language to describe digital and mixed-signal systems. These approaches are scalable but constrained to specific kinds of systems.</p>
+</li>
+
+<li>
+<p><strong>Synthesizers that translate a particular language into SAT/SMT language</strong>. This is a general purpose approach, but it usually focuses on specific problems, such as security. According to Alexandre, the <a href='http://people.csail.mit.edu/asolar/'>Sketch</a> system is one of the most proeminent examples of this approach. Given specification and a code fragment, Sketch fills in the code that the programmer did not provide. An example of the kind of fragment the Sketch receives is the following:</p>
+</li>
+</ul>
+<div>
+  <pre><code class='c'>harness void doubleSketch(int x){ 
+  int t = x + ??
+  assert t = x + x;
+}</code></pre>
+</div>
+<ul>
+<li><strong>Synthesizers that take as input a general purpose high-level specification</strong>. This is the line of work that Alexandre and his colleagues, such as <a href='http://www.cin.ufpe.br/~jmi/'>Juliano Iyoda</a> (also from CIn-UFPE), pursue. Their approach employs a combination of a DSL targeting C# code, <span>Alloy<em>](http://alloy.mit.edu/alloy/hola/), and a formal specification language in an Ecplise Plugin that is already capable of producing code from general-purpose specifications. The approach named by the tool was named PsAtCIn. Here&#8217;s a very simple example of the kind of thing one can do with PsAtCIn. Given a specification</em></span></li>
+</ul>
+<div>
+  <pre><code class='c'>Vars x, y, z: int
+Pre:
+Post: x'= y and y' = x</code></pre>
+</div>
+<p>it can generate the program.</p>
+<div>
+  <pre><code class='c'>z = x;
+x = y;
+y = z;</code></pre>
+</div>
+<p>Alexandre explained that this approach is currently capable of generating simple programs that include loops, for example, it was capable of generating <a href='https://en.wikipedia.org/wiki/Euclidean_algorithm'>Euclid&#8217;s algorithm</a> for the greatest common divisor. This is a promising result, since loops are a common stumbling point for this kind of approach (and verification in general). PsAtCIn also supports sketching (similarly to Sketch) and it is extensible for other languages that have formal syntax and semantics.</p>
+
+<p>Finally, Alexandre discussed some current challenges. The one that caught my attention was the recommendation of scopes for search. Since PsAtCIn uses Alloy* under the hood, it also performs bounded-scope search when verifying whether a program satisfies its intended properties (pre and postconditions). In Alloy<em>, users must specify the bounds for the search scope. Alexandre hopes that, in the near future, PsAtCIn will be able to provide this kind of information automatically in program synthesis.</em></p>

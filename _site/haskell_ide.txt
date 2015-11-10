@@ -1,0 +1,14 @@
+- Suggestion of variable and method names (the current culture of using ludicrous names sucks)
+
+- Tooltips to suggest what a given lambda may be (otherwise, it is very tough to understand program behavior without 
+global knowledge -- this is a modularity problem)
+
+- Suggestions of types to use in cases where inference is not possible
+
+- Symbolic debugger
+
+- Information about the potential current monads
+
+- Warnings about incomplete patterns (this is impossible, but suggestions would be nice)
+
+- Real deadlock exceptions for MVars
