@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Haskell in Green Land: Analyzing the Energy Behavior of a Purely Functional Language"
+title:  "Haskell in Green Land: Analyzing the energy behavior of a purely functional language"
 date:   2015-11-19 23:00:00
 categories: general
 ---

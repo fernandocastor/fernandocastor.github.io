@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Most Popular Questions About Concurrency on StackOverflow"
+title:  "The most popular questions about concurrency on StackOverflow"
 date:   2015-10-28 11:39:06
 categories: concurrency
 ---
