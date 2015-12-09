@@ -6,72 +6,72 @@
 </description>
     <link>http://fernandocastor.github.io/</link>
     <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>2015-11-09 23:10:13 -0300</pubDate>
-    <lastBuildDate>2015-11-09 23:10:13 -0300</lastBuildDate>
+    <pubDate>2015-11-22 21:34:35 -0300</pubDate>
+    <lastBuildDate>2015-11-22 21:34:35 -0300</lastBuildDate>
     <generator>Jekyll v</generator>
     
       <item>
-        <title>Program Synthesis</title>
-        <description>&lt;p&gt;Starting a couple of months ago, &lt;a href='http://www.cin.ufpe.br/'&gt;CIn&lt;/a&gt;-&lt;a href='http://www.ufpe.br'&gt;UFPE&lt;/a&gt;&amp;#8217;s Software Engineering Laboratory started organizing seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I&amp;#8217;ve greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science). Last week we had one given by Prof. &lt;a href='https://sites.google.com/site/acmrecife/'&gt;Alexandre Mota&lt;/a&gt;. One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.&lt;/p&gt;
+        <title>Haskell in Green Land: Analyzing the Energy Behavior of a Purely Functional Language</title>
+        <description>&lt;p&gt;&lt;em&gt;This post is a summary of a paper currently under submission. This work was conducted in cooperation with my colleague &lt;a href='http://www.di.ubi.pt/~jpf/'&gt;Joao Paulo Fernandes&lt;/a&gt; from &lt;a href='http://www.ubi.pt'&gt;UBI&lt;/a&gt;, Portugal, and students Luis Gabriel Lima, &lt;a href='https://sites.google.com/a/cin.ufpe.br/frsoares/'&gt;Francisco Soares-Neto&lt;/a&gt;, and Paulo Lieuthier from &lt;a href='http://www.ufpe.br'&gt;UFPE&lt;/a&gt; and Gilberto Melfe from UBI.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Alexandre&amp;#8217;s talk started with an overview of formal methods. According to Alexandre, formal methods are a combination of notations, tools, and a semantics based on mathematics. Their use can help developers to ascertain that there is no ambiguity, imprecision, and (for some systems) incompleteness in a system specification. This is the &lt;strong&gt;good&lt;/strong&gt; side of formal methods. The &lt;strong&gt;bad&lt;/strong&gt; side is that, to get from a specification to a correct system, there is a myriad different paths and each one of them is tough to traverse. And this is assuming that a formal specification exists. Going from an informal specification to a formal one is a very difficult problem in and of itself. It requires a thorough validation and the assistance of specialists.&lt;/p&gt;
+&lt;p&gt;Researchers have been studying energy efficiency for hardware components for a long time. However, more than 20 years ago, the well-known paper &lt;a href='http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=335012'&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt; by Tiwari, Malik, and Wolfe stated that &lt;em&gt;it is either impractical or impossible to use the lower level tools to estimate the power cost of the software component of the system&lt;/em&gt;, in the context of embedded software. Apparently, lots of people agree, since the paper has more than &lt;span&gt;&lt;a href='https://scholar.google.com.br/scholar?cites=11094575625336609457&amp;amp;as_sdt=2005&amp;amp;sciodt=0,5&amp;amp;hl=pt-BR'&gt;1100 citations&lt;/a&gt; at &lt;a href='http://scholar.google.com'&gt;Google Scholar&lt;/a&gt;. In the last few years, the growing worldwide movement towards sustainability, including &lt;a href='http://sustainabilitydesign.org/'&gt;sustainability in software&lt;/a&gt;, combined with the systemic nature of energy efficiency as a quality attribute and the widespread adoption of mobile, battery-reliant devices have motivated the study of the energy impact of application software in execution. This tendency has led researchers to evaluate existing techniques, tools, and languages for application development from an energy-centric perspective. Recent work has studied the effect that factors such as code obfuscation &lt;a href='http://dx.doi.org/10.1109/ICSME.2014.35'&gt;&lt;span&gt;2&lt;/span&gt;&lt;/a&gt;, Android API calls &lt;a href='http://dx.doi.org/10.1145/2597073.2597085'&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;, object-oriented code refactorings &lt;a href='http://dx.doi.org/10.1145/2652524.2652538'&gt;&lt;span&gt;4&lt;/span&gt;&lt;/a&gt;, constructs for concurrent execution &lt;a href='http://dx.doi.org/10.1145/2714064.2660235'&gt;&lt;span&gt;5&lt;/span&gt;&lt;/a&gt;, and data types &lt;a href='http://doi.org/10.1007/978-3-662-46675-9_21'&gt;&lt;span&gt;6&lt;/span&gt;&lt;/a&gt; have on energy efficiency. Analyzing the impact of different factors on energy is important for software developers and maintainers. It can inform their decisions about the best and worst solution for a particular context. Moreover, it is important to make developers aware that seemingly small modifications can yield considerable gains in terms of energy. For example, a study &lt;a href='(http://dx.doi.org/10.1145/2597073.2597085'&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;) by Vasquez et al. has discovered that some Android API calls consume 3000 of times more energy than the average Android API call. These API calls should clearly be avoided if possible and energy is an important requirement.&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;Alexandre also discussed the process of program refinement, going from a formal specification to executable code in a way that guarantees that the generated code satisfies the specification. According to him, there are two paths to go from formal specification to a correct system: (i) by data and operation refinement; and (ii) by &lt;a href='http://www.cs.ox.ac.uk/publications/books/PfS/'&gt;refinement calculus&lt;/a&gt; (using a set of refinement rules). In the former approach, we&amp;#8217;re transitioning from a specification &lt;em&gt;S0&lt;/em&gt; to a specification &lt;em&gt;S1&lt;/em&gt; and &lt;em&gt;S1&lt;/em&gt; is not determined by pre-established laws. One needs to propose and verify each refinement. It is possible to apply more broad-scoped transformations using this approach. In the latter, the transformations one can apply to the specification are constrained by the laws one is using. This is good because the proof obligations are relatively straightforward. The bad part is that it is more constraining and requires very experienced engineers. The &amp;#8220;search&amp;#8221; in refinement calculus may never end. Both approaches require searching for the specifications and for the theorems that must be proved. It is a search problem and leads us to the problem of program synthesis.&lt;/p&gt;
+&lt;p&gt;We have decided to explore an additional dimension. More specifically, we study the energy behavior of programs written in a lazy, purely functional language, namely, Haskell. Functional languages, in general, include a number of features that are not generally available in imperative programming languages. In particular, Haskell has mature implementations of sophisticated features such as laziness, partial functional application, software transactional memory, tail recursion, and a &lt;a href='https://en.wikipedia.org/wiki/Kind_(type_theory'&gt;kind system&lt;/a&gt;). Furthermore, recursion is the norm in Haskell programs and side effects are restricted by the type system of the language. Due to all these differences it is possible that programs written in such a language behave differently from those written in imperative languages, from an energy perspective. As a sidenote, if you&amp;#8217;re not familiar with Haskell, I highly recommend you spend some quality time with it. It&amp;#8217;s a language that, in the worst case, will make you think a little differently about programming and, in the best, will make you fall in love head over heels. Miran Lipovaca&amp;#8217;s great &lt;a href='http://learnyouahaskell.com/chapters'&gt;book&lt;/a&gt; is a nice starting point.&lt;/p&gt;
 
-&lt;p&gt;After presenting a (critical) view of formal methods, he narrowed down the scope of his talk, focusing more on the subject of program synthesis. The problem of program synthesis can be summarized as follows: Build a system that, given a specification and optionally a set of program fragments, produces as output a program that satisfies (&lt;em&gt;refines&lt;/em&gt;?) the given specification and also includes the given program fragments. Program synthesis is a search problem because a large part of the work performed by a program synthesis system consists of searching through a space of candidate programs and checking whether they satisfy the specification. This problem is tough. In fact, it is &lt;a href='https://en.wikipedia.org/wiki/Boolean_satisfiability_problem'&gt;SAT&lt;/a&gt;, the most famous &lt;a href='https://en.wikipedia.org/wiki/NP-completeness'&gt;NP-complete&lt;/a&gt; problem.&lt;/p&gt;
-
-&lt;p&gt;The area of program synthesis started a long time ago, before computers. In 1932, famous soviet mathematician &lt;a href='https://en.wikipedia.org/wiki/Andrey_Kolmogorov'&gt;Andrey Kolmogorov&lt;/a&gt; already talked about algorithms with proofs that come from constructive mathematics. This is very distant from what is currently discussed as program synthesis. A particularly important system in this area, which appeared much latter, was the &lt;a href='http://www.kestrel.edu/home/projects/kids/'&gt;Kestrel Interactive Development System&lt;/a&gt; (KIDS). KIDS supported program synthesis from a complex program specification by means of a series of manually applied refinement steps (maybe it couldn&amp;#8217;t be strictly called a program systhesis system) and, according to its homepage, has been used to develop many applications in such diverse areas as scheduling, combinatorial design, sorting and searching, computational geometry, pattern matching, and mathematical programming. KIDS came close to a commercial breakthrough, which is impressive.&lt;/p&gt;
-
-&lt;p&gt;According to Alexandre, there are three main approaches to program synthesis:&lt;/p&gt;
+&lt;p&gt;We analyze the energy efficiency of Haskell programs from two different perspectives: strictness and concurrency. By default, expressions in Haskell are lazily evaluated, meaning that any given expression will only be evaluated when it is first necessary. This is different from most programming languages, where expressions are evaluated strictly and possibly multiple times. In Haskell, it is possible to force strict evaluation in contexts where this is useful. This is very important to analyze the performance and energy efficiency of Haskell programs. As for concurrency, previous work &lt;span&gt;&lt;a href='http://dx.doi.org/10.1145/2714064.2660235'&gt;5&lt;/a&gt;,&lt;a href='http://dx.doi.org/10.1016/j.jocs.2013.01.005'&gt;&lt;span&gt;7&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; has demonstrated that concurrent programming constructs can influence energy consumption in unforeseen ways. We attempt to shed more light on this complex subject. More specifically, we address the following high-level research question:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Synthesizers that are specialized in a particular domain&lt;/strong&gt;. An example of such approaches is the use of the VHDL language to describe digital and mixed-signal systems. These approaches are scalable but constrained to specific kinds of systems.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Synthesizers that translate a particular language into SAT/SMT language&lt;/strong&gt;. This is a general purpose approach, but it usually focuses on specific problems, such as security. According to Alexandre, the &lt;a href='http://people.csail.mit.edu/asolar/'&gt;Sketch&lt;/a&gt; system is one of the most proeminent examples of this approach. Given specification and a code fragment, Sketch fills in the code that the programmer did not provide. An example of the kind of fragment the Sketch receives is the following:&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;To what extent can we save energy by refactoring existing Haskell programs to use different data structure implementations or concurrent programming constructs?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;harness void doubleSketch(int x){ 
-  int t = x + ??
-  assert t = x + x;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Synthesizers that take as input a general purpose high-level specification&lt;/strong&gt;. This is the line of work that Alexandre and his colleagues, such as &lt;a href='http://www.cin.ufpe.br/~jmi/'&gt;Juliano Iyoda&lt;/a&gt; (also from CIn-UFPE), pursue. Their approach employs a combination of a DSL targeting C# code, &lt;span&gt;Alloy&lt;em&gt;](http://alloy.mit.edu/alloy/hola/), and a formal specification language in an Ecplise Plugin that is already capable of producing code from general-purpose specifications. The approach named by the tool was named PsAtCIn. Here&amp;#8217;s a very simple example of the kind of thing one can do with PsAtCIn. Given a specification&lt;/em&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;Vars x, y, z: int
-Pre:
-Post: x'= y and y' = x&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;it can generate the program.&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;z = x;
-x = y;
-y = z;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Alexandre explained that this approach is currently capable of generating simple programs that include loops, for example, it was capable of generating &lt;a href='https://en.wikipedia.org/wiki/Euclidean_algorithm'&gt;Euclid&amp;#8217;s algorithm&lt;/a&gt; for the greatest common divisor. This is a promising result, since loops are a common stumbling point for this kind of approach (and verification in general). PsAtCIn also supports sketching (similarly to Sketch) and it is extensible for other languages that have formal syntax and semantics.&lt;/p&gt;
 
-&lt;p&gt;Finally, Alexandre discussed some current challenges. The one that caught my attention was the recommendation of scopes for search. Since PsAtCIn uses Alloy* under the hood, it also performs bounded-scope search when verifying whether a program satisfies its intended properties (pre and postconditions). In Alloy&lt;em&gt;, users must specify the bounds for the search scope. Alexandre hopes that, in the near future, PsAtCIn will be able to provide this kind of information automatically in program synthesis.&lt;/em&gt;&lt;/p&gt;</description>
-        <pubDate>2015-11-09 00:00:00 -0300</pubDate>
-        <link>http://fernandocastor.github.io/2015/11/09/program-synthesis.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/2015/11/09/program-synthesis.html</guid>
+&lt;p&gt;To gain insight into the answer to this question, we conducted two complementary empirical studies. In the first one we analyzed the performance and energy behavior of several benchmark operations over 15 different implementations of three different types of data structures. Even though Haskell has several implementations of well-known &lt;a href='https://hackage.haskell.org/package/EdisonAPI-1.3/docs/Data-Edison.html'&gt;data structures&lt;/a&gt;, we are not aware of any experimental evaluation of these implementations. In the second one we assessed three different thread management primitives and three constructs for data sharing using nine benchmarks and multiple experimental configurations. To the best of our knowledge, this is the first study of its kind targeting Haskell&amp;#8217;s concurrent programming constructs. Overall, experimental space exploration comprises more than 2000 configurations and 20000 executions.&lt;/p&gt;
+
+&lt;p&gt;We found that small changes can make a big difference in terms of energy consumption, specially when considering Haskell&amp;#8217;s primitives for thread management. In one of our benchmarks, &lt;a href='http://benchmarksgame.alioth.debian.org/u64q/performance.php?test=spectralnorm'&gt;spectralnorm&lt;/a&gt;, using &lt;code&gt;forkOn&lt;/code&gt; to create new threads, instead of &lt;code&gt;forkOS&lt;/code&gt; with &lt;code&gt;TVar&lt;/code&gt; can save between 25 and 57% energy, for a number of capabilities ranging between 2 and 40. The graph below presents results for both time and energy for this benchmark, when varying the number of available virtual processors used by the Haskell runtime in a machine with 20 physical cores. We observed similar results, though not necessarily using the same thread management primitives, for 5 other concurrent benchmarks. This is very good news for developers. Switching between thread management primitives is very simple in Haskell. Functions &lt;code&gt;forkOn&lt;/code&gt;, &lt;code&gt;forkIO&lt;/code&gt;, and &lt;code&gt;forkOS&lt;/code&gt; take a computation of type &lt;code&gt;IO&lt;/code&gt; as parameter and produce results of the same type. Thus, the only difficulty is in determining on which virtual processor a thread created via &lt;code&gt;forkOn&lt;/code&gt; will run. For most practical cases, this is a trivial decision.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://green-haskell.github.io/concurrency-results/?hide64=true'&gt;&lt;img alt='The spectral-norm benchmark.' src='https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/spectral-norm.png' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We observed a similar phenomenom for data-sharing constructs (&lt;code&gt;MVar&lt;/code&gt;, &lt;code&gt;TMVar&lt;/code&gt;, &lt;code&gt;TVar&lt;/code&gt;). In one of our benchmarks, under a specific configuration, choosing one data sharing construct &lt;code&gt;MVar&lt;/code&gt; over another &lt;code&gt;TMVar&lt;/code&gt; can yield 60% energy savings. Nonetheless, neither for thread management primitives nor for data sharing constructs, there is a universal winner. The results vary depending on the characteristics of each program. In another benchmark, &lt;code&gt;TMVar&lt;/code&gt;s can yield up to 30% energy savings over &lt;code&gt;MVar&lt;/code&gt;s. Alternating between data sharing primitives is not as easy as doing so for thread management primitives, but still not hard, depending on the characteristics of the program to be refactored. Going from &lt;code&gt;MVar&lt;/code&gt; to &lt;code&gt;TMVar&lt;/code&gt; and back is straightforward because they have very similar semantics. For the transitions from &lt;code&gt;TMVar&lt;/code&gt; to &lt;code&gt;TVar&lt;/code&gt; and from &lt;code&gt;MVar&lt;/code&gt; to &lt;code&gt;TVar&lt;/code&gt;, things get trickier because the semantic distance from &lt;code&gt;TVar&lt;/code&gt; to the other two constructs when condition-based synchronization comes into play is considerable. In this case, it is possible that a more in-depth analysis of the program behavior will be necessary. Nonetheless, save for these trickier cases, tools that support developers in quickly refactoring a program to switch between different primitives can be of great help if energy is a concern.&lt;/p&gt;
+
+&lt;p&gt;In addition, the relationship between energy consumption and performance is not always clear. Generally, specially in the sequential benchmarks, &lt;a href='http://green-haskell.github.io/data-structures-results/'&gt;high performance is a proxy for low energy consumption&lt;/a&gt;. Nonetheless, when concurrency comes into play, we found scenarios where the configuration with the best performance (30% faster than the one with the worst performance) also exhibited the second worst energy consumption (used 133% more energy than the one with the lowest usage). To support developers in better understanding this complex relationship, we have extended two existing tools for performance analysis to make them &lt;em&gt;energy-aware&lt;/em&gt;. The first one is the &lt;a href='http://hackage.haskell.org/package/criterion'&gt;Criterion&lt;/a&gt; benchmarking library, which we have employed extensively in the two studies. The second one is the profiler that comes with the Glasgow Haskell compiler.&lt;/p&gt;
+
+&lt;p&gt;The data for this study, as well as the source code for the implemented tools can be found &lt;a href='http://green-haskell.github.io'&gt;here&lt;/a&gt;. We will soon make a preprint of our paper available. If you&amp;#8217;re interested, don&amp;#8217;t hesitate to contact us.&lt;/p&gt;
+
+&lt;h4 id='references'&gt;References&lt;/h4&gt;
+
+&lt;p&gt;&lt;span&gt;1&lt;/span&gt; V. Tiwari, S. Malik, and A. Wolfe, &lt;code&gt;Power analysis of embedded software: a first step towards software power minimization&amp;#39;&amp;#39;, Very Large Scale Integration (VLSI) Systems, IEEE Transactions on, vol. 2, no. 4, pp. 437-445, Dec 1994.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;2&lt;/span&gt; C. Sahin, P. Tornquist, R. Mckenna, Z. Pearson, and J. Clause, &lt;code&gt;How does code obfuscation impact energy usage?&amp;#39;&amp;#39;. In 30th IEEE International Conference on Software Maintenance and Evolution, Victoria, BC, Canada, September 29 - October 3, 2014, 2014, pp. 131-140.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;3&lt;/span&gt; M. L. Vasquez, G. Bavota, C. Bernal-Cardenas, R. Oliveto, M. D. Penta, and D. Poshyvanyk, &lt;code&gt;Mining energy-greedy API usage patterns in android apps: an empirical study&amp;#39;&amp;#39;. In 11th Working Conference on Mining Software Repositories, MSR 2014, Proceedings, May 31 - June 1, 2014, Hyderabad, India, 2014, pp. 2-11.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;4&lt;/span&gt; C. Sahin, L. Pollock, and J. Clause, &lt;code&gt;How do code refactorings affect energy usage?&amp;#39;&amp;#39;. In Proceedings of the 8th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement, 2014, pp. 36:1-36:10.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;5&lt;/span&gt; G. Pinto, F. Castor, and Y. D. Liu, &lt;code&gt;Understanding energy behaviors of thread management constructs&amp;#39;&amp;#39;, In Proceedings of the 2014. ACM International Conference on Object Oriented Programming Systems Languages &amp;amp; Applications. Portland, USA, 2014, pp. 345-360.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;6&lt;/span&gt; K. Liu, G. Pinto, and Y. Liu, &lt;code&gt;Data-oriented characterization of application-level energy optimization&amp;#39;&amp;#39;. In Proceedings of the 18th In-
+ternational Conference on Fundamental Approaches to Software Engineering, LNCS vol. 9033, 2015, pp. 316-331.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;7&lt;/span&gt; A. E. Trefethen and J. Thiyagalingam, &lt;code&gt;Energy-aware software: Challenges, opportunities and strategies&amp;#39;&amp;#39;. Journal of Computational Science, vol. 4, no. 6, pp. 444 - 449, 2013.&lt;/code&gt;&lt;/p&gt;</description>
+        <pubDate>2015-11-19 20:00:00 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2015/11/19/green-haskell.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/11/19/green-haskell.html</guid>
         
+        
+        <category>general</category>
         
       </item>
     
       <item>
-        <title>Program Synthesis</title>
-        <description>&lt;p&gt;Starting a couple of months ago, &lt;a href='http://www.cin.ufpe.br/'&gt;CIn&lt;/a&gt;-&lt;a href='http://www.ufpe.br'&gt;UFPE&lt;/a&gt;&amp;#8217;s Software Engineering Laboratory started organizing seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I&amp;#8217;ve greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science). Last week we had one given by Prof. &lt;a href='https://sites.google.com/site/acmrecife/'&gt;Alexandre Mota&lt;/a&gt;. One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.&lt;/p&gt;
+        <title>A Very Brief Overview of Program Synthesis</title>
+        <description>&lt;p&gt;Starting a couple of months ago, &lt;a href='http://www.cin.ufpe.br/'&gt;CIn&lt;/a&gt;-&lt;a href='http://www.ufpe.br'&gt;UFPE&lt;/a&gt;&amp;#8217;s Software Engineering Laboratory started organizing seminars given by its members. The goal is to make laboratory members aware of work being conducted by other members. So far, I&amp;#8217;ve greatly enjoyed these seminars. In one of them, I learned a bit about cloud computing and also about electronic government (which seems to be an area of research that sits between Computer Science and Political Science) from Prof. &lt;a href='http://viniciusgarcia.com'&gt;Vinicius Garcia&lt;/a&gt;. Last week we had one given by Prof. &lt;a href='https://sites.google.com/site/acmrecife/'&gt;Alexandre Mota&lt;/a&gt;. One of the things I admire about Alexandre is that he is a hard core Formal Methods guy with a remarkable track record of collaboration with industry.&lt;/p&gt;
 
-&lt;p&gt;Alexandre&amp;#8217;s talk started with an overview of formal methods. According to Alexandre, formal methods are a combination of notations, tools, and a semantics based on mathematics. Their use can help developers to ascertain that there is no ambiguity, imprecision, and (for some systems) incompleteness in a system specification. This is the &lt;strong&gt;good&lt;/strong&gt; side of formal methods. The &lt;strong&gt;bad&lt;/strong&gt; side is that, to get from a specification to a correct system, there is a myriad different paths and each one of them is tough to traverse. And this is assuming that a formal specification exists. Going from an informal specification to a formal one is a very difficult problem in and of itself. It requires a thorough validation and the assistance of specialists.&lt;/p&gt;
+&lt;p&gt;&lt;a href='https://sites.google.com/site/acmrecife/'&gt;&lt;img alt='Alexandre Mota presenting PSAtCIn' src='https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/alexandre.jpg' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Alexandre&amp;#8217;s talk started with an overview of formal methods. According to Alexandre, formal methods are a combination of notations, tools, and a semantics based on mathematics. Their use can help developers to ascertain that there is no ambiguity, imprecision, inconsistency, and (for some systems) incompleteness in a system specification. This is the &lt;strong&gt;good&lt;/strong&gt; side of formal methods. The &lt;strong&gt;bad&lt;/strong&gt; side is that, to get from a specification to a correct system, there is a myriad different paths and each one of them is tough to traverse. And this is assuming that a formal specification exists. Going from an informal specification to a formal one is a very difficult problem in and of itself. It requires a thorough validation and the assistance of specialists.&lt;/p&gt;
 
 &lt;p&gt;Alexandre also discussed the process of program refinement, going from a formal specification to executable code in a way that guarantees that the generated code satisfies the specification. According to him, there are two paths to go from formal specification to a correct system: (i) by data and operation refinement; and (ii) by &lt;a href='http://www.cs.ox.ac.uk/publications/books/PfS/'&gt;refinement calculus&lt;/a&gt; (using a set of refinement rules). In the former approach, we&amp;#8217;re transitioning from a specification &lt;em&gt;S0&lt;/em&gt; to a specification &lt;em&gt;S1&lt;/em&gt; and &lt;em&gt;S1&lt;/em&gt; is not determined by pre-established laws. One needs to propose and verify each refinement. It is possible to apply more broad-scoped transformations using this approach. In the latter, the transformations one can apply to the specification are constrained by the laws one is using. This is good because the proof obligations are relatively straightforward. The bad part is that it is more constraining and requires very experienced engineers. The &amp;#8220;search&amp;#8221; in refinement calculus may never end. Both approaches require searching for the specifications and for the theorems that must be proved. It is a search problem and leads us to the problem of program synthesis.&lt;/p&gt;
 
-&lt;p&gt;After presenting a (critical) view of formal methods, he narrowed down the scope of his talk, focusing more on the subject of program synthesis. The problem of program synthesis can be summarized as follows: Build a system that, given a specification and optionally a set of program fragments, produces as output a program that satisfies (&lt;em&gt;refines&lt;/em&gt;?) the given specification and also includes the given program fragments. Program synthesis is a search problem because a large part of the work performed by a program synthesis system consists of searching through a space of candidate programs and checking whether they satisfy the specification. This problem is tough. In fact, it is &lt;a href='https://en.wikipedia.org/wiki/Boolean_satisfiability_problem'&gt;SAT&lt;/a&gt;, the most famous &lt;a href='https://en.wikipedia.org/wiki/NP-completeness'&gt;NP-complete&lt;/a&gt; problem.&lt;/p&gt;
+&lt;p&gt;After presenting a (critical) view of formal methods, he narrowed down the scope of his talk, focusing more on the subject of program synthesis. The problem of program synthesis can be summarized as follows: Build a system that, given a specification and optionally a set of program fragments, produces as output a program that satisfies (&lt;em&gt;refines&lt;/em&gt;?) the given specification and also includes the given program fragments. Program synthesis is a search problem because a large part of the work performed by a program synthesis system consists of searching through a space of candidate programs and checking whether they satisfy the specification. This problem is tough. In fact, part of it usually involves solving &lt;a href='https://en.wikipedia.org/wiki/Boolean_satisfiability_problem'&gt;SAT&lt;/a&gt;, the most famous &lt;a href='https://en.wikipedia.org/wiki/NP-completeness'&gt;NP-complete&lt;/a&gt; problem. &amp;#8220;Usually&amp;#8221; because, when one is using a probabilistic approach for program synthesis, this is not the case.&lt;/p&gt;
 
 &lt;p&gt;The area of program synthesis started a long time ago, before computers. In 1932, famous soviet mathematician &lt;a href='https://en.wikipedia.org/wiki/Andrey_Kolmogorov'&gt;Andrey Kolmogorov&lt;/a&gt; already talked about algorithms with proofs that come from constructive mathematics. This is very distant from what is currently discussed as program synthesis. A particularly important system in this area, which appeared much latter, was the &lt;a href='http://www.kestrel.edu/home/projects/kids/'&gt;Kestrel Interactive Development System&lt;/a&gt; (KIDS). KIDS supported program synthesis from a complex program specification by means of a series of manually applied refinement steps (maybe it couldn&amp;#8217;t be strictly called a program systhesis system) and, according to its homepage, has been used to develop many applications in such diverse areas as scheduling, combinatorial design, sorting and searching, computational geometry, pattern matching, and mathematical programming. KIDS came close to a commercial breakthrough, which is impressive.&lt;/p&gt;
 
@@ -87,32 +87,40 @@ y = z;&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;harness void doubleSketch(int x){ 
+  &lt;pre&gt;&lt;code class='c'&gt;harness void doubleSketch(int x){
   int t = x + ??
   assert t = x + x;
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Synthesizers that take as input a general purpose high-level specification&lt;/strong&gt;. This is the line of work that Alexandre and his colleagues, such as &lt;a href='http://www.cin.ufpe.br/~jmi/'&gt;Juliano Iyoda&lt;/a&gt; (also from CIn-UFPE), pursue. Their approach employs a combination of a DSL targeting C# code, &lt;span&gt;Alloy&lt;em&gt;](http://alloy.mit.edu/alloy/hola/), and a formal specification language in an Ecplise Plugin that is already capable of producing code from general-purpose specifications. The approach named by the tool was named PsAtCIn. Here&amp;#8217;s a very simple example of the kind of thing one can do with PsAtCIn. Given a specification&lt;/em&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Synthesizers that take as input a general purpose high-level specification&lt;/strong&gt;. This is the line of work that Alexandre and his colleagues, such as &lt;a href='http://www.cin.ufpe.br/~jmi/'&gt;Juliano Iyoda&lt;/a&gt; (also from CIn-UFPE), pursue. In this case, program synthesis takes as input the specification of the program to be synthesized and an optional set of code fragments and produces as a result a program in a language that has a formal semantics. The latter part is particularly relevant because, as long as a language has formal syntax and semantics, it can be combined with this approach. They proposed an approach and a tool implementing it, named PSAtCIn, that currently combines a DSL targeting C# code, &lt;span&gt;Alloy&lt;em&gt;](http://alloy.mit.edu/alloy/hola/), and a formal specification language in an Ecplise Plugin that is already capable of producing code from general-purpose specifications. Here&amp;#8217;s a very simple example of the kind of thing one can do with PSAtCIn. Given a specification&lt;/em&gt;&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;Vars x, y, z: int
-Pre:
-Post: x'= y and y' = x&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class='csharp'&gt;Vars x, y
+requires: x &amp;gt; 1 and y &amp;gt; 1
+ensures: x' = gcd(x, y)
+sketch: while * != *
+          *&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;it can generate the program.&lt;/p&gt;
+&lt;p&gt;it can generate the program&lt;/p&gt;
 &lt;div&gt;
-  &lt;pre&gt;&lt;code class='c'&gt;z = x;
-x = y;
-y = z;&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class='csharp'&gt;while (x != y) {
+  if (x &amp;gt; y)
+    x = x - y
+  else
+    y = y - x&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;Alexandre explained that this approach is currently capable of generating simple programs that include loops, for example, it was capable of generating &lt;a href='https://en.wikipedia.org/wiki/Euclidean_algorithm'&gt;Euclid&amp;#8217;s algorithm&lt;/a&gt; for the greatest common divisor. This is a promising result, since loops are a common stumbling point for this kind of approach (and verification in general). PsAtCIn also supports sketching (similarly to Sketch) and it is extensible for other languages that have formal syntax and semantics.&lt;/p&gt;
+&lt;p&gt;In the specification part, &lt;code&gt;gcd&lt;/code&gt; is a logical predicate.&lt;/p&gt;
 
-&lt;p&gt;Finally, Alexandre discussed some current challenges. The one that caught my attention was the recommendation of scopes for search. Since PsAtCIn uses Alloy* under the hood, it also performs bounded-scope search when verifying whether a program satisfies its intended properties (pre and postconditions). In Alloy&lt;em&gt;, users must specify the bounds for the search scope. Alexandre hopes that, in the near future, PsAtCIn will be able to provide this kind of information automatically in program synthesis.&lt;/em&gt;&lt;/p&gt;</description>
-        <pubDate>2015-11-09 00:00:00 -0300</pubDate>
-        <link>http://fernandocastor.github.io/2015/11/09/program-synthesis.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/2015/11/09/program-synthesis.html</guid>
+&lt;p&gt;Alexandre explained that this approach is currently capable of generating simple programs that include loops, e.g., it was capable of generating &lt;a href='https://en.wikipedia.org/wiki/Euclidean_algorithm'&gt;Euclid&amp;#8217;s algorithm&lt;/a&gt; for the greatest common divisor. This is a promising result, since loops are a common stumbling point for program synthesis and verification techniques. PSAtCIn also supports sketching (similarly to Sketch) and it is extensible for other languages that have formal syntax and semantics.&lt;/p&gt;
+
+&lt;p&gt;Finally, Alexandre discussed some current challenges. The one that caught my attention was the recommendation of scopes for search. Since PSAtCIn uses Alloy* under the hood, it also performs bounded scope search when verifying whether a program satisfies its intended properties (pre and postconditions). In Alloy&lt;em&gt;, users must specify the bounds for the search scope. Alexandre hopes that, in the near future, PSAtCIn will be able to provide this kind of information automatically in program synthesis.&lt;/em&gt;&lt;/p&gt;</description>
+        <pubDate>2015-11-10 09:39:06 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2015/11/10/program-synthesis.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2015/11/10/program-synthesis.html</guid>
         
+        
+        <category>general</category>
         
       </item>
     
@@ -149,40 +157,6 @@ y = z;&lt;/code&gt;&lt;/pre&gt;
         
         
         <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>Unsafe Java Api</title>
-        <description>&lt;p&gt;Today at &lt;a href='http://www.splashcon.com'&gt;SPLASH&lt;/a&gt;, there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them caught my attention because they are more related to work I have conducted in the past &lt;span&gt;&lt;a href='https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&amp;amp;d=1'&gt;1&lt;/a&gt;,&lt;a href='https://sites.google.com/a/cin.ufpe.br/castor/msr_2015_submitted.pdf?attredirects=0&amp;amp;d=1'&gt;2&lt;/a&gt;,&lt;a href='https://sites.google.com/a/cin.ufpe.br/castor/msr_2014_cr.pdf?attredirects=0&amp;amp;d=1'&gt;3&lt;/a&gt;,&lt;a href='https://sites.google.com/a/cin.ufpe.br/castor/Ebert_2015_ESE_JSS.pdf?attredirects=0&amp;amp;d=1'&gt;4&lt;/a&gt;&lt;/span&gt;. I discuss them below.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='http://2015.splashcon.org'&gt;&lt;img alt='SPLASH2015 logo' src='http://www.dynamic-languages-symposium.org/dls-15/media/splash15_logo.png' /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id='how_scale_affects_structure_in_java_programs_by_crista_lopes_joel_ossher'&gt;&lt;a href='http://dl.acm.org/citation.cfm?id=2814300&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354'&gt;How Scale Affects Structure in Java Programs&lt;/a&gt; by Crista Lopes, Joel Ossher&lt;/h4&gt;
-
-&lt;p&gt;I was already familiar with this paper, having discussed it with some students in &lt;a href='http://twiki.cin.ufpe.br/twiki/bin/view/TAES/TAES2201502'&gt;class&lt;/a&gt; a couple of weeks ago. It is a very interesting piece of work showing how the size of a software system is correlated with certain characteristics (nothing new there) but also showing that &lt;strong&gt;this relationship changes as the size of a system grows&lt;/strong&gt; (previously an &lt;strong&gt;unverified&lt;/strong&gt; hypothesis, at least on a large scale study). This is strongly related to the 1975 &lt;a href='https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=2&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0CCgQFjABahUKEwjAmfvx8-rIAhWF1h4KHZCdAvY&amp;amp;url=http%3A%2F%2Fwww.cs.umd.edu%2Fclass%2Fspring2005%2Fcmsc838p%2FGeneral%2Fpitl.pdf&amp;amp;usg=AFQjCNH4ihfX6lE2HK9tVhJUm9-7lIEG4g&amp;amp;sig2=A_ORzeazyaS54QTxN63rbg'&gt;paper&lt;/a&gt; by DeRemer and Kron. The first sentence of this classifical paper summarizes its ideas very well: &lt;em&gt;&amp;#8220;We distinguish the activity of writing large programs from that of writing small ones&amp;#8221;&lt;/em&gt;. Lopes and Ossher&amp;#8217;s study provides a considerable amount of data showing that this idea is verifiable.&lt;/p&gt;
-
-&lt;p&gt;I also like how the paper emphasizes the importance of &lt;strong&gt;studying non-linear relationships&lt;/strong&gt; between variables pertaining to programs. For example, the study reports that the number of lines of code (LoC) in a program grows exponentially with respect to the number of modules (classes + interfaces), even though the exponent is small (1.0939). Thus as the paper itself explains, if a program with 10 modules has 400 LoC, we can expect a program with 100 modules to have 4965 LoC, instead of just 4000. Of course, this is a general trend and not something that will be observed for every program. Nonetheless, the observed data comprises more than 30.000 Java projects. This number suggests that the findings are robust and not likely to stem from chance.&lt;/p&gt;
-
-&lt;p&gt;It is important to point out that the paper only investigated one &lt;strong&gt;software population&lt;/strong&gt;, that of Java projects hosted on Google Code until 2012. This does not necessarily reflect the characteristics of populations from other forges or based on different programming languages. Moreover, the study did not investigate the temporal dimension of these relationships. These are great news for researchers interested in this topic!&lt;/p&gt;
-
-&lt;h4 id='use_at_your_own_risk_the_java_unsafe_api_in_the_wild_by_luis_mastrangelo_luca_ponzanelli_andrea_mocci_michele_lanza_matthias_hauswirth_nathaniel_nystrom'&gt;&lt;a href='http://dl.acm.org/citation.cfm?id=2814313&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354'&gt;Use at Your Own Risk: The Java Unsafe API in the Wild&lt;/a&gt; by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom&lt;/h4&gt;
-
-&lt;p&gt;This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and &lt;a href='http://research.microsoft.com/apps/pubs/default.aspx?id=68466'&gt;type sound&lt;/a&gt;) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as &lt;code&gt;Exception&lt;/code&gt;s or, in the worst case scenario (e.g., due to lack of heap space), as an &lt;code&gt;Error&lt;/code&gt;. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, &lt;code&gt;sun.misc.Unsafe&lt;/code&gt; which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java&amp;#8217;s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object.&lt;/p&gt;
-
-&lt;p&gt;The study of Mastrangelo and colleagues was exploratory in nature. It aimed to assess the extent to which &lt;code&gt;Unsafe&lt;/code&gt; is used and how it is used. For that end, they used Apache&amp;#8217;s Maven Central Repository as the data source. This repository has more than 950,000 artifacts (the results of builds). Considering only the latest versions of the artifacts and filtering out the undesired ones, they ended up with a corpus of 86479 artifacts amounting to 74GB of data. Among these artifacts, 817 use &lt;code&gt;Unsafe&lt;/code&gt;, less than 1%. This low number led the authors to investigate whether these artifacts are widely used or if they are isolated pieces of software. As it turns out, large-scale, well-known projects employ them. Notable examples include Scala, Ruby, Spring, Hibernate, Grails, Stream, Cassandra, Hadoop, Akka, Storm, and Neo4J. In their corpus, 21,297 artifacts indirectly use &lt;code&gt;Unsafe&lt;/code&gt;, almost 25% of all the analyzed artifacts. It is not clear to me whether &amp;#8220;indirectly&amp;#8221; means transitively or with just one level of indirection. I&amp;#8217;ll have to check that out in the paper later.&lt;/p&gt;
-
-&lt;p&gt;Proceeding with the analysis, they investigated which features of &lt;code&gt;Unsafe&lt;/code&gt; are often used and why. Examples include instructions to (i) query the memory layout; (ii) put and get elements in specific memory locations, e.g., in the heap; and (iii) compare-and-set instructions, which are very important for concurrent applications. These instructions are often used to improve performance. The authors documented 14 usage patterns, including processing of byte arrays in block, the aforementioned atomic operations and, amazingly, &lt;strong&gt;updates to &lt;code&gt;final&lt;/code&gt; fields&lt;/strong&gt;! The authors also analyzed questions that developers ask about &lt;code&gt;Unsafe&lt;/code&gt; at &lt;a href='http://www.stackoverflow.com'&gt;StackOverflow&lt;/a&gt;. There don&amp;#8217;t seem to be many questions on the topic, which is not surprising. The authors found out that lack of documentation is an important problem, though.&lt;/p&gt;
-
-&lt;p&gt;This left me (and at least another member of the audience, it seems) wondering about which parts of &lt;code&gt;Unsafe&lt;/code&gt; are unsafe-r. The authors did not go that far, however. I&amp;#8217;m not sure there is enough data to conduct that study yet.&lt;/p&gt;
-
-&lt;h4 id='the_bottom_line'&gt;The bottom line&lt;/h4&gt;
-
-&lt;p&gt;Both studies raise new avenues for research, as I have discussed previously. In particular, for the first study, it would be interesting to (i) replicate it with different populations; (ii) examine the temporal dimension and how the discovered relationships change throughout system versions; (iii) examine different attributes, e.g., usage of constructs related to concurrency or testing. For the second one, I can imagine a number of controlled experiments focusing on the usage of &lt;code&gt;Unsafe&lt;/code&gt; features and examination of bug reports (for a large number of systems) in an attempt to identify the unsafe-st parts of the API.&lt;/p&gt;</description>
-        <pubDate>2015-10-30 00:00:00 -0300</pubDate>
-        <link>http://fernandocastor.github.io/2015/10/30/unsafe-java-api.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/2015/10/30/unsafe-java-api.html</guid>
-        
         
       </item>
     
@@ -358,175 +332,6 @@ y = z;&lt;/code&gt;&lt;/pre&gt;
       </item>
     
       <item>
-        <title>The Most Popular Questions On Stackoverflow</title>
-        <description>&lt;p&gt;We (mainly &lt;a href='http://www.gustavopinto.org'&gt;Gustavo Pinto&lt;/a&gt;, with a little help from &lt;a href='https://sites.google.com/a/cin.ufpe.br/castor/'&gt;myself&lt;/a&gt; and &lt;a href='https://twitter.com/weslleytorres'&gt;Weslley Torres&lt;/a&gt;) have conducted a study on the most popular questions about concurrent programming on &lt;a href='http://www.stackoverflow.com'&gt;StackOverflow&lt;/a&gt;. Our goal with this study was to understand the practical problems faced by software developers when using concurrent programming abstractions. These are the 10 most popular questions:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/588866/'&gt;Q588866&lt;/a&gt; &amp;#8220;What&amp;#8217;s the difference between the atomic and nonatomic attributes?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/541487/'&gt;Q541487&lt;/a&gt; &amp;#8220;&amp;#8216;implements Runnable&amp;#8217; vs. &amp;#8216;extends Thread&amp;#8217;&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/6319146/'&gt;Q6319146&lt;/a&gt; &amp;#8220;C++11 introduced a standardized memory model. What does it mean? And how is it going to affect C++ programming?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/200469/'&gt;Q200469&lt;/a&gt; &amp;#8220;What is the difference between a process and a thread&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/661561/'&gt;Q661561&lt;/a&gt; &amp;#8220;How to update the GUI from another thread in C#?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/1036754/'&gt;Q1036754&lt;/a&gt; &amp;#8220;Difference between wait() and sleep()&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/62814/'&gt;Q62814&lt;/a&gt; &amp;#8220;Difference between binary semaphore and mutex&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/817856/'&gt;Q817856&lt;/a&gt; &amp;#8220;When and how should I use a ThreadLocal variable?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/510632/'&gt;Q510632&lt;/a&gt; &amp;#8220;What&amp;#8217;s the difference between ConcurrentHashMap and Collections.synchronizedMap(Map)?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/323972/'&gt;Q323972&lt;/a&gt; &amp;#8220;Is there any way to kill a Thread in Python?&amp;#8221;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Among the top 10, we have questions specific to Objective-C (1), Java (2,6,9), C++ (3), C# (5), and Python (10). There are also a couple of questions asking about general concepts (3,7) and one that may be thought of as language specific or not (8).&lt;/p&gt;
-
-&lt;h2 id='what_are_concurrencyrelated_questions'&gt;What are concurrency-related questions?&lt;/h2&gt;
-
-&lt;p&gt;We used the same keywords as the well-known &lt;a href='http://dl.acm.org/citation.cfm?id=1346323'&gt;study&lt;/a&gt; by Shan Lu and colleagues to select the questions based on the tags associated to them: &amp;#8220;race(s)&amp;#8221;, &amp;#8220;deadlock(s)&amp;#8221;, &amp;#8220;livelock(s)&amp;#8221;, &amp;#8220;concurrency&amp;#8221;, &amp;#8220;lock(s)&amp;#8221;, &amp;#8220;mutex(es)&amp;#8221;, &amp;#8220;atomic&amp;#8221;, &amp;#8220;compete(s)&amp;#8221;, and &amp;#8220;multithreading&amp;#8221;.&lt;/p&gt;
-
-&lt;p&gt;This produced a list with more than 22000 questions. We then ranked them by popularity, extracted only the 250 most popular, and manually inspected those to ascertain that they were actually concurrency-related. We ended up with 231 questions.&lt;/p&gt;
-
-&lt;h2 id='how_did_we_measure_popularity'&gt;How did we measure popularity?&lt;/h2&gt;
-
-&lt;p&gt;To calculate the popularity of each question, we obtained, for each one: (i) number of up-votes; (ii) number of times the question is marked as favorite; (iii) number of views; (iv) number of comments; and (v) and number of answers. Each of these metrics was then normalized with respect to the average value considering all the questions in StackOverflow. The &lt;strong&gt;P&lt;/strong&gt; popularity measure is the result of calculating the geometric mean of these normalized metrics.&lt;/p&gt;
-
-&lt;h2 id='summary'&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Most of the questions pertained to either Java (77) or C# (60). Also, 28 pertained to mobile computing, focusing on one of the most popular platforms: iOS (6), Android (7), and Windows Phone (15).&lt;/p&gt;
-
-&lt;p&gt;We classified the questions in terms of 7 categories:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Theoretical Concepts (59)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q34510 &amp;#8220;What is a race condition?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q588866 &amp;#8220;What’s the difference between the atomic and nonatomic attributes?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q200469 &amp;#8220;What is the difference between a process and a thread?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Practical Concepts (51)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q817856 &amp;#8220;When and how should I use a ThreadLocal variable?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q154551 &amp;#8220;Which &lt;span&gt;synchronization&lt;/span&gt; approach should be used &lt;span&gt;to increment an int&lt;/span&gt;?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q251391 &amp;#8220;Why is lock(this) bad?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;First Steps (29)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q2846653 &amp;#8220;Trying to find a simple example that clearly shows a single task being divided for multi-threading.&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q3360555 &amp;#8220;How to pass parameters to ThreadStart method in Thread?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q2734025 &amp;#8220;Is javascript guaranteed to be single-threaded?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Thread Life-Cycle (18)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q1520887 &amp;#8220;How to pause / sleep thread or process in Android?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q323972 &amp;#8220;Is there any way to kill a Thread in Python?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q289434 &amp;#8220;How to make a Java thread wait for another thread’s output?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Technical Problems (53)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q661561 &amp;#8220;How to update the GUI from another thread in C#?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q530211 &amp;#8221;&lt;span&gt;How to&lt;/span&gt; create a blocking Queue&lt;pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'&gt;REXML could not parse this XML/HTML: 
-&amp;lt;T&amp;gt; in .NET?&amp;quot;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;Q16159203 &amp;#8220;Why does this Java program terminate despite that apparently it shouldn’t (and didn’t)?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Concurrent Lib/Framework (15 Q)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q3629784 &amp;#8220;How is Node.js inherently faster when it still relies on Threads internally?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q6916385 &amp;#8220;Is there a concurrent List in Java’s JDK?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q3847108 &amp;#8220;What is the Haskell response to Node.js?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Correctness (10 Q)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Q9666 &amp;#8220;Is accessing a variable in C# an atomic operation?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q7095 &amp;#8220;Is the C# constructor thread safe?&amp;#8221;&lt;/li&gt;
-
-&lt;li&gt;Q680097 &amp;#8220;I’ve heard i++ isn’t thread safe, is ++i thread-safe?&amp;#8221;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Among all the questions, only one pertained to GPUs and not a single one asked specifically about improving performance, which is surprising. I could say that we learned three main things from this study:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Developers do not understand the problems that existing tools report about concurrency errors, because they often do not understand the errors themselves. Error reports that provide actual code examples have a stronger potential to be useful (see the third point below)&lt;/li&gt;
-
-&lt;li&gt;Tools that help developers to build the software right, instead of trying to right the system after it&amp;#8217;s built are useful. For example, a simple tool that indicates to developers which parts of the code execute atomically is straightforward to build and could be easily integrated into existing IDEs&lt;/li&gt;
-
-&lt;li&gt;Developers want examples, both minimal examples of things that work correctly and minimal examples of code that help them understand concurrency problems.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For more information, take a look at our &lt;a href='http://gustavopinto.org/lost+found/plateau2015.pdf'&gt;paper&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>2015-10-28 00:00:00 -0300</pubDate>
-        <link>http://fernandocastor.github.io/2015/10/28/the-most-popular-questions-on-stackoverflow.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/2015/10/28/the-most-popular-questions-on-stackoverflow.html</guid>
-        
-        
-      </item>
-    
-      <item>
         <title>Haskell one-liner</title>
         <description>&lt;p&gt;One of these days, &lt;a href='http://www.twitter.com/1haskelladay'&gt;@1HaskellADay&lt;/a&gt; posted the following programming challenge:&lt;/p&gt;
 
@@ -547,28 +352,6 @@ y = z;&lt;/code&gt;&lt;/pre&gt;
         
         
         <category>general</category>
-        
-      </item>
-    
-      <item>
-        <title>Haskell One Liner</title>
-        <description>&lt;p&gt;One of these days, &lt;a href='http://www.twitter.com/1haskelladay'&gt;@1HaskellADay&lt;/a&gt; posted the following programming challenge:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;#1Liner You&amp;#8217;re given either fst or snd, but don&amp;#8217;t know which. Define a function that returns its dual: dual :: ((a,a) -&amp;gt; a) -&amp;gt; ((a,a) -&amp;gt; a)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;My answer to the challenge was fairly straightforward:&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='haskell'&gt;dual f = \(x,y) -&amp;gt; f (y, x)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;It&amp;#8217;s not bad, but nothing compared to &lt;a href='http://www.twitter.com/frsoares'&gt;Francisco Soares&lt;/a&gt;&amp;#8217;&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre&gt;&lt;code class='haskell'&gt;dual = uncurry.flip.curry&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;This is how real Haskell programmers do it. Those that &lt;a href='http://www.bernstein-plus-sons.com/RPDEQ.html' title='Real programmers don&amp;apos;t eat quiche'&gt;do not eat quiche&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>2015-10-26 00:00:00 -0300</pubDate>
-        <link>http://fernandocastor.github.io/2015/10/26/haskell-one-liner.html</link>
-        <guid isPermaLink="true">http://fernandocastor.github.io/2015/10/26/haskell-one-liner.html</guid>
-        
         
       </item>
     
