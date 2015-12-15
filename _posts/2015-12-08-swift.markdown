@@ -3,7 +3,6 @@ layout: post
 title:  "Swift is now open source. Obviously."
 date:   2015-12-08 12:45:00
 categories: general
-comments: true
 ---
 
 Apple has a long history with the Objective-C programming language. In February 1997, it acquired Steve Jobs' company, NeXT, which employed Objective-C since the late 80s as the programming language of choice for the development of its operating system, NeXTStep. Since NeXTStep became the basis for Apple's MacOS X, Objective-C also became the  language of choice for Apple development. It was the programming language of the MacOS and the iOS. It remained on top for the next 17 years, reaching a point where it became one of the most popular programming languages in use. 
