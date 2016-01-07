@@ -8,13 +8,13 @@ Today I installed Swift on Linux. It was much more straightforward than I'd assu
 
 The place where I found the definite set of instructions was Swift's [README.MD](https://github.com/apple/swift/blob/master/README.md) file. Since there may be other lazy developers out there who want to install Swift on Linux, I summarize below the set of steps I followed, in terms of the commands I used on the Linux shell:
 
-```bash
+{% highlight bash %}
 git clone https://github.com/apple/swift.git
 sudo apt-get install git cmake ninja-build clang python uuid-dev libicu-dev icu-devtools libbsd-dev libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config
 sudo apt-get install clang-3.6
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 
 sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
-```
+{% endhighlight %}
 
 
 
