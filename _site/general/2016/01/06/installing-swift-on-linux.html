@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fernando Castor's rants</title>
-  <meta name="description" content="The opinions expressed here are the sole responsibility of the author.
-">
+  <title>Installing Swift on Linux</title>
+  <meta name="description" content="Today I installed Swift on Linux. It was much more straightforward than I thought it would be. The Ray Wenderlich website has a nice tutorial on how to do th...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://fernandocastor.github.io/">
+  <link rel="canonical" href="http://fernandocastor.github.io/general/2016/01/06/installing-swift-on-linux.html">
   <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
 </head>
 
@@ -55,90 +54,62 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <div class="post">
 
-  ga('create', 'UA-49577750-1', 'auto');
-  ga('send', 'pageview');
+  <header class="post-header">
+    <h1 class="post-title">Installing Swift on Linux</h1>
+    <p class="post-meta">Jan 6, 2016</p>
+  </header>
 
+  <article class="post-content">
+    <p>Today I installed Swift on Linux. It was much more straightforward than I thought it would be. The Ray Wenderlich <a href="http://www.raywenderlich.com/">website</a> has a nice <a href="http://www.raywenderlich.com/122189/introduction-to-open-source-swift-on-linux">tutorial</a> on how to do that. Nevertheless, this tutorial assumes that one does not have Linux installed. Therefore, it is a bit overlong and not very interesting for me, since I’m running <strong>Linux Mint (v.17 ‘Qiana’ with Cinnamon 64-bit)</strong> natively. The <a href="http://www.swift.org">Swift.org</a> website also includes step-by-step <a href="https://swift.org/download/#linux">instructions</a> on how to install Swift. The emphasis, in this case, is on contributors who will be sending pull requests or contributing directly to the Swift distribution. Therefore, it spends quite some space talking about PGP keys. Again, not quite my thing. </p>
+
+<p>The place where I found the definite set of instructions was Swift’s <a href="https://github.com/apple/swift/blob/master/README.md">README.MD</a> file. Since there may be other lazy developers out there who want to install Swift on Linux, I present below the lists of steps I followed, almost <em>ipsis litteris</em>, in terms of the commands I used on the Linux shell:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/apple/swift.git
+sudo apt-get install git cmake ninja-build clang python uuid-dev libicu-dev icu-devtools libbsd-dev libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config
+sudo apt-get install clang-3.6
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
+<span class="nb">cd </span>swift
+./utils/update-checkout --clone
+./utils/build-script -t</code></pre></div>
+
+<p>A few thousands of compiled and linked files later, Swift was ready. It is important to emphasize that I already had <code>cmake</code>, the build system used by Swift, installed. If that is not the case, you’ll need to install it. I haven’t tried that myself.</p>
+
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/*
+
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+*/
+var disqus_developer = 1;
+var disqus_shortname = 'fernandocastor'; 
+var disqus_identifier = "/general/2016/01/06/installing-swift-on-linux.html";
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//fernandocastor.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-<div class="home">
 
-  <h1 class="page-heading">Posts</h1>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Apr 29, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">The Many Flavors of Swift's Error Handling Constructs</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 6, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/general/2016/01/06/installing-swift-on-linux.html">Installing Swift on Linux</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 8, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/general/2015/12/08/swift.html">Swift is now open source. Obviously.</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 19, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/general/2015/11/19/green-haskell.html">Haskell in Green Land: Analyzing the energy behavior of a purely functional language</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 10, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/general/2015/11/10/program_synthesis.html">A very brief overview of Program Synthesis</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 30, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/general/2015/10/30/unsafe-java-api.html">Two very interesting empirical studies presented at SPLASH'2015</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 28, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/concurrency/2015/10/28/the-most-popular-questions-on-stackoverflow.html">The most popular questions about concurrency on StackOverflow</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 26, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/general/2015/10/26/haskell-one-liner.html">Haskell one-liner</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+         
+  </article>
 
 </div>
 
