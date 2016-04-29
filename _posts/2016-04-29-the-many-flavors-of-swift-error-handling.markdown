@@ -262,6 +262,8 @@ func processText(filePath: String) {
 }
 {% endhighlight %}
 
+It is interesting to note that ``NSError`` already defines properties ``code`` and ``domain``. Thus, to use pattern matching on value of type ``NSError``, one needs only to redefine the ``~=`` operator as we have done in the previous section.
+
 One relevant question is whether it is possible to throw instances of ``NSException`` using Swift's ``throw`` statement. By default, ``NSException`` does not conform to ``ErrorType``. Thus, its instances cannot be thrown. However, by extending it to make it adopt ``ErrorType``, it becomes possible to both throw and capture errors of type ``NSException``.
 
 {% highlight swift %}

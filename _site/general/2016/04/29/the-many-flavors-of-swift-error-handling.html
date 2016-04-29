@@ -289,6 +289,8 @@ The following example is a modified version of the first version of <code>proces
   <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
+<p>It is interesting to note that <code>NSError</code> already defines properties <code>code</code> and <code>domain</code>. Thus, to use pattern matching on value of type <code>NSError</code>, one needs only to redefine the <code>~=</code> operator as we have done in the previous section.</p>
+
 <p>One relevant question is whether it is possible to throw instances of <code>NSException</code> using Swift’s <code>throw</code> statement. By default, <code>NSException</code> does not conform to <code>ErrorType</code>. Thus, its instances cannot be thrown. However, by extending it to make it adopt <code>ErrorType</code>, it becomes possible to both throw and capture errors of type <code>NSException</code>.</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// errors of type NSException can now be thrown and caught as we&#39;ve seen before.</span>
