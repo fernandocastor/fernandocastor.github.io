@@ -33,7 +33,7 @@ func readFromFile(path: String) throws -> String {
 }
 {% endhighlight %}
 
-The ``throws`` clause in the signature of ``readFromFile`` is required by the Swift compiler. Methods invoking ``readFromFile`` must either also have a ``throws`` clause in their signatures or explicitly ``catch`` the error. In addition, calls to ``readFromFile`` must be preceded by the ``try`` keyword to explicitly indicate that those statements may throw an error. The code snippet below presents an example of method that invokes ``readFromFile`` and ``catches`` the  ``FileNotFound`` error (and others, as explained below).
+The ``throws`` clause in the signature of ``readFromFile`` is required by the Swift compiler. Methods invoking ``readFromFile`` must either also have a ``throws`` clause in their signatures or explicitly ``catch`` the error. In addition, calls to ``readFromFile`` must be preceded by the ``try`` keyword to explicitly indicate that those statements may throw an error. The code snippet below presents an example of a method that invokes ``readFromFile`` and ``catch``es the  ``FileNotFound`` error (and others, as explained below).
 
 {% highlight swift %}
 func processText(filePath: String) {
@@ -46,7 +46,7 @@ func processText(filePath: String) {
 }
 {% endhighlight %}
 
-To catch an error, it is necessary to place the code that may throw errors within a ``do`` block. That block can have one or more associated ``catch`` clauses. The code snippet above has two such clauses. The first one catches ``FileNotFound`` errors, whereas the second one catches any other error. The latter is required by Swift to guarantee that any other errors are also caught. The first ``catch`` clause does not specify the name of the file that triggered the error. I come back to this topic later. In the second block, ``error`` is a predefined variable that represents the caught error. It is acessible within the body of the generic ``catch`` block.
+To catch an error, it is necessary to place the code that may throw errors within a ``do`` block. That block can have one or more associated ``catch`` clauses. The code snippet above has two such clauses. The first one catches ``FileNotFound`` errors, whereas the second one catches any other error. The latter is required by Swift to guarantee that any other errors are also caught. The first ``catch`` clause does not specify the name of the file that triggered the error. I come back to this topic later. In the second block, ``error`` is a predefined variable that represents the caught error. It is accessible within the body of the generic ``catch`` block.
 
 Swift has additional constructs for error handling. It is possible to write ``try?`` before an expression that may throw an error to convert the error into an optional value.  
 As pointed out in Apple's [tutorial](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html) on error handling in Swift, this construct is syntactic sugar for a common pattern of usage of ``do-catch`` blocks.
@@ -93,7 +93,7 @@ class FileNotFound : IOError {
 }
 {% endhighlight %}
 
-To use the class definitions above, the only change that needs to be applied to the ``readFromFile`` function is that the ``IOError.`` prefix can be removed from the line that throws the error. This is necessary because ``FileNotFound`` is now a full-fledged type, instead of just an enumeration case for ``IOError``. For function ``processText``, modifications are necessary because Swift does not know, by default, how to pattern match on values that are instances of classes. However, it is also possible to capture errors by type in Swift, more similarly to how it's done in Java and C#. Nevertheless, it is important to bear in mind that, behind the scenes, it's still pattern matching.
+To use the class definitions above, the only change that needs to be applied to the ``readFromFile`` function is that the ``IOError.`` prefix must be removed from the line that throws the error. This is necessary because ``FileNotFound`` is now a full-fledged type, instead of just an enumeration case for ``IOError``. For function ``processText``, modifications are necessary because Swift does not know, by default, how to pattern match on values that are instances of classes. However, it is also possible to capture errors by type in Swift, more similarly to how it's done in Java and C#. Nevertheless, it is important to bear in mind that, behind the scenes, it's still pattern matching.
 The following example is a modified version of the first version of ``processText``, adapted to work with this approach:
 
 {% highlight swift %}
@@ -133,7 +133,7 @@ func processText(filePath: String) {
 
 #### Structs
 
-Structs defining errors are similar to classes, with the differences that ``IOError`` must be a protocol, since inheritance between ``struct``s is not possible, and that initializers become unnecessary:
+Structs defining errors are similar to classes, with the differences that ``IOError`` must be a protocol, since inheritance between structs is not possible, and that initializers become unnecessary:
 
 {% highlight swift %}
 protocol IOError2 : ErrorType {}
@@ -145,9 +145,9 @@ struct FileNotFound : IOError {
 }
 {% endhighlight %}
 
-Using these definitions of the errors, function ``processText`` can be used as is, i.e., capturing errors by type. One relevant question is whether it is also possible to capture error ``struct``s based on their value. The short answer is yes (and the same applies to classes!), but with limitations.
+Using these definitions of the errors, function ``processText`` can be used as is, i.e., capturing errors by type. One relevant question is whether it is also possible to capture error structs based on their value. The short answer is yes (and the same applies to classes!), but with limitations.
 
-[Marcus Rackwitz](https://twitter.com/mrackwitz), in his  [exploration](https://realm.io/news/testing-swift-error-type/) of the ``ErrorType`` protocol shows how one can pattern match with ``struct`` values to capture errors. Using the [LLDB](http://lldb.llvm.org/) debugger for the [LLVM](http://www.llvm.org) compiler infrastructure, he noticed that the ``ErrorType`` protocol is defined as follows, behind the scenes:  
+[Marcus Rackwitz](https://twitter.com/mrackwitz), in his  [exploration](https://realm.io/news/testing-swift-error-type/) of the ``ErrorType`` protocol shows how one can pattern match with struct values to capture errors. Using the [LLDB](http://lldb.llvm.org/) debugger for the [LLVM](http://www.llvm.org) compiler infrastructure, he noticed that the ``ErrorType`` protocol is defined as follows, behind the scenes:  
 
 {% highlight swift %}
 protocol ErrorType {
@@ -157,7 +157,7 @@ protocol ErrorType {
 {% endhighlight %}
 <!---_ --->
 
-It is interesting to note that types conforming to this protocol do not need to define these properties. In order to capture errors by pattern matching on the error values, one needs to first define the ``struct`` representing errors and then overload the pattern matching operator (``~=``). The only downside is that it is only possible to pattern match using the properties defined by ``ErrorType``, ``_domain`` and ``_code``. Nevertheless, it is useful to avoid having to define a new ``struct`` type for each error.
+It is interesting to note that types conforming to this protocol do not need to define these properties. In order to capture errors by pattern matching on the error values, one needs to first define the struct representing errors and then overload the pattern matching operator (``~=``). The only downside is that it is only possible to pattern match using the properties defined by ``ErrorType``, ``_domain`` and ``_code``. Nevertheless, it is useful to avoid having to define a new struct type for each error, in case one wants to use structs or classes to define errors.
 
 {% highlight swift %}
 struct Error : ErrorType {
@@ -177,7 +177,7 @@ func ~=(lhs: Error, rhs: ErrorType) -> Bool {
 {% endhighlight %}
 <!---_ --->
 
-With this scaffolding in place, it is possible to catch errors defined by ``structs`` based on the values of these two properties:
+With this scaffolding in place, it is possible to catch errors defined by structs based on the values of these two properties:
 
 {% highlight swift %}
 func processText(filePath: String) {
@@ -189,7 +189,7 @@ func processText(filePath: String) {
 }
 {% endhighlight %}
 
-The limitation of this approach is that only the two properties that exist in ``ErrorType`` can be employed for pattern matching. Even if the struct has other properties, they are not used when capturing errors. In the example below, the values of the new property ``additionalInfo`` of ``Error`` will not be taken into account by the ``catch`` clauses. The overload of ``~=`` cannot account for ``additionalInfo``, since this property is not defined in ``ErrorType``. Thus, the second ``catch`` clause will never be selected.
+The limitation of this approach is that it only employs the properties that exist in ``ErrorType`` for pattern matching, even if the struct has other properties. In the example below, the values of the new property ``additionalInfo`` of ``Error`` will not be taken into account by the ``catch`` clauses. The overload of ``~=`` cannot account for ``additionalInfo``, since this property is not defined in ``ErrorType``. Thus, the second ``catch`` clause will never be selected.
 
 {% highlight swift %}
 struct Error : ErrorType {
@@ -208,6 +208,56 @@ func processText(filePath: String) {
 }
 {% endhighlight %}
 <!---_ --->
+
+It is possible to use Swift's forced cast operator (``as!``) to work around this limitation and  account for additional struct and class properties. It is only a matter of checking whether the second parameter of the pattern matching operator has the struct type (``Error``, in the examples) and, in case it does, force cast the argument from ``ErrorType`` to the struct type.
+
+{% highlight swift %}
+struct Error : ErrorType {
+    let domain: String
+    let code: Int    
+    let additionalInfo : Int
+    var _domain: String {
+        return domain
+    }
+    var _code: Int {
+        return code
+    }
+}
+func ~=(lhs: Error, rhs: ErrorType) -> Bool {
+    if (rhs is Error) {
+      let newRHS = rhs as! Error
+      return lhs._domain == newRHS._domain
+          && lhs._code   == newRHS._code
+          && lhs.additionalInfo == newRHS.additionalInfo
+
+    } else {
+        return lhs._domain == rhs._domain
+            && lhs._code   == rhs._code
+    }
+}
+{% endhighlight %}
+<!---_ --->
+
+With these definitions, any attribute from ``Error`` can be used for pattern matching when capturing errors. Thus, in the following example, the second ``catch`` clause will be selected normally.
+
+{% highlight swift %}
+func processText(filePath: String) {
+  do {
+    ... // same as before
+  } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "autoexec.bat") {
+    ... // handle the error
+  } catch { print(error) }
+}
+func processText(filePath: String) {
+  do {
+    ... // same as before
+  } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "config.sys") {
+    ... // handle the error
+  } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "autoexec.bat") {
+    ... // handle the error
+  } catch { print(error) }
+}
+{% endhighlight %}
 
 Swift 2.1.1 behaves non-intuitively when overloading the pattern matching operator for structs and classes. The code snippet below defines a struct and a class and makes both of them conform to ``ErrorType``. It also overloads the pattern matching operator for both types (using just the ``code`` property). When executed, the program prints *"catch block for ErrorStruct"*, instead of *"catch block for ErrorClass"*, even though we are throwing ``ErrorClass(code: 10)``. I assume that, under the hood, Swift invokes the overloaded version of ``~=`` that best matches the type of the error object. Since this implementation disregards the object type (it only looks at the value of ``code``), the matching will depend only on the value of the ``code`` property.
 
@@ -244,8 +294,6 @@ g()
 {% endhighlight %}
 <!---_ --->
 
-
-
 #### NSError and other predefined types
 
 The traditional approach for Objective-C applications to signal errors is to return instances of the ``NSError`` class. This class seems to have a special status when it comes to throwing and capturing errors in Swift. It [adopts](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html) the ``ErrorType`` protocol, similarly to other types defining errors we have examined. However, a ``catch`` clause for ``NSError`` works as a generic ``catch`` clause. Thus, the following three ``catch`` clauses seem to be equivalent in the sense that any other two could be removed and the Swift compiler would still be satisfied. For the second case (``ErrorType``), Xcode emits a warning stating that *"as test is always true"*.
@@ -273,7 +321,7 @@ extension NSException: ErrorType { }
 
 Making ``NSException`` an error is not the same, though, as dealing with Objective-C exceptions. Errors thrown from Swift code are different from exceptions thrown from Objective-C code. The underlying mechanisms differ considerably. Moreover, Swift code cannot catch exceptions thrown from Objective-C, irrespective of ``NSException`` conforming to ``ErrorType``.
 
-As I've mentioned before, it is possible to extend any type to make it conform to ``ErrorType``. Thus, one can turn values of any type into errors. This may lead to esoteric code that, for example, throws an integer:
+As I've mentioned before, it is possible to extend any type to make it conform to ``ErrorType``. This may lead to esoteric code that, for example, throws an integer:
 
 {% highlight swift %}
 extension Int : ErrorType {}
