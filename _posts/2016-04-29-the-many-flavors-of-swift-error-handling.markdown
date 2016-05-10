@@ -240,13 +240,6 @@ With these definitions, any attribute from ``Error`` can be used for pattern mat
 func processText(filePath: String) {
   do {
     ... // same as before
-  } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "autoexec.bat") {
-    ... // handle the error
-  } catch { print(error) }
-}
-func processText(filePath: String) {
-  do {
-    ... // same as before
   } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "config.sys") {
     ... // handle the error
   } catch Error(domain: "FileNotFound", code: 404, additionalInfo: "autoexec.bat") {
