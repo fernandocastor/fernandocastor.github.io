@@ -209,7 +209,7 @@ func processText(filePath: String) {
 {% endhighlight %}
 <!---_ --->
 
-It is possible to use Swift's forced cast operator (``as!``) to work around this limitation and  account for additional struct and class properties. It is only a matter of checking whether the second parameter of the pattern matching operator has the struct type (``Error``, in the examples) and, in case it does, force cast the argument from ``ErrorType`` to the struct type.
+It is possible to use Swift's optional casting operator (``as?``) or its forced variant (``as!``) to work around this limitation and  account for additional struct and class properties. For optional casting, all we need to do is use an `` if let ...`` block to cast to ``Error`` and add the struct type-specific code inside the block. To use forced casting, we need to check whether the second parameter of the pattern matching operator has the struct type (``Error``, in the examples) and, in case it does, force cast the argument from ``ErrorType`` to the struct type.
 
 {% highlight swift %}
 struct Error : ErrorType {

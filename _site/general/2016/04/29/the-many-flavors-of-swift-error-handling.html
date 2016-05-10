@@ -241,7 +241,7 @@ The following example is a modified version of the first version of <code>proces
 
 <!---_ --->
 
-<p>It is possible to use Swift’s forced cast operator (<code>as!</code>) to work around this limitation and  account for additional struct and class properties. It is only a matter of checking whether the second parameter of the pattern matching operator has the struct type (<code>Error</code>, in the examples) and, in case it does, force cast the argument from <code>ErrorType</code> to the struct type.</p>
+<p>It is possible to use Swift’s optional casting operator (<code>as?</code>) or its forced variant (<code>as!</code>) to work around this limitation and  account for additional struct and class properties. For optional casting, all we need to do is use an <code>if let ...</code> block to cast to <code>Error</code> and add the struct type-specific code inside the block. To use forced casting, we need to check whether the second parameter of the pattern matching operator has the struct type (<code>Error</code>, in the examples) and, in case it does, force cast the argument from <code>ErrorType</code> to the struct type.</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">Error</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nl">domain</span><span class="p">:</span> <span class="n">String</span>
