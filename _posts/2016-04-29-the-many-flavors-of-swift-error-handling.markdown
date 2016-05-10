@@ -224,16 +224,12 @@ struct Error : ErrorType {
     }
 }
 func ~=(lhs: Error, rhs: ErrorType) -> Bool {
-    if (rhs is Error) {
-      let newRHS = rhs as! Error
-      return lhs._domain == newRHS._domain
-          && lhs._code   == newRHS._code
-          && lhs.additionalInfo == newRHS.additionalInfo
-
-    } else {
-        return lhs._domain == rhs._domain
-            && lhs._code   == rhs._code
+    var result =  lhs._domain == newRHS._domain
+               && lhs._code   == newRHS._code
+    if let newRHS = rhs as? Error {
+      result = result && (lhs.additionalInfo == newRHS.additionalInfo)
     }
+    return result
 }
 {% endhighlight %}
 <!---_ --->
