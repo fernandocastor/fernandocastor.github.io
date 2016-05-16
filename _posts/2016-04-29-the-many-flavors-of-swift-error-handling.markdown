@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "The Many Flavors of Swift's Error Handling Constructs"
 date:   2016-04-29 17:00:00
 categories: general

@@ -1,11 +1,12 @@
 ---
 layout: post
+comments: true
 title:  "Haskell in Green Land: Analyzing the energy behavior of a purely functional language"
 date:   2015-11-19 23:00:00
 categories: general
 ---
 
-*This post is a summary of a paper currently under submission. This work was conducted in cooperation with my colleague [Joao Paulo Fernandes](http://www.di.ubi.pt/~jpf/) from [UBI](http://www.ubi.pt), Portugal, and students [Luís Gabriel Lima](https://twitter.com/_luisgabriel), [Francisco Soares-Neto](https://sites.google.com/a/cin.ufpe.br/frsoares/), and Paulo Lieuthier from [UFPE](http://www.ufpe.br) and Gilberto Melfe from UBI.* 
+*This post is a summary of a paper currently under submission. This work was conducted in cooperation with my colleague [Joao Paulo Fernandes](http://www.di.ubi.pt/~jpf/) from [UBI](http://www.ubi.pt), Portugal, and students [Luís Gabriel Lima](https://twitter.com/_luisgabriel), [Francisco Soares-Neto](https://sites.google.com/a/cin.ufpe.br/frsoares/), and Paulo Lieuthier from [UFPE](http://www.ufpe.br) and Gilberto Melfe from UBI.*
 
 Researchers have been studying energy efficiency for hardware components for a long time. However, more than 20 years ago, the well-known paper [[1](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=335012)] by Tiwari, Malik, and Wolfe stated that *it is either impractical or impossible to use the lower level tools to estimate the power cost of the software component of the system*, in the context of embedded software. Apparently, lots of people agree, since the paper has more than [1100 citations](https://scholar.google.com.br/scholar?cites=11094575625336609457&as_sdt=2005&sciodt=0,5&hl=pt-BR) at [Google Scholar](http://scholar.google.com). In the last few years, the growing worldwide movement towards sustainability, including [sustainability in software](http://sustainabilitydesign.org/), combined with the systemic nature of energy efficiency as a quality attribute and the widespread adoption of mobile, battery-reliant devices have motivated the study of the energy impact of application software in execution. This tendency has led researchers to evaluate existing techniques, tools, and languages for application development from an energy-centric perspective. Recent work has studied the effect that factors such as code obfuscation [[2](http://dx.doi.org/10.1109/ICSME.2014.35)], Android API calls [[3](http://dx.doi.org/10.1145/2597073.2597085)], object-oriented code refactorings [[4](http://dx.doi.org/10.1145/2652524.2652538)], constructs for concurrent execution [[5](http://dx.doi.org/10.1145/2714064.2660235)], and data types [[6](http://doi.org/10.1007/978-3-662-46675-9_21)] have on energy efficiency. Analyzing the impact of different factors on energy is important for software developers and maintainers. It can inform their decisions about the best and worst solutions for a particular context. Moreover, it is important to make developers aware that seemingly small modifications can yield considerable gains in terms of energy. For example, a study [[3](http://dx.doi.org/10.1145/2597073.2597085)] by Vasquez et al. has discovered that some Android API calls consume 3000 of times more energy than the average Android API call. These API calls should clearly be avoided if possible and energy is an important requirement.
 
@@ -20,10 +21,10 @@ To gain insight into the answer to this question, we conducted two complementary
 We found that **small changes can make a big difference in terms of energy consumption**, specially when considering Haskell's primitives for thread management. In one of our benchmarks, [spectralnorm](http://benchmarksgame.alioth.debian.org/u64q/performance.php?test=spectralnorm), using ``forkOn`` with ``TVar`` to create new threads, instead of ``forkOS``, can save between 25 and 57% energy. The graph below presents results for both time and energy for this benchmark, when varying the number of available virtual processors (capabilities) used by the Haskell runtime in a machine with 20 physical cores. We observed similar results, though not necessarily using the same thread management primitives, for 5 other concurrent benchmarks. This is very good news for developers. Switching between thread management primitives is very simple in Haskell. Functions ``forkOn``, ``forkIO``, and ``forkOS`` take a computation of type ``IO`` as parameter and produce results of the same type. Thus, the only difficulty is in determining on which capability a thread created via ``forkOn`` will run. For most practical cases, this is a trivial decision.
 
 [![The spectral-norm benchmark.](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/spectral-norm.png "http://green-haskell.github.io/concurrency-results/?hide64=true")](http://green-haskell.github.io/concurrency-results/?hide64=true)
- 
- 
- 
-We observed a similar phenomenom for data-sharing constructs (``MVar``, ``TMVar``, ``TVar``). In one of our benchmarks, under a specific configuration, **choosing one data sharing construct, ``MVar``, over another, ``TMVar``, can yield 60% energy savings**. 
+
+
+
+We observed a similar phenomenom for data-sharing constructs (``MVar``, ``TMVar``, ``TVar``). In one of our benchmarks, under a specific configuration, **choosing one data sharing construct, ``MVar``, over another, ``TMVar``, can yield 60% energy savings**.
 Nonetheless, neither for thread management primitives nor for data sharing constructs, there is a universal winner. The results vary depending on the characteristics of each program. In another benchmark, ``TMVar``s can yield up to 30% energy savings over ``MVar``s. Alternating between data sharing primitives is not as easy as doing so for thread management primitives, but still not hard, depending on the characteristics of the program to be refactored. Going from ``MVar`` to ``TMVar`` and back is straightforward because they have very similar semantics. For the transitions from ``TMVar`` to ``TVar`` and from ``MVar`` to ``TVar``, things get trickier because the semantic distance from ``TVar`` to the other two constructs when condition-based synchronization comes into play is considerable. In this case, it is possible that a more in-depth analysis of the program behavior will be necessary. Nonetheless, save for these trickier cases, tools that support developers in quickly refactoring a program to switch between different primitives can be of great help if energy is a concern.
 
 In addition, the relationship between energy consumption and performance is not always clear. Generally, specially **in the sequential benchmarks, [high performance is a proxy for low energy consumption](http://green-haskell.github.io/data-structures-results/)**. Nonetheless, when concurrency comes into play, we found scenarios where the configuration with the best performance (30% faster than the one with the worst performance) also exhibited the second worst energy consumption (used 133% more energy than the one with the lowest usage). The following graphs illustrate this point in the context of the [fasta](http://benchmarksgame.alioth.debian.org/u64q/performance.php?test=fasta benchmark.). In both cases, a lower value is better. In the graph on the left-hand side, depicting performance, the lines for the ``TVar`` variants of the benchmark are among the lowest ones. In the graph on the right-hand side, the lines for ``TVar`` exhibit the highest values for energy consumption.
@@ -32,7 +33,7 @@ In addition, the relationship between energy consumption and performance is not 
 
 
 
-To support developers in better understanding this complex relationship, **we have extended two existing tools for performance analysis to make them energy-aware**. The first one is the [Criterion](http://hackage.haskell.org/package/criterion) benchmarking library, which we have employed extensively in the two studies. The second one is the profiler that comes with the Glasgow Haskell compiler. 
+To support developers in better understanding this complex relationship, **we have extended two existing tools for performance analysis to make them energy-aware**. The first one is the [Criterion](http://hackage.haskell.org/package/criterion) benchmarking library, which we have employed extensively in the two studies. The second one is the profiler that comes with the Glasgow Haskell compiler.
 
 The data for this study, as well as the source code for the implemented tools can be found [here](http://green-haskell.github.io). We will soon make a preprint of our paper available. If you're interested, don't hesitate to contact us.
 
@@ -47,9 +48,9 @@ The data for this study, as well as the source code for the implemented tools ca
 
 [4] C. Sahin, L. Pollock, and J. Clause, ``How do code refactorings affect energy usage?''. In Proceedings of the 8th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement, 2014, pp. 36:1-36:10.
 
-[5] G. Pinto, F. Castor, and Y. D. Liu, ``Understanding energy behaviors of thread management constructs'', In Proceedings of the 2014. ACM International Conference on Object Oriented Programming Systems Languages & Applications. Portland, USA, 2014, pp. 345-360. 
+[5] G. Pinto, F. Castor, and Y. D. Liu, ``Understanding energy behaviors of thread management constructs'', In Proceedings of the 2014. ACM International Conference on Object Oriented Programming Systems Languages & Applications. Portland, USA, 2014, pp. 345-360.
 
 [6] K. Liu, G. Pinto, and Y. Liu, ``Data-oriented characterization of application-level energy optimization''. In Proceedings of the 18th In-
 ternational Conference on Fundamental Approaches to Software Engineering, LNCS vol. 9033, 2015, pp. 316-331.
- 
+
 [7] A. E. Trefethen and J. Thiyagalingam, ``Energy-aware software: Challenges, opportunities and strategies''. Journal of Computational Science, vol. 4, no. 6, pp. 444 - 449, 2013.

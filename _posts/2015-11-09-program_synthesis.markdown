@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "A very brief overview of Program Synthesis"
 date:   2015-11-10 12:39:06
 categories: general
@@ -50,7 +51,7 @@ while (x != y) {
     y = y - x
 {% endhighlight  %}
 
-In the specification part, ``gcd`` is a logical predicate. 
+In the specification part, ``gcd`` is a logical predicate.
 
 Alexandre explained that this approach is currently capable of generating simple programs that include loops, e.g., it was capable of generating [Euclid's algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) for the greatest common divisor. This is a promising result, since loops are a common stumbling point for program synthesis and verification techniques. PSAtCIn also supports sketching (similarly to Sketch) and it is extensible for other languages that have formal syntax and semantics.
 

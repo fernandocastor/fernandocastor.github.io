@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "The most popular questions about concurrency on StackOverflow"
 date:   2015-10-28 11:39:06
 categories: concurrency
@@ -26,7 +27,7 @@ We (mainly [Gustavo Pinto](http://www.gustavopinto.org), with a little help from
 
 10. [Q323972](http://stackoverflow.com/questions/323972/) "Is there any way to kill a Thread in Python?"
 
-Among the top 10, we have questions specific to Objective-C (1), Java (2,6,9), C++ (3), C# (5), and Python (10). There are also a couple of questions asking about general concepts (3,7) and one that may be thought of as language specific or not (8). 
+Among the top 10, we have questions specific to Objective-C (1), Java (2,6,9), C++ (3), C# (5), and Python (10). There are also a couple of questions asking about general concepts (3,7) and one that may be thought of as language specific or not (8).
 
 
 What are concurrency-related questions?
@@ -82,10 +83,10 @@ We classified the questions in terms of 7 categories:
   + Q7095 "Is the C# constructor thread safe?"
   + Q680097 "I’ve heard i++ isn’t thread safe, is ++i thread-safe?"
 
-Among all the questions, only one pertained to GPUs and not a single one asked specifically about improving performance, which is surprising. I could say that we learned three main things from this study: 
+Among all the questions, only one pertained to GPUs and not a single one asked specifically about improving performance, which is surprising. I could say that we learned three main things from this study:
 
 * Developers do not understand the problems that existing tools report about concurrency errors, because they often do not understand the errors themselves. Error reports that provide actual code examples have a stronger potential to be useful (see the third point below)
 * Tools that help developers to build the software right, instead of trying to right the system after it's built are useful. For example, a simple tool that indicates to developers which parts of the code execute atomically is straightforward to build and could be easily integrated into existing IDEs
-* Developers want examples, both minimal examples of things that work correctly and minimal examples of code that help them understand concurrency problems. 
+* Developers want examples, both minimal examples of things that work correctly and minimal examples of code that help them understand concurrency problems.
 
 For more information, take a look at our [paper](http://gustavopinto.org/lost+found/plateau2015.pdf).

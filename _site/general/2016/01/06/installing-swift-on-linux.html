@@ -62,21 +62,20 @@
   </header>
 
   <article class="post-content">
-    <p>Today I installed Swift on Linux. It was much more straightforward than I thought it would be. The Ray Wenderlich <a href="http://www.raywenderlich.com/">website</a> has a nice <a href="http://www.raywenderlich.com/122189/introduction-to-open-source-swift-on-linux">tutorial</a> on how to do that. Nevertheless, this tutorial assumes that one does not have Linux installed. Therefore, it is a bit overlong and not very interesting for me, since I’m running <strong>Linux Mint (v.17 ‘Qiana’ with Cinnamon 64-bit)</strong> natively. The <a href="http://www.swift.org">Swift.org</a> website also includes step-by-step <a href="https://swift.org/download/#linux">instructions</a> on how to install Swift. The emphasis, in this case, is on contributors who will be sending pull requests or contributing directly to the Swift distribution. Therefore, it spends quite some space talking about PGP keys. Again, not quite my thing. </p>
+    <p>Today I installed Swift on Linux. It was much more straightforward than I thought it would be. The Ray Wenderlich <a href="http://www.raywenderlich.com/">website</a> has a nice <a href="http://www.raywenderlich.com/122189/introduction-to-open-source-swift-on-linux">tutorial</a> on how to do that. Nevertheless, this tutorial assumes that one does not have Linux installed. Therefore, it is a bit overlong and not very interesting for me, since I’m running <strong>Linux Mint (v.17 ‘Qiana’ with Cinnamon 64-bit)</strong> natively. The <a href="http://www.swift.org">Swift.org</a> website also includes step-by-step <a href="https://swift.org/download/#linux">instructions</a> on how to install Swift. The emphasis, in this case, is on contributors who will be sending pull requests or contributing directly to the Swift distribution. Therefore, it spends quite some space talking about PGP keys. Again, not quite my thing.</p>
 
 <p>The place where I found the definite set of instructions was Swift’s <a href="https://github.com/apple/swift/blob/master/README.md">README.MD</a> file. Since there may be other lazy developers out there who want to install Swift on Linux, I present below the lists of steps I followed, almost <em>ipsis litteris</em>, in terms of the commands I used on the Linux shell:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/apple/swift.git
 sudo apt-get install git cmake ninja-build clang python uuid-dev libicu-dev icu-devtools libbsd-dev libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config
 sudo apt-get install clang-3.6
-sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6
 sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
 <span class="nb">cd </span>swift
 ./utils/update-checkout --clone
 ./utils/build-script -t</code></pre></div>
 
 <p>A few thousands of compiled and linked files later, Swift was ready. It is important to emphasize that I already had <code>cmake</code>, the build system used by Swift, installed. If that is not the case, you’ll need to install it. I haven’t tried that myself.</p>
-
 
 
 

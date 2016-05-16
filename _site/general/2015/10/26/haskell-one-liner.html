@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Haskell one-liner</title>
-  <meta name="description" content="One of these days, @1HaskellADay posted the following programming challenge: ">
+  <meta name="description" content="One of these days, @1HaskellADay posted the following programming challenge:">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html">
@@ -62,15 +62,15 @@
   </header>
 
   <article class="post-content">
-    <p>One of these days, <a href="http://www.twitter.com/1haskelladay">@1HaskellADay</a> posted the following programming challenge: </p>
+    <p>One of these days, <a href="http://www.twitter.com/1haskelladay">@1HaskellADay</a> posted the following programming challenge:</p>
 
 <p><em>#1Liner You’re given either fst or snd, but don’t know which. Define a function that returns its dual: dual :: ((a,a) -&gt; a) -&gt; ((a,a) -&gt; a)</em></p>
 
-<p>My answer to the challenge was fairly straightforward: </p>
+<p>My answer to the challenge was fairly straightforward:</p>
 
 <div class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="nf">dual</span> <span class="n">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
 
-<p>It’s not bad, but nothing compared to <a href="http://www.twitter.com/frsoares">Francisco Soares</a>’ </p>
+<p>It’s not bad, but nothing compared to <a href="http://www.twitter.com/frsoares">Francisco Soares</a>’</p>
 
 <div class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="nf">dual</span> <span class="ow">=</span> <span class="n">uncurry</span><span class="o">.</span><span class="n">flip</span><span class="o">.</span><span class="n">curry</span></code></pre></div>
 
