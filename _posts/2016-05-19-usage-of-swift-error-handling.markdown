@@ -6,7 +6,7 @@ date:   2016-05-16 16:00:00
 categories: general
 ---
 
-** This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not undergone a careful review.**
+**This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not undergone a careful review.**
 
 
 Proceeding on the subject of [my previous post](http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html), I've manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of [Brave](https://www.brave.com/), a Web browser based on Firefox that automatically blocks ads and trackers. The second one is [Yep](https://soyep.com/), a social network app aiming to enable users to "find experts or other learners of a particular domain". Both apps are medium-sized, though appear to be above the [average iOS app](http://www.informationisbeautiful.net/visualizations/million-lines-of-code/), in terms of lines of code. Furthermore, both employ Swift's error handling constructs.
