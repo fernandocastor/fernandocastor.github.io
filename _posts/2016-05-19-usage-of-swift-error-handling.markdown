@@ -25,7 +25,7 @@ My (informal) methodology was the following. I used the Multi-file Search featur
 The following tables present the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits [e1213c2e72e99afe38814ed648f90360a498fd74](https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74) (for Brave) and [a56298a15df790c78f55f9e2c7536b86ea69478e](https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e) (for Yep).
 
 | Metric             | Brave | Yep   |
-|--------------------|------:|------:|
+|:-------------------|------:|------:|
 | lines of code      | 92855 | 61198 |
 | ``catch``          |   147 |    25 |
 |  generic ``catch`` |   121 |    25 |
