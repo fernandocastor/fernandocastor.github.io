@@ -6,9 +6,140 @@
 </description>
     <link>http://fernandocastor.github.io/</link>
     <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 May 2016 11:00:50 -0300</pubDate>
-    <lastBuildDate>Mon, 16 May 2016 11:00:50 -0300</lastBuildDate>
+    <pubDate>Fri, 20 May 2016 08:30:30 -0300</pubDate>
+    <lastBuildDate>Fri, 20 May 2016 08:30:30 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>How two apps use Swift error handling: a prefatory, cursory examination</title>
+        <description>&lt;p&gt;&lt;strong&gt;This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not yet undergone a careful review.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Proceeding on the subject of &lt;a href=&quot;http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html&quot;&gt;my previous post&lt;/a&gt;, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of &lt;a href=&quot;https://www.brave.com/&quot;&gt;Brave&lt;/a&gt;, a Web browser based on Firefox that automatically blocks ads and trackers. The second one is &lt;a href=&quot;https://soyep.com/&quot;&gt;Yep&lt;/a&gt;, a social network app aiming to enable users to “find experts or other learners of a particular domain”. Both apps are medium-sized, though appear to be above the &lt;a href=&quot;http://www.informationisbeautiful.net/visualizations/million-lines-of-code/&quot;&gt;average iOS app&lt;/a&gt;, in terms of lines of code. Furthermore, both employ Swift’s error handling constructs.&lt;/p&gt;
+
+&lt;p&gt;The main reason for me to conduct this examination is to know what constructs developers use and in what ways. For example, in Swift, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html&quot;&gt;any type can be made into an error&lt;/a&gt;, but do developers use this in awkward ways, e.g., to throw &lt;code&gt;Int&lt;/code&gt;s? Moreover, &lt;code&gt;catch&lt;/code&gt; blocks can be general, i.e., capture any error, or more specific, capturing errors by type or value. Which approach do developers seem to use more? Do developers still use &lt;code&gt;NSError&lt;/code&gt; to signal errors even though Swift has a more sophisticated error signaling and handling mechanism? This kind of information can aid tool developers in designing tools to detect code smells (&lt;em&gt;why to throw an &lt;code&gt;Int&lt;/code&gt;?&lt;/em&gt;), providing better code visualizations (&lt;em&gt;which errors get to this &lt;code&gt;catch&lt;/code&gt; block?&lt;/em&gt;), and making code recommendations (&lt;em&gt;replace this use of &lt;code&gt;NSError&lt;/code&gt; by this more specific error type or value&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;The second reason for conducting this examination is my interest in &lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/saner_2016_Swift_final.pdf?attredirects=0&amp;amp;d=1&quot;&gt;understanding the adoption of Swift&lt;/a&gt; itself. Error handling has only been introduced in Swift on version 2.0 of the language, one year after its unveiling, and it differs considerably from the well-established approach to report and handle errors in Objective-C. Thus, the adoption of this feature also tells a story about the adoption of the language itself and how developers are handling differences between Swift and its predecessor.&lt;/p&gt;
+
+&lt;p&gt;My (informal) methodology was the following. I used the Multi-file Search feature of &lt;a href=&quot;http://www.barebones.com/products/textwrangler/&quot;&gt;TextWrangler&lt;/a&gt; to search for occurrences of &lt;code&gt;catch&lt;/code&gt;, &lt;code&gt;try?&lt;/code&gt;, &lt;code&gt;try!&lt;/code&gt;, and other constructs. Then I went through each result found by TextWrangler and manually examined it to ascertain that it is actually a piece of code, instead of a comment or a text string. Finally, I recorded the number of occurrences of the construct and went to the next one. Since the counts were manual, (small) measurement errors are a possibility. Overall, I computed the following metrics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;# of &lt;code&gt;catch&lt;/code&gt; blocks&lt;/li&gt;
+  &lt;li&gt;# of generic &lt;code&gt;catch&lt;/code&gt; blocks (not specifying type, value, or protocol)&lt;/li&gt;
+  &lt;li&gt;# of uses of &lt;code&gt;try!&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;# of uses of &lt;code&gt;try?&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;# of uses of &lt;code&gt;throws&lt;/code&gt; (and &lt;code&gt;rethrows&lt;/code&gt;) clauses&lt;/li&gt;
+  &lt;li&gt;# of places that &lt;code&gt;throw&lt;/code&gt; errors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following tables present the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits &lt;a href=&quot;https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74&quot;&gt;e1213c2e72e99afe38814ed648f90360a498fd74&lt;/a&gt; (for Brave) and &lt;a href=&quot;https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e&quot;&gt;a56298a15df790c78f55f9e2c7536b86ea69478e&lt;/a&gt; (for Yep).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Metric (Brave)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lines of code&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;92855&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;147&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;generic &lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;121&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;try?&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;try!&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;78&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;throws&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;97&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;throw&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;33&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Metric (Yep)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lines of code&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;61198&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;generic &lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;try?&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;246&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;try!&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;throws&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;throw&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;It is possible to make a number of observations by looking at these numbers and also at the code from which they were extracted. First of all, clearly the vast majority of the &lt;code&gt;catch&lt;/code&gt; blocks are generic. When we say “generic”, we mean ones like the following, not specifying the value or type of the error, nor the protocol to which the error’s type conforms:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this is what we call a generic catch block&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We also considerar a &lt;code&gt;catch&lt;/code&gt; block to be generic if it includes the &lt;code&gt;_&lt;/code&gt; character right after the &lt;code&gt;catch&lt;/code&gt; keyword. In Swift, it is reasonable to expect a large number of &lt;code&gt;catch&lt;/code&gt; blocks to be generic, since every &lt;code&gt;catch&lt;/code&gt; block must include a generic clause, one that captures &lt;code&gt;NSError&lt;/code&gt;, or one that captures errors of types conforming to &lt;code&gt;ErrorType&lt;/code&gt;. The three approaches are equivalent in that they are capable of capturing any kind of error. In Brave, 121 out of the 144 &lt;code&gt;catch&lt;/code&gt; blocks we identified are generic. Out of these, 27 use &lt;code&gt;catch _&lt;/code&gt;. In Yep, 25 out of 25 are generic. Moreover, for Brave, out of the remaining 26, one uses the &lt;code&gt;where&lt;/code&gt; clause to capture the error only in case it is of type &lt;code&gt;NSError&lt;/code&gt; and additional conditions hold. For the other 25 &lt;code&gt;catch&lt;/code&gt; blocks, 4 capture specific error types of the application and the remaining ones target &lt;code&gt;NSError&lt;/code&gt;. It is interesting to note that the approach traditionally employed to present Swift’s error handling mechanism in tutorials, to use an &lt;code&gt;enum&lt;/code&gt; to define the various error cases, did not appear in any of the 169 &lt;code&gt;catch&lt;/code&gt; blocks we examined in the two apps.&lt;/p&gt;
+
+&lt;p&gt;Second, it is commonplace in Swift, as in &lt;a href=&quot;http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf&quot;&gt;other languages&lt;/a&gt;, to use empty &lt;code&gt;catch&lt;/code&gt; blocks or &lt;code&gt;catch&lt;/code&gt; blocks that just print a message on the console, without even logging it properly. In Brave, 40 &lt;code&gt;catch&lt;/code&gt; blocks are either empty or have only a comment. Many others just print a message. Also related to empty &lt;code&gt;catch&lt;/code&gt; blocks is the use of the &lt;code&gt;try?&lt;/code&gt; construct. As pointed out in Apple’s &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html&quot;&gt;Swift error handling documentation&lt;/a&gt;, this construct is just syntactic sugar:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;someThrowingFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// the line above is equivalent to the following:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;someThrowingFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Thus, even though &lt;code&gt;try?&lt;/code&gt; is not equivalent to an empty &lt;code&gt;catch&lt;/code&gt; block, all it does when an error is thrown by the invoked function is to return &lt;code&gt;nil&lt;/code&gt;. Brave uses &lt;code&gt;try?&lt;/code&gt; 15 times, mostly in IO operations targeting files, database accesses and JSON processing. Yep, on the other hand, employs &lt;code&gt;try?&lt;/code&gt; &lt;strong&gt;246 times&lt;/strong&gt;, mostly together with IO-performing operations. Apparently, Yep uses error handling mostly to deal with errors stemming from library and framework functions that might potentially throw them. In other words, it does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of &lt;code&gt;throws&lt;/code&gt; clauses and &lt;code&gt;throw&lt;/code&gt; statements from its source code. Thus, &lt;code&gt;try?&lt;/code&gt; is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what &lt;a href=&quot;http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf&quot;&gt;Java developers do&lt;/a&gt;. This impression is reinforced by the 124 times &lt;code&gt;try?&lt;/code&gt; is employed using the pattern &lt;code&gt;let _ = try? doSomething()&lt;/code&gt;, i.e., the result of &lt;code&gt;doSomething()&lt;/code&gt; will be ignored independently of whether an error occurred or not. We did notice, though, that &lt;code&gt;try?&lt;/code&gt; is employed 73 times together with &lt;code&gt;guard&lt;/code&gt; blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty &lt;code&gt;catch&lt;/code&gt; blocks.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 May 2016 20:59:00 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2016/05/19/usage-of-swift-error-handling.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2016/05/19/usage-of-swift-error-handling.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
     
       <item>
         <title>The Many Flavors of Swift&#39;s Error Handling Constructs</title>
