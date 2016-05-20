@@ -22,10 +22,10 @@ My (informal) methodology was the following. I used the Multi-file Search featur
 * \# of places that ``throw`` errors
 
 
-The following tables present the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits [e1213c2e72e99afe38814ed648f90360a498fd74](https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74) (for Brave) and [a56298a15df790c78f55f9e2c7536b86ea69478e](https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e) (for Yep).
+The following table presents the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits [e1213c2e72e99afe38814ed648f90360a498fd74](https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74) (for Brave) and [a56298a15df790c78f55f9e2c7536b86ea69478e](https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e) (for Yep).
 
-| Metric             | Brave | Yep   |
-|:-------------------|------:|------:|
+|  Metric            | Brave | Yep   |
+|--------------------|------:|------:|
 | lines of code      | 92855 | 61198 |
 | ``catch``          |   147 |    25 |
 |  generic ``catch`` |   121 |    25 |
@@ -58,10 +58,7 @@ do {
 {% endhighlight %}
 
 Thus, even though ``try?`` is not equivalent to an empty ``catch`` block, all it does when an error is thrown by the invoked function is to return ``nil``. Brave uses ``try?`` 15 times, mostly in IO operations targeting files, database accesses and JSON processing. Yep, on the other hand, employs ``try?`` **246 times**, mostly together with IO-performing operations. Apparently, Yep uses error handling mostly to deal with errors stemming from library and framework functions that might potentially throw them. In other words, it does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of ``throws`` clauses and ``throw`` statements from its source code. Thus, ``try?`` is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what [Java developers do](http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf). This impression is reinforced by the 124 times ``try?`` is employed using the pattern ``let _ = try? doSomething()``, i.e., the result of ``doSomething()`` will be ignored independently of whether an error occurred or not. We did notice, though, that ``try?`` is employed 73 times together with ``guard`` blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty ``catch`` blocks.
-<<<<<<< HEAD
 
 Third, Brave clearly uses Swift's error handling mechanism to report errors. Errors are thrown from 33 places in the code and 97 functions include ``throws`` clauses. It even includes a function that uses the  [``rethrows``](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID531) clause, a special kind of ``throws`` indicating that the function takes a closure as an argument and all the errors it throws actually stem from that closure. All the thrown errors are either instances of ``NSError`` or values of a struct type ``Error`` defined by the application. As discussed before, errors of the latter type are rarely explicitly capture by ``catch`` blocks, since most of them either are generic or target ``NSError``. Yep differs from Brave in that it does not use Swift error handling to report errors. It does not throw a single error, nor has any function that ``throws``.
 
 Finally, both apps make use of ``try!``, mostly associated with IO operations involving file or database access, regular expression parsing, and JSON processing. This construct produces a runtime error that causes the app to crash when an operation produces an error. Analyzing what kinds of errors can be produced by operations executed with this construct is left for future work.
-=======
->>>>>>> 12b59c829a28f5edf5d9f112b70e81418102e37f
