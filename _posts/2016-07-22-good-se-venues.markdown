@@ -23,4 +23,4 @@ This is a good list of publication venues in the area of software engineering. I
 (software|programming) -encryption -mathematical -statistical -interface -advances -performance -environmental
 {% endhighlight %}
 
-You can check the list produced by this search string [here](https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=%28software%7Cprogramming%29+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental). It includes most of the usual suspects, with a few notable omissions (*O ECOOP, where art thou?*).
+You can check the list produced by this search string [here](https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=%28software%7Cprogramming%29+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental). It includes most of the usual suspects, with a few notable omissions, e.g., ECOOP, a very good conference in the area of Object-Oriented Programming, is not there.
