@@ -15,7 +15,7 @@ software -encryption -mathematical -statistical -interface -advances -performanc
 
 Which yielded the following list of conferences and journals:
 
-[![Top 20 Software Engineering venues](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/vanues.png "https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental")](https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental)
+[![Top 20 Software Engineering venues](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/venues.png "https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental")](https://scholar.google.com.br/citations?hl=en&view_op=search_venues&vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental)
 
 This is a good list of publication venues in the area of software engineering. It is not perfect, but it is very useful, particularly for new researchers who are wondering about where to publish their work. Its most evident problem is that it does not account for programming language venues. This may be a problem or not, depending on one's line of work. If we assume that most good PL venues include the work "Programming" on their titles (POPL, OOPSLA, PLDI, PPoPP, ASPLOS, ICFP meet this criterium), it is only a matter of modifying our search string slightly:
 
