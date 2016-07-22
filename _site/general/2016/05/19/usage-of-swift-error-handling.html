@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>How two apps use Swift error handling: a prefatory, cursory examination</title>
-  <meta name="description" content="This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not yet undergone a careful review.">
+  <meta name="description" content="Proceeding on the subject of my previous post, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is t...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://fernandocastor.github.io/general/2016/05/19/usage-of-swift-error-handling.html">
@@ -62,15 +62,13 @@
   </header>
 
   <article class="post-content">
-    <p><strong>This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not yet undergone a careful review.</strong></p>
-
-<p>Proceeding on the subject of <a href="http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">my previous post</a>, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of <a href="https://www.brave.com/">Brave</a>, a Web browser based on Firefox that automatically blocks ads and trackers. The second one is <a href="https://soyep.com/">Yep</a>, a social network app aiming to enable users to “find experts or other learners of a particular domain”. Both apps are medium-sized, though appear to be above the <a href="http://www.informationisbeautiful.net/visualizations/million-lines-of-code/">average iOS app</a>, in terms of lines of code. Furthermore, both employ Swift’s error handling constructs.</p>
+    <p>Proceeding on the subject of <a href="http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">my previous post</a>, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of <a href="https://www.brave.com/">Brave</a>, a Web browser based on Firefox that automatically blocks ads and trackers. The second one is <a href="https://soyep.com/">Yep</a>, a social network app aiming to enable users to “find experts or other learners of a particular domain”. Both apps are medium-sized, though appear to be above the <a href="http://www.informationisbeautiful.net/visualizations/million-lines-of-code/">average iOS app</a>, in terms of lines of code. Furthermore, both employ Swift’s error handling constructs.</p>
 
 <p>The main reason for me to conduct this examination is to know what constructs developers use and in what ways. For example, in Swift, <a href="http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">any type can be made into an error</a>, but do developers use this in awkward ways, e.g., to throw <code>Int</code>s? Moreover, <code>catch</code> blocks can be general, i.e., capture any error, or more specific, capturing errors by type or value. Which approach do developers seem to use more? Do developers still use <code>NSError</code> to signal errors even though Swift has a more sophisticated error signaling and handling mechanism? This kind of information can aid tool developers in designing tools to detect code smells (<em>why to throw an <code>Int</code>?</em>), providing better code visualizations (<em>which errors get to this <code>catch</code> block?</em>), and making code recommendations (<em>replace this use of <code>NSError</code> by this more specific error type or value</em>).</p>
 
 <p>The second reason for conducting this examination is my interest in <a href="https://sites.google.com/a/cin.ufpe.br/castor/saner_2016_Swift_final.pdf?attredirects=0&amp;d=1">understanding the adoption of Swift</a> itself. Error handling has only been introduced in Swift on version 2.0 of the language, one year after its unveiling, and it differs considerably from the well-established approach to report and handle errors in Objective-C. Thus, the adoption of this feature also tells a story about the adoption of the language itself and how developers are handling differences between Swift and its predecessor.</p>
 
-<p>My (informal) methodology was the following. I used the Multi-file Search feature of <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> to search for occurrences of <code>catch</code>, <code>try?</code>, <code>try!</code>, and other constructs. Then I went through each result found by TextWrangler and manually examined it to ascertain that it is actually a piece of code, instead of a comment or a text string. Finally, I recorded the number of occurrences of the construct and went to the next one. Since the counts were manual, (small) measurement errors are a possibility. Overall, I computed the following metrics:</p>
+<p>My (informal) methodology was the following. I used the Multi-file Search feature of <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> to search for occurrences of <code>catch</code>, <code>try?</code>, <code>try!</code>, and other constructs. Then I went through each result found by TextWrangler and manually examined it to ascertain that it is actually a piece of code, instead of a comment or a text string. I did not, though, ascertain that the piece of code is reachable. Finally, I recorded the number of occurrences of the construct and went to the next one. Since the counts were manual, (small) measurement errors are a possibility. Overall, I computed the following metrics:</p>
 
 <ul>
   <li># of <code>catch</code> blocks</li>
@@ -81,94 +79,65 @@
   <li># of places that <code>throw</code> errors</li>
 </ul>
 
-<p>The following tables present the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits <a href="https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74">e1213c2e72e99afe38814ed648f90360a498fd74</a> (for Brave) and <a href="https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e">a56298a15df790c78f55f9e2c7536b86ea69478e</a> (for Yep).</p>
+<p>The following table presents the results I have obtained for Brave and Yep. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits <a href="https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74">e1213c2e72e99afe38814ed648f90360a498fd74</a> (for Brave) and <a href="https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e">a56298a15df790c78f55f9e2c7536b86ea69478e</a> (for Yep).</p>
 
 <table>
   <thead>
     <tr>
-      <th>Metric (Brave)</th>
-      <th style="text-align: right">Value</th>
+      <th>Metric</th>
+      <th style="text-align: right">Brave</th>
+      <th style="text-align: right">Yep</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>lines of code</td>
       <td style="text-align: right">92855</td>
-    </tr>
-    <tr>
-      <td><code>catch</code></td>
-      <td style="text-align: right">147</td>
-    </tr>
-    <tr>
-      <td>generic <code>catch</code></td>
-      <td style="text-align: right">121</td>
-    </tr>
-    <tr>
-      <td><code>try?</code></td>
-      <td style="text-align: right">15</td>
-    </tr>
-    <tr>
-      <td><code>try!</code></td>
-      <td style="text-align: right">78</td>
-    </tr>
-    <tr>
-      <td><code>throws</code></td>
-      <td style="text-align: right">97</td>
-    </tr>
-    <tr>
-      <td><code>throw</code></td>
-      <td style="text-align: right">33</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Metric (Yep)</th>
-      <th style="text-align: right">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>lines of code</td>
       <td style="text-align: right">61198</td>
     </tr>
     <tr>
       <td><code>catch</code></td>
+      <td style="text-align: right">147</td>
       <td style="text-align: right">25</td>
     </tr>
     <tr>
       <td>generic <code>catch</code></td>
+      <td style="text-align: right">121</td>
       <td style="text-align: right">25</td>
     </tr>
     <tr>
       <td><code>try?</code></td>
+      <td style="text-align: right">15</td>
       <td style="text-align: right">246</td>
     </tr>
     <tr>
       <td><code>try!</code></td>
+      <td style="text-align: right">78</td>
       <td style="text-align: right">25</td>
     </tr>
     <tr>
       <td><code>throws</code></td>
+      <td style="text-align: right">97</td>
       <td style="text-align: right">0</td>
     </tr>
     <tr>
-      <td><code>throw</code></td>
+      <td><code>throws</code></td>
+      <td style="text-align: right">33</td>
       <td style="text-align: right">0</td>
     </tr>
   </tbody>
 </table>
 
-<p>It is possible to make a number of observations by looking at these numbers and also at the code from which they were extracted. First of all, clearly the vast majority of the <code>catch</code> blocks are generic. When we say “generic”, we mean ones like the following, not specifying the value or type of the error, nor the protocol to which the error’s type conforms:</p>
+<p>It is possible to make a number of observations by looking at these numbers and also at the code from which they were extracted. First of all, most of the <code>catch</code> blocks are generic. When we say “generic”, we mean ones like the following, not specifying the value or type of the error, nor the protocol to which the error’s type conforms:</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">do</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 <span class="n">catch</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">// this is what we call a generic catch block</span></code></pre></div>
 
-<p>We also considerar a <code>catch</code> block to be generic if it includes the <code>_</code> character right after the <code>catch</code> keyword. In Swift, it is reasonable to expect a large number of <code>catch</code> blocks to be generic, since every <code>catch</code> block must include a generic clause, one that captures <code>NSError</code>, or one that captures errors of types conforming to <code>ErrorType</code>. The three approaches are equivalent in that they are capable of capturing any kind of error. In Brave, 121 out of the 144 <code>catch</code> blocks we identified are generic. Out of these, 27 use <code>catch _</code>. In Yep, 25 out of 25 are generic. Moreover, for Brave, out of the remaining 26, one uses the <code>where</code> clause to capture the error only in case it is of type <code>NSError</code> and additional conditions hold. For the other 25 <code>catch</code> blocks, 4 capture specific error types of the application and the remaining ones target <code>NSError</code>. It is interesting to note that the approach traditionally employed to present Swift’s error handling mechanism in tutorials, to use an <code>enum</code> to define the various error cases, did not appear in any of the 169 <code>catch</code> blocks we examined in the two apps.</p>
+<p>We also consider a <code>catch</code> block to be generic if it includes the <code>_</code> character right after the <code>catch</code> keyword. In Swift, it is reasonable to expect a large number of <code>catch</code> blocks to be generic, since every <code>catch</code> block must include a generic clause, one that captures <code>NSError</code>, or one that captures errors of types conforming to <code>ErrorType</code>. The three approaches are equivalent in that they are capable of capturing any kind of error. In Brave, 121 out of the 147 <code>catch</code> blocks we identified are generic. Out of these, 27 use <code>catch _</code>. In Yep, 25 out of 25 are generic. Moreover, for Brave, out of the remaining 26, one uses the <code>where</code> clause to capture the error only in case it is of type <code>NSError</code> and additional conditions hold. For the other 25 <code>catch</code> blocks, 4 capture specific error types of the application and the remaining ones target <code>NSError</code>.</p>
 
-<p>Second, it is commonplace in Swift, as in <a href="http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf">other languages</a>, to use empty <code>catch</code> blocks or <code>catch</code> blocks that just print a message on the console, without even logging it properly. In Brave, 40 <code>catch</code> blocks are either empty or have only a comment. Many others just print a message. Also related to empty <code>catch</code> blocks is the use of the <code>try?</code> construct. As pointed out in Apple’s <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html">Swift error handling documentation</a>, this construct is just syntactic sugar:</p>
+<p>Existing tutorials on error handling in Swift (e.g., <a href="https://www.bignerdranch.com/blog/error-handling-in-swift-2/">this</a>, <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html">this</a>, and <a href="https://www.hackingwithswift.com/new-syntax-swift-2-error-handling-try-catch">this</a>) typically suggest the use an <code>enum</code> to define the various error cases, with <code>catch</code>clauses capturing errors by pattern matching on the cases of the enum. Even Swift’s <a href="https://github.com/apple/swift/blob/master/docs/ErrorHandlingRationale.rst#id49">error handling design rationale document</a> suggests this approach. Notwithstanding, we did not encounter a single occurrence of errors defined by means of an enum, nor error capturing by pattern matching on value, in any of the 172 <code>catch</code> blocks we examined in the two apps.</p>
+
+<p>Second, it is commonplace in Swift, as in <a href="http://link.springer.com/chapter/10.1007%2F978-3-540-73589-2_8">other languages</a>, to use empty <code>catch</code> blocks or <code>catch</code> blocks that just print a message on the console, without even logging it properly. In Brave, 40 <code>catch</code> blocks are either empty or have only a comment. Many others just print a message. Also related to empty <code>catch</code> blocks is the use of the <code>try?</code> construct. As pointed out in Apple’s <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html">Swift error handling documentation</a>, this construct is just syntactic sugar:</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">try</span><span class="o">?</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
 
@@ -180,7 +149,11 @@
     <span class="n">y</span> <span class="o">=</span> <span class="nb">nil</span>
 <span class="p">}</span></code></pre></div>
 
-<p>Thus, even though <code>try?</code> is not equivalent to an empty <code>catch</code> block, all it does when an error is thrown by the invoked function is to return <code>nil</code>. Brave uses <code>try?</code> 15 times, mostly in IO operations targeting files, database accesses and JSON processing. Yep, on the other hand, employs <code>try?</code> <strong>246 times</strong>, mostly together with IO-performing operations. Apparently, Yep uses error handling mostly to deal with errors stemming from library and framework functions that might potentially throw them. In other words, it does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of <code>throws</code> clauses and <code>throw</code> statements from its source code. Thus, <code>try?</code> is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what <a href="http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf">Java developers do</a>. This impression is reinforced by the 124 times <code>try?</code> is employed using the pattern <code>let _ = try? doSomething()</code>, i.e., the result of <code>doSomething()</code> will be ignored independently of whether an error occurred or not. We did notice, though, that <code>try?</code> is employed 73 times together with <code>guard</code> blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty <code>catch</code> blocks.</p>
+<p>Thus, even though <code>try?</code> is not equivalent to an empty <code>catch</code> block, all it does when an error is thrown by the invoked function is to return <code>nil</code>. Brave uses <code>try?</code> 15 times, mostly in IO operations targeting files, database accesses, and JSON processing. Yep, on the other hand, employs <code>try?</code> <strong>246 times</strong>, mostly together with IO-performing operations. Apparently, Yep generally uses error handling to deal with errors stemming from library and framework functions that might potentially throw them. It does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of <code>throws</code> clauses and <code>throw</code> statements in its source code. Thus, <code>try?</code> is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what <a href="http://link.springer.com/chapter/10.1007%2F978-3-540-73589-2_8#page-1">Java developers do</a>. This impression is reinforced by the 124 times <code>try?</code> is employed using the pattern <code>let _ = try? doSomething()</code>, i.e., the result of <code>doSomething()</code> will be ignored independently of whether an error occurred or not. We did notice, though, that <code>try?</code> is employed 73 times together with <code>guard</code> blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty <code>catch</code> blocks.</p>
+
+<p>Third, Brave clearly employs Swift’s error handling mechanism to report errors. Errors are thrown from 33 places in the code and 97 functions include <code>throws</code> clauses. It even includes a function that uses the  <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID531"><code>rethrows</code></a> clause, a special kind of <code>throws</code> indicating that the function takes a closure as an argument and all the errors it throws actually stem from that closure. All the thrown errors are either instances of <code>NSError</code> or values of a struct type <code>Error</code> defined by the application. As discussed before, errors of the latter type are rarely explicitly captured by <code>catch</code> blocks, since most of them either are generic or target <code>NSError</code>. Yep differs from Brave in that it does not use Swift error handling to report errors. It does not throw a single error, nor has any function that <code>throws</code>.</p>
+
+<p>Finally, both apps make use of <code>try!</code>, mostly associated with IO operations involving file or database access, regular expression parsing, and JSON processing. This construct produces a runtime error that causes the app to crash when an operation produces an error. Analyzing what kinds of errors can be produced by operations executed with this construct is left for future work because it requires (i) tools that are not available at the moment to perform exception flow analysis; and (ii) knowledge about modules external to the apps.</p>
 
 
 

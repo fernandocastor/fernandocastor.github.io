@@ -6,21 +6,46 @@
 </description>
     <link>http://fernandocastor.github.io/</link>
     <atom:link href="http://fernandocastor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 May 2016 08:30:30 -0300</pubDate>
-    <lastBuildDate>Fri, 20 May 2016 08:30:30 -0300</lastBuildDate>
+    <pubDate>Fri, 22 Jul 2016 14:46:35 -0300</pubDate>
+    <lastBuildDate>Fri, 22 Jul 2016 14:46:35 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>How two apps use Swift error handling: a prefatory, cursory examination</title>
-        <description>&lt;p&gt;&lt;strong&gt;This post is a work-in-progress. Thus, it is still not complete, content-wise, and has not yet undergone a careful review.&lt;/strong&gt;&lt;/p&gt;
+        <title>Good Software Engineering research venues</title>
+        <description>&lt;p&gt;A week ago, &lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt; released its &lt;a href=&quot;https://googlescholar.blogspot.com.br/2016/07/2016-scholar-metrics-released_14.html&quot;&gt;2016 Google Scholar Metrics&lt;/a&gt; report. This report is sort of an interactive best-of of scientific publication venues. If you go to its &lt;a href=&quot;https://scholar.google.com/citations?view_op=top_venues&quot;&gt;&lt;strong&gt;Top Venues&lt;/strong&gt; page&lt;/a&gt;, you’ll see publication venues that are know to almost everyone, not just scientists, such as &lt;a href=&quot;http://www.nature.com&quot;&gt;Nature&lt;/a&gt;, &lt;a href=&quot;http://www.thelancet.com&quot;&gt;The Lancet&lt;/a&gt;, &lt;a href=&quot;http://www.sciencemag.com&quot;&gt;Science&lt;/a&gt;, etc. Publications are ranked based on their H5-index. The &lt;a href=&quot;https://en.wikipedia.org/wiki/H-index&quot;&gt;H-index&lt;/a&gt; is a well-known measure of productivity and scientific impact that can be applied to both individuals and publication venues. Basically, the H-index &lt;em&gt;N&lt;/em&gt; of an individual or publication venue is its number &lt;em&gt;N&lt;/em&gt; of publications that have at least &lt;em&gt;N&lt;/em&gt; citations. The H5-index is thus the H-index applied only to the last 5 years and it is a measure of &lt;strong&gt;recent impact&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Proceeding on the subject of &lt;a href=&quot;http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html&quot;&gt;my previous post&lt;/a&gt;, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of &lt;a href=&quot;https://www.brave.com/&quot;&gt;Brave&lt;/a&gt;, a Web browser based on Firefox that automatically blocks ads and trackers. The second one is &lt;a href=&quot;https://soyep.com/&quot;&gt;Yep&lt;/a&gt;, a social network app aiming to enable users to “find experts or other learners of a particular domain”. Both apps are medium-sized, though appear to be above the &lt;a href=&quot;http://www.informationisbeautiful.net/visualizations/million-lines-of-code/&quot;&gt;average iOS app&lt;/a&gt;, in terms of lines of code. Furthermore, both employ Swift’s error handling constructs.&lt;/p&gt;
+&lt;p&gt;In my opinion, one of the most interesting feature of Scholar Metrics for scientists is that it is searchable in a simple, flexible way. In this manner, it becomes possible to narrow down search to a very specific area, in order to discover the most relevant venues for that area. I decided to do just that for my research area, Software Engineering. I started out with a simple string, “Software Engineering”. The problem with that string is that it excludes venues that do not include “Engineering” in their names, such as &lt;a href=&quot;https://www.computer.org/software-magazine/&quot;&gt;IEEE Software&lt;/a&gt; and the &lt;a href=&quot;http://www.journals.elsevier.com/journal-of-systems-and-software/&quot;&gt;Journal of Systems and Software&lt;/a&gt;. I decided to be more liberal and use just “Software”. This worked out better, but brought a number of spurious results on subjects such as “Statistical Software”, “Mathematical Software”, and “Software Encryption”. These topics are not really Software Engineering and needed to be excluded manually. In the end, I used the following search string:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;n&quot;&gt;software&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encryption&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mathematical&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statistical&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;advances&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;performance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environmental&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Which yielded the following list of conferences and journals:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://scholar.google.com.br/citations?hl=en&amp;amp;view_op=search_venues&amp;amp;vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/vanues.png&quot; alt=&quot;Top 20 Software Engineering venues&quot; title=&quot;https://scholar.google.com.br/citations?hl=en&amp;amp;view_op=search_venues&amp;amp;vq=software+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is a good list of publication venues in the area of software engineering. It is not perfect, but it is very useful, particularly for new researchers who are wondering about where to publish their work. Its most evident problem is that it does not account for programming language venues. This may be a problem or not, depending on one’s line of work. If we assume that most good PL venues include the work “Programming” on their titles (POPL, OOPSLA, PLDI, PPoPP, ASPLOS, ICFP meet this criterium), it is only a matter of modifying our search string slightly:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;software&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;programming&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encryption&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mathematical&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statistical&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;advances&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;performance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environmental&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can check the list produced by this search string &lt;a href=&quot;https://scholar.google.com.br/citations?hl=en&amp;amp;view_op=search_venues&amp;amp;vq=%28software%7Cprogramming%29+-encryption+-mathematical+-statistical+-interface+-advances+-performance+-environmental&quot;&gt;here&lt;/a&gt;. It includes most of the usual suspects, with a few notable omissions (&lt;em&gt;O ECOOP, where art thou?&lt;/em&gt;).&lt;/p&gt;
+</description>
+        <pubDate>Fri, 22 Jul 2016 11:10:06 -0300</pubDate>
+        <link>http://fernandocastor.github.io/general/2016/07/22/good-se-venues.html</link>
+        <guid isPermaLink="true">http://fernandocastor.github.io/general/2016/07/22/good-se-venues.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
+        <title>How two apps use Swift error handling: a prefatory, cursory examination</title>
+        <description>&lt;p&gt;Proceeding on the subject of &lt;a href=&quot;http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html&quot;&gt;my previous post&lt;/a&gt;, I’ve manually examined the usage of error handling constructs in two apps written in Swift. The first one is the iOS version of &lt;a href=&quot;https://www.brave.com/&quot;&gt;Brave&lt;/a&gt;, a Web browser based on Firefox that automatically blocks ads and trackers. The second one is &lt;a href=&quot;https://soyep.com/&quot;&gt;Yep&lt;/a&gt;, a social network app aiming to enable users to “find experts or other learners of a particular domain”. Both apps are medium-sized, though appear to be above the &lt;a href=&quot;http://www.informationisbeautiful.net/visualizations/million-lines-of-code/&quot;&gt;average iOS app&lt;/a&gt;, in terms of lines of code. Furthermore, both employ Swift’s error handling constructs.&lt;/p&gt;
 
 &lt;p&gt;The main reason for me to conduct this examination is to know what constructs developers use and in what ways. For example, in Swift, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html&quot;&gt;any type can be made into an error&lt;/a&gt;, but do developers use this in awkward ways, e.g., to throw &lt;code&gt;Int&lt;/code&gt;s? Moreover, &lt;code&gt;catch&lt;/code&gt; blocks can be general, i.e., capture any error, or more specific, capturing errors by type or value. Which approach do developers seem to use more? Do developers still use &lt;code&gt;NSError&lt;/code&gt; to signal errors even though Swift has a more sophisticated error signaling and handling mechanism? This kind of information can aid tool developers in designing tools to detect code smells (&lt;em&gt;why to throw an &lt;code&gt;Int&lt;/code&gt;?&lt;/em&gt;), providing better code visualizations (&lt;em&gt;which errors get to this &lt;code&gt;catch&lt;/code&gt; block?&lt;/em&gt;), and making code recommendations (&lt;em&gt;replace this use of &lt;code&gt;NSError&lt;/code&gt; by this more specific error type or value&lt;/em&gt;).&lt;/p&gt;
 
 &lt;p&gt;The second reason for conducting this examination is my interest in &lt;a href=&quot;https://sites.google.com/a/cin.ufpe.br/castor/saner_2016_Swift_final.pdf?attredirects=0&amp;amp;d=1&quot;&gt;understanding the adoption of Swift&lt;/a&gt; itself. Error handling has only been introduced in Swift on version 2.0 of the language, one year after its unveiling, and it differs considerably from the well-established approach to report and handle errors in Objective-C. Thus, the adoption of this feature also tells a story about the adoption of the language itself and how developers are handling differences between Swift and its predecessor.&lt;/p&gt;
 
-&lt;p&gt;My (informal) methodology was the following. I used the Multi-file Search feature of &lt;a href=&quot;http://www.barebones.com/products/textwrangler/&quot;&gt;TextWrangler&lt;/a&gt; to search for occurrences of &lt;code&gt;catch&lt;/code&gt;, &lt;code&gt;try?&lt;/code&gt;, &lt;code&gt;try!&lt;/code&gt;, and other constructs. Then I went through each result found by TextWrangler and manually examined it to ascertain that it is actually a piece of code, instead of a comment or a text string. Finally, I recorded the number of occurrences of the construct and went to the next one. Since the counts were manual, (small) measurement errors are a possibility. Overall, I computed the following metrics:&lt;/p&gt;
+&lt;p&gt;My (informal) methodology was the following. I used the Multi-file Search feature of &lt;a href=&quot;http://www.barebones.com/products/textwrangler/&quot;&gt;TextWrangler&lt;/a&gt; to search for occurrences of &lt;code&gt;catch&lt;/code&gt;, &lt;code&gt;try?&lt;/code&gt;, &lt;code&gt;try!&lt;/code&gt;, and other constructs. Then I went through each result found by TextWrangler and manually examined it to ascertain that it is actually a piece of code, instead of a comment or a text string. I did not, though, ascertain that the piece of code is reachable. Finally, I recorded the number of occurrences of the construct and went to the next one. Since the counts were manual, (small) measurement errors are a possibility. Overall, I computed the following metrics:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;# of &lt;code&gt;catch&lt;/code&gt; blocks&lt;/li&gt;
@@ -31,94 +56,65 @@
   &lt;li&gt;# of places that &lt;code&gt;throw&lt;/code&gt; errors&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The following tables present the results I have obtained for Brave and Yep, respectively. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits &lt;a href=&quot;https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74&quot;&gt;e1213c2e72e99afe38814ed648f90360a498fd74&lt;/a&gt; (for Brave) and &lt;a href=&quot;https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e&quot;&gt;a56298a15df790c78f55f9e2c7536b86ea69478e&lt;/a&gt; (for Yep).&lt;/p&gt;
+&lt;p&gt;The following table presents the results I have obtained for Brave and Yep. Metrics names are shortened but hopefully remain clear. Moreover, they were obtained from commits &lt;a href=&quot;https://github.com/brave/browser-ios/commit/e1213c2e72e99afe38814ed648f90360a498fd74&quot;&gt;e1213c2e72e99afe38814ed648f90360a498fd74&lt;/a&gt; (for Brave) and &lt;a href=&quot;https://github.com/CatchChat/Yep/commit/a56298a15df790c78f55f9e2c7536b86ea69478e&quot;&gt;a56298a15df790c78f55f9e2c7536b86ea69478e&lt;/a&gt; (for Yep).&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Metric (Brave)&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
+      &lt;th&gt;Metric&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Brave&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Yep&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;lines of code&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;92855&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;147&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;generic &lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;121&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;try?&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;try!&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;78&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;throws&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;97&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;throw&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;33&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Metric (Yep)&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;lines of code&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;61198&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;147&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;generic &lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;121&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code&gt;try?&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;246&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code&gt;try!&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;78&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code&gt;throws&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;97&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;throw&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;throws&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;33&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;It is possible to make a number of observations by looking at these numbers and also at the code from which they were extracted. First of all, clearly the vast majority of the &lt;code&gt;catch&lt;/code&gt; blocks are generic. When we say “generic”, we mean ones like the following, not specifying the value or type of the error, nor the protocol to which the error’s type conforms:&lt;/p&gt;
+&lt;p&gt;It is possible to make a number of observations by looking at these numbers and also at the code from which they were extracted. First of all, most of the &lt;code&gt;catch&lt;/code&gt; blocks are generic. When we say “generic”, we mean ones like the following, not specifying the value or type of the error, nor the protocol to which the error’s type conforms:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this is what we call a generic catch block&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;We also considerar a &lt;code&gt;catch&lt;/code&gt; block to be generic if it includes the &lt;code&gt;_&lt;/code&gt; character right after the &lt;code&gt;catch&lt;/code&gt; keyword. In Swift, it is reasonable to expect a large number of &lt;code&gt;catch&lt;/code&gt; blocks to be generic, since every &lt;code&gt;catch&lt;/code&gt; block must include a generic clause, one that captures &lt;code&gt;NSError&lt;/code&gt;, or one that captures errors of types conforming to &lt;code&gt;ErrorType&lt;/code&gt;. The three approaches are equivalent in that they are capable of capturing any kind of error. In Brave, 121 out of the 144 &lt;code&gt;catch&lt;/code&gt; blocks we identified are generic. Out of these, 27 use &lt;code&gt;catch _&lt;/code&gt;. In Yep, 25 out of 25 are generic. Moreover, for Brave, out of the remaining 26, one uses the &lt;code&gt;where&lt;/code&gt; clause to capture the error only in case it is of type &lt;code&gt;NSError&lt;/code&gt; and additional conditions hold. For the other 25 &lt;code&gt;catch&lt;/code&gt; blocks, 4 capture specific error types of the application and the remaining ones target &lt;code&gt;NSError&lt;/code&gt;. It is interesting to note that the approach traditionally employed to present Swift’s error handling mechanism in tutorials, to use an &lt;code&gt;enum&lt;/code&gt; to define the various error cases, did not appear in any of the 169 &lt;code&gt;catch&lt;/code&gt; blocks we examined in the two apps.&lt;/p&gt;
+&lt;p&gt;We also consider a &lt;code&gt;catch&lt;/code&gt; block to be generic if it includes the &lt;code&gt;_&lt;/code&gt; character right after the &lt;code&gt;catch&lt;/code&gt; keyword. In Swift, it is reasonable to expect a large number of &lt;code&gt;catch&lt;/code&gt; blocks to be generic, since every &lt;code&gt;catch&lt;/code&gt; block must include a generic clause, one that captures &lt;code&gt;NSError&lt;/code&gt;, or one that captures errors of types conforming to &lt;code&gt;ErrorType&lt;/code&gt;. The three approaches are equivalent in that they are capable of capturing any kind of error. In Brave, 121 out of the 147 &lt;code&gt;catch&lt;/code&gt; blocks we identified are generic. Out of these, 27 use &lt;code&gt;catch _&lt;/code&gt;. In Yep, 25 out of 25 are generic. Moreover, for Brave, out of the remaining 26, one uses the &lt;code&gt;where&lt;/code&gt; clause to capture the error only in case it is of type &lt;code&gt;NSError&lt;/code&gt; and additional conditions hold. For the other 25 &lt;code&gt;catch&lt;/code&gt; blocks, 4 capture specific error types of the application and the remaining ones target &lt;code&gt;NSError&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Second, it is commonplace in Swift, as in &lt;a href=&quot;http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf&quot;&gt;other languages&lt;/a&gt;, to use empty &lt;code&gt;catch&lt;/code&gt; blocks or &lt;code&gt;catch&lt;/code&gt; blocks that just print a message on the console, without even logging it properly. In Brave, 40 &lt;code&gt;catch&lt;/code&gt; blocks are either empty or have only a comment. Many others just print a message. Also related to empty &lt;code&gt;catch&lt;/code&gt; blocks is the use of the &lt;code&gt;try?&lt;/code&gt; construct. As pointed out in Apple’s &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html&quot;&gt;Swift error handling documentation&lt;/a&gt;, this construct is just syntactic sugar:&lt;/p&gt;
+&lt;p&gt;Existing tutorials on error handling in Swift (e.g., &lt;a href=&quot;https://www.bignerdranch.com/blog/error-handling-in-swift-2/&quot;&gt;this&lt;/a&gt;, &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html&quot;&gt;this&lt;/a&gt;, and &lt;a href=&quot;https://www.hackingwithswift.com/new-syntax-swift-2-error-handling-try-catch&quot;&gt;this&lt;/a&gt;) typically suggest the use an &lt;code&gt;enum&lt;/code&gt; to define the various error cases, with &lt;code&gt;catch&lt;/code&gt;clauses capturing errors by pattern matching on the cases of the enum. Even Swift’s &lt;a href=&quot;https://github.com/apple/swift/blob/master/docs/ErrorHandlingRationale.rst#id49&quot;&gt;error handling design rationale document&lt;/a&gt; suggests this approach. Notwithstanding, we did not encounter a single occurrence of errors defined by means of an enum, nor error capturing by pattern matching on value, in any of the 172 &lt;code&gt;catch&lt;/code&gt; blocks we examined in the two apps.&lt;/p&gt;
+
+&lt;p&gt;Second, it is commonplace in Swift, as in &lt;a href=&quot;http://link.springer.com/chapter/10.1007%2F978-3-540-73589-2_8&quot;&gt;other languages&lt;/a&gt;, to use empty &lt;code&gt;catch&lt;/code&gt; blocks or &lt;code&gt;catch&lt;/code&gt; blocks that just print a message on the console, without even logging it properly. In Brave, 40 &lt;code&gt;catch&lt;/code&gt; blocks are either empty or have only a comment. Many others just print a message. Also related to empty &lt;code&gt;catch&lt;/code&gt; blocks is the use of the &lt;code&gt;try?&lt;/code&gt; construct. As pointed out in Apple’s &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html&quot;&gt;Swift error handling documentation&lt;/a&gt;, this construct is just syntactic sugar:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;someThrowingFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
@@ -130,7 +126,11 @@
     &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Thus, even though &lt;code&gt;try?&lt;/code&gt; is not equivalent to an empty &lt;code&gt;catch&lt;/code&gt; block, all it does when an error is thrown by the invoked function is to return &lt;code&gt;nil&lt;/code&gt;. Brave uses &lt;code&gt;try?&lt;/code&gt; 15 times, mostly in IO operations targeting files, database accesses and JSON processing. Yep, on the other hand, employs &lt;code&gt;try?&lt;/code&gt; &lt;strong&gt;246 times&lt;/strong&gt;, mostly together with IO-performing operations. Apparently, Yep uses error handling mostly to deal with errors stemming from library and framework functions that might potentially throw them. In other words, it does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of &lt;code&gt;throws&lt;/code&gt; clauses and &lt;code&gt;throw&lt;/code&gt; statements from its source code. Thus, &lt;code&gt;try?&lt;/code&gt; is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what &lt;a href=&quot;http://pmarques.dei.uc.pt/papers/bcabral2007_ecoop.pdf&quot;&gt;Java developers do&lt;/a&gt;. This impression is reinforced by the 124 times &lt;code&gt;try?&lt;/code&gt; is employed using the pattern &lt;code&gt;let _ = try? doSomething()&lt;/code&gt;, i.e., the result of &lt;code&gt;doSomething()&lt;/code&gt; will be ignored independently of whether an error occurred or not. We did notice, though, that &lt;code&gt;try?&lt;/code&gt; is employed 73 times together with &lt;code&gt;guard&lt;/code&gt; blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty &lt;code&gt;catch&lt;/code&gt; blocks.&lt;/p&gt;
+&lt;p&gt;Thus, even though &lt;code&gt;try?&lt;/code&gt; is not equivalent to an empty &lt;code&gt;catch&lt;/code&gt; block, all it does when an error is thrown by the invoked function is to return &lt;code&gt;nil&lt;/code&gt;. Brave uses &lt;code&gt;try?&lt;/code&gt; 15 times, mostly in IO operations targeting files, database accesses, and JSON processing. Yep, on the other hand, employs &lt;code&gt;try?&lt;/code&gt; &lt;strong&gt;246 times&lt;/strong&gt;, mostly together with IO-performing operations. Apparently, Yep generally uses error handling to deal with errors stemming from library and framework functions that might potentially throw them. It does not employ Swift error handling to signal and handle application-specific errors. This is underlined by the absence of &lt;code&gt;throws&lt;/code&gt; clauses and &lt;code&gt;throw&lt;/code&gt; statements in its source code. Thus, &lt;code&gt;try?&lt;/code&gt; is arguably being employed in this context mostly to silence the Swift compiler when invoking potentially error-throwing functions, similarly to what &lt;a href=&quot;http://link.springer.com/chapter/10.1007%2F978-3-540-73589-2_8#page-1&quot;&gt;Java developers do&lt;/a&gt;. This impression is reinforced by the 124 times &lt;code&gt;try?&lt;/code&gt; is employed using the pattern &lt;code&gt;let _ = try? doSomething()&lt;/code&gt;, i.e., the result of &lt;code&gt;doSomething()&lt;/code&gt; will be ignored independently of whether an error occurred or not. We did notice, though, that &lt;code&gt;try?&lt;/code&gt; is employed 73 times together with &lt;code&gt;guard&lt;/code&gt; blocks, which are useful to fail fast, e.g., when the preconditions of a function are not met. This goes beyond empty &lt;code&gt;catch&lt;/code&gt; blocks.&lt;/p&gt;
+
+&lt;p&gt;Third, Brave clearly employs Swift’s error handling mechanism to report errors. Errors are thrown from 33 places in the code and 97 functions include &lt;code&gt;throws&lt;/code&gt; clauses. It even includes a function that uses the  &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID531&quot;&gt;&lt;code&gt;rethrows&lt;/code&gt;&lt;/a&gt; clause, a special kind of &lt;code&gt;throws&lt;/code&gt; indicating that the function takes a closure as an argument and all the errors it throws actually stem from that closure. All the thrown errors are either instances of &lt;code&gt;NSError&lt;/code&gt; or values of a struct type &lt;code&gt;Error&lt;/code&gt; defined by the application. As discussed before, errors of the latter type are rarely explicitly captured by &lt;code&gt;catch&lt;/code&gt; blocks, since most of them either are generic or target &lt;code&gt;NSError&lt;/code&gt;. Yep differs from Brave in that it does not use Swift error handling to report errors. It does not throw a single error, nor has any function that &lt;code&gt;throws&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, both apps make use of &lt;code&gt;try!&lt;/code&gt;, mostly associated with IO operations involving file or database access, regular expression parsing, and JSON processing. This construct produces a runtime error that causes the app to crash when an operation produces an error. Analyzing what kinds of errors can be produced by operations executed with this construct is left for future work because it requires (i) tools that are not available at the moment to perform exception flow analysis; and (ii) knowledge about modules external to the apps.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 May 2016 20:59:00 -0300</pubDate>
         <link>http://fernandocastor.github.io/general/2016/05/19/usage-of-swift-error-handling.html</link>
@@ -679,7 +679,8 @@ ternational Conference on Fundamental Approaches to Software Engineering, LNCS v
 
 &lt;p&gt;&lt;a href=&quot;http://2015.splashcon.org&quot;&gt;&lt;img src=&quot;http://www.dynamic-languages-symposium.org/dls-15/media/splash15_logo.png&quot; alt=&quot;SPLASH&#39;2015 logo&quot; title=&quot;2015.splashcon.org&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;how-scale-affects-structure-in-java-programshttpdlacmorgcitationcfmid2814300cfid555774425cftoken10047354-by-crista-lopes-joel-ossher&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2814300&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354&quot;&gt;How Scale Affects Structure in Java Programs&lt;/a&gt; by Crista Lopes, Joel Ossher&lt;/h4&gt;
+&lt;h3 id=&quot;how-scale-affects-structure-in-java-programs&quot;&gt;How Scale Affects Structure in Java Programs&lt;/h3&gt;
+&lt;p&gt;(http://dl.acm.org/citation.cfm?id=2814300&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354) by Crista Lopes, Joel Ossher&lt;/p&gt;
 
 &lt;p&gt;I was already familiar with this paper, having discussed it with some students in &lt;a href=&quot;http://twiki.cin.ufpe.br/twiki/bin/view/TAES/TAES2201502&quot;&gt;class&lt;/a&gt; a couple of weeks ago. It is a very interesting piece of work showing how the size of a software system is correlated with certain characteristics (nothing new there) but also showing that &lt;strong&gt;this relationship changes as the size of a system grows&lt;/strong&gt; (previously an &lt;strong&gt;unverified&lt;/strong&gt; hypothesis, at least on a large scale study). This is strongly related to the 1975 &lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=2&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0CCgQFjABahUKEwjAmfvx8-rIAhWF1h4KHZCdAvY&amp;amp;url=http%3A%2F%2Fwww.cs.umd.edu%2Fclass%2Fspring2005%2Fcmsc838p%2FGeneral%2Fpitl.pdf&amp;amp;usg=AFQjCNH4ihfX6lE2HK9tVhJUm9-7lIEG4g&amp;amp;sig2=A_ORzeazyaS54QTxN63rbg&quot;&gt;paper&lt;/a&gt; by DeRemer and Kron. The first sentence of this classifical paper summarizes its ideas very well: &lt;em&gt;“We distinguish the activity of writing large programs from that of writing small ones”&lt;/em&gt;. Lopes and Ossher’s study provides a considerable amount of data showing that this idea is verifiable.&lt;/p&gt;
 
@@ -687,7 +688,8 @@ ternational Conference on Fundamental Approaches to Software Engineering, LNCS v
 
 &lt;p&gt;It is important to point out that the paper only investigated one &lt;strong&gt;software population&lt;/strong&gt;, that of Java projects hosted on Google Code until 2012. This does not necessarily reflect the characteristics of populations from other forges or based on different programming languages. Moreover, the study did not investigate the temporal dimension of these relationships. These are great news for researchers interested in this topic!&lt;/p&gt;
 
-&lt;h4 id=&quot;use-at-your-own-risk-the-java-unsafe-api-in-the-wildhttpdlacmorgcitationcfmid2814313cfid555774425cftoken10047354-by-luis-mastrangelo-luca-ponzanelli-andrea-mocci-michele-lanza-matthias-hauswirth-nathaniel-nystrom&quot;&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2814313&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354&quot;&gt;Use at Your Own Risk: The Java Unsafe API in the Wild&lt;/a&gt; by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom&lt;/h4&gt;
+&lt;h3 id=&quot;use-at-your-own-risk-the-java-unsafe-api-in-the-wild&quot;&gt;Use at Your Own Risk: The Java Unsafe API in the Wild&lt;/h3&gt;
+&lt;p&gt;(http://dl.acm.org/citation.cfm?id=2814313&amp;amp;CFID=555774425&amp;amp;CFTOKEN=10047354) by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom&lt;/p&gt;
 
 &lt;p&gt;This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and &lt;a href=&quot;http://research.microsoft.com/apps/pubs/default.aspx?id=68466&quot;&gt;type sound&lt;/a&gt;) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as &lt;code&gt;Exception&lt;/code&gt;s or, in the worst case scenario (e.g., due to lack of heap space), as an &lt;code&gt;Error&lt;/code&gt;. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, &lt;code&gt;sun.misc.Unsafe&lt;/code&gt; which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java’s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object.&lt;/p&gt;
 
