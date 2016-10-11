@@ -54,7 +54,7 @@ Our first submission for [Software: Practice & Experience](http://www.wiley.com/
 
 For months we worked on improving every aspect of the paper. Besides polishing, we conducted a survey with more than 100 developers to better contrast their expectations with what we actually found. We also made our analysis deeper by using multiple releases of the projects, instead of just the first and the last ones (between 2005 and 2012). The paper grew more than 30% when compared to the initial submission and we were confident and proud of the result. To our surprise, instead of the final paper acceptance, we were asked to perform another round of reviews. Two of the reviewers just accepted the paper but the third one actually changed his/her decision from Accept after Major Revision to **Reject** and emphasized the need for us to base part of our study on a 3-page extended abstract published on a doctoral symposium. After a few moments of outrage, we sent the editor an email informing that some of the comments of said reviewer were utterly and entirely unreasonable and we would **not** perform those modifications. The editor then asked us to work on the paper and submit it again and he would find a fourth reviewer. We resubmitted. In three months, the decision arrived by email: **Rejected**, due to the fourth reviewer's recommendation. Ironically, the adversarial reviewer who stopped the paper from being accepted had, at that point, changed his recommendation to **Accept**, which didn't make any difference.
 
-[We like to party!](http://i.makeagif.com/media/7-21-2015/6IKtMa.gif)
+![We like to party!](http://i.makeagif.com/media/7-21-2015/6IKtMa.gif)
 
 
 # A moment of reflection
@@ -66,7 +66,7 @@ Based on the SPE result, once again I had to revisit my assumptions. Was this wo
 
 We submitted to [The Journal of Systems and Software](http://www.journals.elsevier.com/journal-of-systems-and-software/) in the first months of 2014. In two months, the result arrived: **Revision** (it was not clear whether it was a major or a minor one). We were so oversensitive to reviewer criticism that we took every comment as a potential threat to the acceptance of the paper. My colleague at the time commented that, based on his experience, the reviewers seemed to have liked the paper very much. Nonetheless, I told him we would not take any chances. *Six months* of hard work addressing every reviewer comment from every possible angle later, we re-submitted. In less than two months, the result arrived: **Accepted**
 
-[ANGRY!!!!](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/bambam.gif)
+![ANGRY!!!!](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/bambam.gif)
 
 We were obviously delighted with the results. It was the crowning of years of hard work, frustration, and an unwavering belief we were working towards a worthy goal. Ok, our belief sometimes wavered, but not for long.
 
