@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "A Summary of the MSR'2017 Plenary Session on Double-Blind Reviwing"
+title:  "A Summary of the MSR 2017 Plenary Session on Double-Blind Reviwing"
 date:   2017-05-21 14:50:00
 categories: academia
 ---
