@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "Some Considerations about Swift as a First Programming Language"
-date:   2017-10-26 17:50:00
+date:   2017-11-02 14:35:00
 categories: academia
 ---
 
