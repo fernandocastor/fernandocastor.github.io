@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "The First Two Weeks of my Long-Awaited-For Sabbatical in Japan"
+title:  "The First Days of my Long-Awaited-For Sabbatical in Japan"
 date:   2019-10-18 14:00:00
 categories: personal
 ---
