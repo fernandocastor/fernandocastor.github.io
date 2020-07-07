@@ -1,0 +1,27 @@
+---
+layout: post
+comments: true
+title:  "Quick notes on Nancy Leveson's keynote at ICSE 2020"
+date:   2020-07-06 23:30:00
+categories: research
+---
+
+I've read quite a few of Prof. Nancy Leveson's papers on the assumption of independence between different versions made by developers of techniques that leverage design diversity, such as N-version programming and recovery blocks, when I was a PhD student. At the time, I also read some of her papers on Software and Systems Safety, the area where she's one of the world's most prominent experts. With this background, I was really looking forward to her keynote at ICSE 2020. Prof. Leveson started with a quote by Mark Twain: 
+
+*"What gets us into trouble is not what we don't know. It's what we know for sure that just ain't so."*
+
+An **accident** or **mishap** is any undesired and unplanned event that results in loss. Loss here has a wide-encompassing meaning, e.g., loss of human life, environmental damage, negative business impact, property damage, legal entanglements, among other issues. Something's **safe** if we don't have losses. Safety engineering is all about **hazards**. A hazard is a state or set of conditions that, together with a particular set of worst-case environmental conditions, will lead to an accident. Safety engineering aims to support the construction of safer systems by identifying and preventing/eliminating/including safeguards against hazards and reducing or avoiding losses. *Software is not, by itself, unsafe*, since it cannot, in isolation, cause loss. It can contribute to hazards, though, since the control signals it generates can be unsafe. 
+
+**Safety** and **reliability** are not directly related. Some reliable systems are unsafe, depending on the circumstances. Virtually all software-related accidents stem from unsafe requirements, not errors in software design or implementation. 
+Prof. Leveson mentioned an example of a planned missile test where a dummy missile would be aimed and ``fired'' at an aircraft. The system responsible for firing was also responsible for determining the best position from which to fire the missile. The system identified an obstacle, an antenna, that would hinder the firing of the dummy missile and decided to fire a *real missile* located at a different position. The system did not fail (it was *reliable*) but could have caused loss (it was *unsafe*).
+
+Failures may stem from component failures. However, they may also be a consequence of complex component interactions where no single component fails. These components are not all software, though some of them are. These are high level design errors. More generally, according to prof. Leveson, the role of software in accidents *almost always involves flawed requirements*. She also stated that (hope my paraphrasing is reliable) operator errors do not cause accidents. Accidents occur because of design flaws that make systems unsafe when operators take certain actions. A safe system is designed so as to reduce loss caused by human errors. 
+
+*Context* determines whether software is safe or not. Ariane 4's software was safe but when reused in Ariane 5 the spacecraft exploded. The cause of the explosion was incorrect assumptions about how the reused software would behave under certain conditions, not a software malfunction. As a metaphor, we can think of a butter knife. Using it to pass butter is perfectly safe but using it to mess with a power outlet is unsafe. 
+
+Contemporary systems that use software are too complex for complete analysis, e.g., formal methods, and not random enough for statistical analysis. In summary, Prof. Leveson believes we should stop seeing safety as failure problem  and treat it as a control problem. Systems should be analyzed holistically, with a focus on emergent properties that do not stem from single components but instead from their complex interactions. Prof. Leveson believes that both safety and security are emergent. It is necessary to consider their entire sociotechnical system. This got me thinking: Could we bring that viewpoint to lower-level concerns, such as energy efficiency, which interests me a lot? For example, what is the impact of users' lack of focus and task switching on overall energy efficiency? Is it possible to reduce energy consumption stemming from this without having to impose unnatural behavior patterns on users? Just wondering. 
+
+As a final note, I authored the most upvoted, albeit most poorly-written, question of the session: *"How do you envision the widespread use of machine learning can negatively impact safety? Do you foresee it having a positive impact?"* In summary, prof. Leveson said that there's still not a definite answer, since it is so hard to know what systems that leverage machine learning will do, i.e., what decisions they will make, but she and her group are working on the problem and expect to have some answers in the next few months. 
+
+
+**P.S.**: Prof. Leveson received many questions. One of them about the pressure to publish and how we sometimes write papers based on toy tools. Her message was very clear: we should publish less and better. She then went on to talk about a paper she published more than 30 years ago on safety analysis using Petri Nets that ranks amongst her most well-cited (and she is very well-cited!). She believes this paper should not have been written and published because, in her opinion, it is not useful. 
