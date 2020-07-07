@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "Quick notes on Nancy Leveson's keynote at ICSE 2020"
+title:  "Nancy Leveson's keynote at ICSE 2020"
 date:   2020-07-06 23:30:00
 categories: research
 ---
