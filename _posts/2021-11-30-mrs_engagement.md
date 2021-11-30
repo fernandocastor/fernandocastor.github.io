@@ -8,9 +8,7 @@ categories: teaching
 
 This is a brief summary of the following paper: 
 
-&nbsp;&nbsp;Sanghoon Park & Heoncheol Yun (2018): 
-&nbsp;&nbsp;**The Influence of Motivational Regulation Strategies on Online Students’ Behavioral, Emotional, and Cognitive Engagement**
-&nbsp;&nbsp;American Journal of Distance Education. 32(1), pp. 43-56.
+*Sanghoon Park & Heoncheol Yun (2018):* **The Influence of Motivational Regulation Strategies on Online Students’ Behavioral, Emotional, and Cognitive Engagement**. *American Journal of Distance Education. 32(1), pp. 43-56.*
 
 It studies the impact of eight motivational regulation strategies on three types of student engagement. **Behavioral engagement** concerns participation in learning activities. **Emotional engagement** pertains to the affective attitudes toward learning and school. **Cognitive engagement** refers to the approach students use to analyze and verify their learning, e.g., asking questions to themselves to check whether they learned something. The study is based on a cohort of 95 undergraduate and graduate students enrolled in online courses. Previous work has shown that students at these different levels have different characteristics in terms of their use of motivational regulatory strategies and in how they procrastinate. 
  
