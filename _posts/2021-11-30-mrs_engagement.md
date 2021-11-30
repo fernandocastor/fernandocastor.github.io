@@ -37,7 +37,7 @@ The paper leverages a hierarchical multiple regression to establish which strate
 - "performance-avoidance self-talk" is, surprisingly, a positive predictor of cognitive engagement. The same goes for "enhancement of personal significance". 
 
 
-## References
+### References
 
 - Schwinger, M., Steinmayr, R., & Spinath, B. (2012). Not all roads lead to Rome: Comparing different types of motivational regulation profiles. Learning and Individual Differences, 22, 269–279. doi:10.1016/j.lindif.2011.12.006
 
