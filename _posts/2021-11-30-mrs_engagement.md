@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "Motivational Regulation Strategies and Student Engagement in Online Courses"
-date:   2021-11-27 15:15:00
+date:   2021-11-30 12:50:00
 categories: teaching
 ---
 
