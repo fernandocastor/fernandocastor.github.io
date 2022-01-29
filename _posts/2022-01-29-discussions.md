@@ -20,7 +20,7 @@ Helping students prepare for the discussion involves giving them questions for r
 
 Starting the discussion is important. If students prepared well, the discussion is likely to flow easily, but still require an initial *spark*. This spark can come from a common experience, e.g., a very prominent current event or an experience all of them had. The latter can be stimulated by asking them to watch a short, engaging video. It is also possible to spark discussion by means of controversy, by presenting a problem, or, more commonly, by posing a question and allowing the students some time to think about it. There are many different kinds of questions that can be posed, e.g., interpretation questions, connection and causal effect questions, comparative and evaluative questions, and critical ones. Personally, I find connective questions super useful as a way to emphasize relationships between topics that are not obviously linked, e.g., testing and design patterns. 
 
-### Conducting the discussion
+## Conducting the discussion
 
 Possibly the most important attitude an instructor can have during discussion is to listen actively and acknowledge students' comments. Other tips for conducting discussion include establishing eye contact, smiling, calling students by name, sitting them in a circle, helping students take notes (**it is not clear to me how this happens, though**), and using the viewpoints and reactions of students as input for the next comments. Finally, it is also useful to establish ground rules early on in the period and involve students in a preliminary discussion about these ground rules. 
 
@@ -30,7 +30,7 @@ In most discussions, a few students will do most of the talking with a large num
 
 Later in the chapter, the author briefly comments on the effectiveness of student-led discussions. The latter tend to be more active, spark more controversy, and produce more curious students. Students feel freer to disagree in this kind of discussion and, as a consequence, potentially learn more. 
 
-### Helping students to learn through discussion
+## Helping students to learn through discussion
 
 The book presents a list of tips to help students to learn through discussion, as this is not something that will come naturally to everyone. This is a summary of these tips: 
 - Students should understand the importance of the discussion for learning. It should be clear to them that expressing their ideas and actively listening to each other's improves learning and knowledge retention. 
