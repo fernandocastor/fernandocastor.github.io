@@ -14,7 +14,7 @@ Teaching by discussion requires that instructors perform several tasks. They mus
 
 Students who are required to read some materials before a discussion may not do so. One approach to deal with this is to have a quiz in the beginning of the class. If answering the quiz requires them to study beforehand, they will feel more motivated. Alternatively, the instructor can talk to the students in an attempt to understand their motivation for not reading the materials and work out solutions based on their inputs. 
 
-### Preparing for the discussion
+## Preparing for the discussion
 
 Helping students prepare for the discussion involves giving them questions for reflection. These are typically **how** and **why** questions which lead to reflection. If possible, it is better to avoid **what** questions because they usually require only recollection of information. Another approach to prepare students for discussion is to give them a quiz before class starts or at the beginning of class, prior to discussion. Yet another approach is to promote online discussions before class. In this case, it is particularly engaging if the instructor actually reads all the posts and brings examples to class. This makes the students feel like their work is valued. 
 
