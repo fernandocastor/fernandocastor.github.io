@@ -3,7 +3,7 @@ layout: default
 title: Publications
 permalink: /publications/
 ---
-<h3>Publications</h3>
+<h2>Publications</h2>
 
 ### 2022
 
