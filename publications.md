@@ -5,7 +5,7 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
-### 2022
+### **2022**
 
 Carlos Zimmerle, Kiev Gama, Fernando Castor, José Murilo Filho. Mining the Usage of Reactive Programming APIs: A Study on GitHub and Stack Overflow. Proceedings of the 19th International Conference on Mining Software Repositories. May 2022. Accepted for publication.
 
@@ -14,9 +14,9 @@ Felipe Ebert, Alexander Serebrenik, Christoph Treude, Nicole Novielli, Fernando 
 Michel Muszynski, Sven Lugtheid, Fernando Castor, and Sjaak Brinkkemper. A study on the Software Architecture Documentation Practices and Maturity in Open-Source Software Development. Proceedings of the 19th IEEE International Conference on Software Architecture. Honolulu, USA. March 2022. Accepted for publication. 
 
 
-### 2021
+### **2021**
 
-Edson Dias, Paulo Meirelles, Fernando Castor, Igor Steinmacher, Igor Wiese, Gustavo Pinto. What Makes a Great Maintainer of Open Source Projects? Proceedings of the 43rd ACM/IEEE International Conference on Software Engineerinng. Madrid, Spain. June 2021. Distinguished paper award!
+Edson Dias, Paulo Meirelles, Fernando Castor, Igor Steinmacher, Igor Wiese, Gustavo Pinto. What Makes a Great Maintainer of Open Source Projects? Proceedings of the 43rd ACM/IEEE International Conference on Software Engineerinng. Madrid, Spain. June 2021. **Distinguished paper award!**
 
 Wellington Oliveira, Renato Oliveira, Fernando Castor, Gustavo Pinto, and João Paulo Fernandes. Improving Energy-Efficiency by Recommending Java Collections. Empirical Software Engineering,   26(3): 55, 2021. 
 
@@ -27,7 +27,7 @@ Felipe Ebert, Fernando Castor, Nicole Novielli, Alexander Serebrenik. An Explora
 Wellington Oliveira, Hugo Matalonga, Gustavo Pinto, Fernando Castor, and João Paulo Fernandes. Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency. In Software Sustainability, 2021. Springer.
 
 
-### 2020
+### **2020**
 
 Delano Oliveira, Reydne Bruno, Fernanda Madeiral, Fernando Castor. Evaluating Code Readability and Legibility: An Examination of Human-centric Studies. In Proceedings of the 36th IEEE International Conference on Software Maintenance and Evolution. Adelaide, Australia. September 2020.
 
@@ -36,7 +36,7 @@ Felipe Ebert, Fernando Castor, Alexander Serebrenik. A Reflection on An Explorat
 Tayana Conte, Fernando Castor. Proceedings of the 34th Brazilian Symposium on Software Engineering, SBES 2020, Natal, Rio Grande do Norte, Brazil, October 21st-23rd, 2020. Association for Computing Machinery 2020.
 
 
-### 2019
+### **2019**
 
 Carlos Zimmerle, Wellington Oliveira Jr, Kiev Gama, Fernando Castor. Reactive-based Complex Event Processing: An Overview and Energy Consumption Analysis of rcep.js. Proceedings of the 33rd Brazilian Symposium on Software Engineering (SBES'2019). Salvador, Brazil. September 2019. 
 
@@ -48,14 +48,14 @@ Hugo Matalonga, Bruno Cabral, Fernando Castor, Marco Couto. Rui Pereira, Simão 
 
 Luís Gabriel Lima, Gilberto Melfe, Francisco Soares-Neto, Paulo Lieuthier, João Paulo Fernandes, Fernando Castor. On Haskell and Energy Efficiency. Journal of Systems and Software 149, March 2019.
 
-Felipe Ebert, Fernando Castor, Nicole Novielli, Alexander Serebrenik. Confusion in Code Reviews: Reasons, Impacts, and Coping Strategies. Proceedings of the 26th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2019). Hangzhou, China. February 2019. Best paper award!
+Felipe Ebert, Fernando Castor, Nicole Novielli, Alexander Serebrenik. Confusion in Code Reviews: Reasons, Impacts, and Coping Strategies. Proceedings of the 26th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2019). Hangzhou, China. February 2019. **Best paper award!**
 
 Fernando Castor, Yu David Liu. Selected Papers of the Brazilian Symposium on Programming Languages (SBLP'15+16). Science of Computer Programming 173, 1-2, April 2019. 
 
 Fernando Castor, Igor Scaliante Wiese. Proceedings of the VII Workshop on Software Visualization, Evolution and Maintenance, VEM 2019, Salvador, Bahia, Brazil, September 25, 2019. Sociedade Brasileira de Computação 2019.
 
 
-### 2018
+### **2018**
 
 Gustavo Pinto, Fernando Castor, Rodrigo Bonifácio, Marcel Rebouças. Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users. Software: Practice & Experience 48, 2223-2236, 2018. 
 
@@ -67,12 +67,12 @@ Nathan Cassee, Gustavo Pinto, Fernando Castor and Alexander Serebrenik. How Swif
 
 Juliana Oliveira, Deise Borges, Thaisa Silva, Nelio Cacho, Fernando Castor. Do Android Developers Neglect Error Handling? A Maintenance-Centric Study on the Relationship Between Android Abstractions and Uncaught Exceptions. Journal of Systems and Software 136, 1-18, 2018. 
 
-Fernando Castor. Identifying Confusing Code in Swift Programs. In Proceedings of the VI CBSoft Workshop on Visualization, Evolution, and Maintenance. São Carlos, Brazil. September 2018. Second Best Paper Award!
+Fernando Castor. Identifying Confusing Code in Swift Programs. In Proceedings of the VI CBSoft Workshop on Visualization, Evolution, and Maintenance. São Carlos, Brazil. September 2018. **Second Best Paper Award!**
 
 Gilson Rocha, Gustavo Pinto, Fernando Castor. Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java. In Proceedings of the VI CBSoft Workshop on Visualization, Evolution, and Maintenance. São Carlos, Brazil. September 2018. Accepted for publication.
 
 
-### 2017
+### **2017**
 
 Gustavo Pinto, Fernando Castor. Energy Efficiency: A New Concern for Application Software Developers. Communications of the ACM 60(12), December 2017. Short video.
 
@@ -82,7 +82,7 @@ Felipe Ebert, Alexander Serebrenik, Nicole Novielli, Fernando Castor. Confusion 
 
 Wellington Oliveira Jr., Renato Oliveira, Fernando Castor. A Study on the Energy Consumption of Android App Development Approaches. Proceedings of the 14th International Conference on Mining Software Repositories. Buenos Aires, Argentina. May 2017. 
 
-Marcel Rebouças, Renato Oliveira dos Santos, Gustavo Pinto, Fernando Castor. How Does Contributors' Involvement Influences the Build Status of an Open-Source Software Project? Proceedings of the 14th International Conference on Mining Software Repositories. Buenos Aires, Argentina, 2017. Best Mining Challenge Paper Award!
+Marcel Rebouças, Renato Oliveira dos Santos, Gustavo Pinto, Fernando Castor. How Does Contributors' Involvement Influences the Build Status of an Open-Source Software Project? Proceedings of the 14th International Conference on Mining Software Repositories. Buenos Aires, Argentina, 2017. **Best Mining Challenge Paper Award!**
 
 Gustavo Pinto, Marcel de S. C. Rebouças, Fernando Castor. Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale from CI Users. In Proceedings of the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE).
 
