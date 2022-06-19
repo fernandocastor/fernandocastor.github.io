@@ -1,11 +1,8 @@
 ---
 layout: page
 permalink: /publications/
+title: Publications
 ---
-
-![Fernando Castor](https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/eu5.JPG "My pic") 
-
-## Publications
 
 ### 2022
 
