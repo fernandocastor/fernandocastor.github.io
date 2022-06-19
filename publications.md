@@ -1,7 +1,7 @@
 ---
-layout: page
-permalink: /publications/
+layout: default
 title: Publications
+permalink: /publications/
 ---
 <h3>Publications</h3>
 
