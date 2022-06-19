@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: Publications
 ---
-<h3 class="page-heading">Posts</h3>
+<h3>Publications</h3>
 
 ### 2022
 
