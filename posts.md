@@ -6,7 +6,7 @@ permalink: /posts/
 
 <div class="home">
 
-  <h3>Posts</h3>
+  <h2>Posts</h2>
 
   <ul class="post-list">
     {% for post in site.posts %}
