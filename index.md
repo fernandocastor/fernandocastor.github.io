@@ -1,0 +1,22 @@
+---
+layout: page
+---
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49577750-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<div class="home">
+
+  <h1 class="page-heading">Not Posts Anymore</h1>
+
+  Testing not including the posts in the main page.
+  
+</div>
