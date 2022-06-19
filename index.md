@@ -17,6 +17,7 @@ layout: page
 
   <h1 class="page-heading">Not Posts Anymore</h1>
 
-  Testing not including the posts in the main page.
+  Testing not including the posts in the main page. This has to appear as well.
+  
   
 </div>
