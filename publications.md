@@ -91,7 +91,7 @@ Benito Fernandes, Gustavo Pinto, Fernando Castor. Assisting Non-Specialist Devel
 Rafael Nunes, Marcel Rebouças, Francisco Soares-Neto, Fernando Castor. Visulizing Swift Projects as Cities. Proceedings of the 38th International Conference on Software Engineering companion. Buenos Aires, Argentina, 2017. 
 
 
-### 2016
+### **2016**
 
 Fernando Castor, Yu David Liu: Programming Languages - 20th Brazilian Symposium (SBLP), Maringá, Brazil, September 22-23, 2016, Proceedings. Lecture Notes in Computer Science 9889, Springer 2016, ISBN 978-3-319-45278-4
 
@@ -106,7 +106,7 @@ Wellington Oliveira Jr., Weslley Torres, Fernando Castor, Bianca H. Ximenes. Nat
 Marcel Rebouças, Gustavo Pinto, Felipe Ebert, Weslley Torres, Alexander Serebrenik, Fernando Castor. An Empirical Study on the Usage of the Swift Programming Language. 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan. March 2016. 
 
 
-### 2015
+### **2015**
 
 Gustavo Pinto, Weslley Torres, Fernando Castor. A Study on the Most Popular Questions about Concurrent Programming. In SPLASH'2015 Workshop on Evaluation and Usability of Programming Languages and Tools (PLATEAU). Pittsburgh, USA. October 2015.
 
@@ -123,7 +123,7 @@ Irineu Moura, Gustavo Pinto, Felipe Ebert, Fernando Castor. Mining Energy-Aware 
 Gustavo Pinto, Francisco Soares-Neto, Fernando Castor. Refactoring for Energy Efficiency: A Reflection on the State of the Art. In Proceedings of the ICSE'2015 Workshop on Green and Sustainable Computing. Florence, Italy, 2015.
 
 
-### 2014
+### **2014**
 
 Gustavo Pinto, Fernando Castor, Yu David Liu. Understanding Energy Behaviors of Thread Management Constructs. In Proceedings of the 28th ACM Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA'2014). Portland, USA. October 2014.
 
@@ -138,7 +138,7 @@ Gustavo Pinto, Fernando Castor. Characterizing the Energy Efficiency of Java's T
 Adauto Trigueiro, Emanoel Barreiros, Juliana Saraiva, Fernando Castor, Sérgio Soares. Is Exception Handling a Reusable Aspect? In Proceedings of the 8th Brazilian Symposium on Components, Architectures, and Reuse (SBCARS'2014). Maceió, Brazil. September-October 2014.
 
 
-### 2013
+### **2013**
 
 Uira Kulesza, Sérgio Soares, Christina Chavez, Fernando Castor, Paulo Borba, Carlos Lucena, Paulo Masiero, Claudio Sant’Anna, Fabiano Ferrari, Vander Alves, Roberta Coelho, Eduardo Figueiredo, Paulo Pires, Flávia Delicato, Eduardo Piveta, Carla Silva, Valter Camargo, Rosana Braga, Julio Leite, Otávio Lemos, Nabor Mendonca, Thais Batista, Rodrigo Bonifacio, Nelio Cacho, Lyrene Silva, Arndt von Staa, Fabio Silveira, Marco Tulio Valente, Fernanda Alencar, Jaelson Castro, Ricardo Ramos, Rosangela Penteado, Cecília Rubira. The Crosscutting Impact of the AOSD Brazilian Research Community. Journal of Systems and Software 86(4), 905-933, 2013.
 
@@ -163,7 +163,7 @@ Thiago Silva and Fernando Castor. New Exception Interfaces for Java-Like Languag
 Fernando Castor, Francisco Soares-Neto, and Andre Santos. A Preliminary Empirical Assessment of Haskell's Software Transactional Memory Constructs. In Proceedings of the 28th ACM Symposium on Applied Computing (SAC'2013). Coimbra, Portugal, March 2013.
 
 
-### 2012
+### **2012**
 
 Amanda Nascimento, Fernando Castor, Cecilia Mary F. Rubira, and Rachel Burrows. An Empirical Study on Design Diversity of Functionally Equivalent Services. In Proceedings of the 7th International Conference on Availability, Reliability, and Security (ARES'2012). Prague, Czech Republic, August 2012.
 
@@ -174,7 +174,7 @@ Amanda Nascimento, Fernando Castor, Cecilia Mary F. Rubira, and Rachel Burrows. 
 Fernando Castor, Douglas S. Leite, and Cecilia M. F. Rubira. An Exception Handling System for Service Component Architectures. Journal of the Brazilian Computer Society 18(1), 43-59, 2012.
 
 
-### 2011
+### **2011**
 
 Fernando Castor, João Paulo Oliveira, and Andre L. M. Santos. Software Transactional Memory vs. Locking in a Functional Language: A Controlled Experiment. In Proc. of the SPLASH'2011 Workshop on Transitioning to Multicore. Portland, USA, October, 2011. The data of the experiment is available here.
 
@@ -201,7 +201,7 @@ Douglas Siqueira Leite, Cecilia M. F. Rubira, Fernando Castor. Exception Handlin
 Juliana Saraiva, Sérgio Soares, Fernando Castor. Analyzing Architectural Conformance of Layered Aspect-Oriented Systems with ArchEMeter. Companion to the Proceedings of the 10th International Conference on Aspect-Oriented Software Development, Porto de Galinhas, Brazil, March 2011.
 
 
-### 2010
+### **2010**
 
 Rafael Farias, Francisco Soares-Neto, and Fernando Castor. Hamster: Making Grid Middleware Fault-Tolerant. In Companion to the Proc. of the ACM Conference on Systems, Programming, Languages, and Applications -- Software for Humanity (SPLASH). Reno, US, October 2010.
 
@@ -222,7 +222,7 @@ Francisco Jose da Silva e Silva, Fabio Kon, Alfredo Goldman, Marcelo Finger, Rap
 Julio Cesar Taveira, Hitalo Oliveira da Silva, Fernando Castor, and Sergio Soares. On Inter-Application Reuse of Exception Handling Aspects. In Proceedings of the AOSD'2010 Workshop on Empirical Evaluation of Software Composition Techniques (ESCOT'2010). Rennes, France, March 2010.
 
 
-### 2009
+### **2009**
 
 Fernando Castor, Nélio Cacho, Eduardo Figueiredo, Alessandro Garcia, Cecília Rubira, Jefferson Silva de Amorim, Hítalo Oliveira da Silva. On the Modularization and Reuse of Exception Handling with Aspects. Software - Practice and Experience, 39, 2009. Pages 1377-1417.
 
@@ -241,7 +241,7 @@ Raphael Y. Camargo, Fernando Castor-Filho, and Fabio Kon. Efficient Maintenance 
 Fernando Castor Filho, Alexander Romanovsky, and Cecilia Mary F. Rubira. Improving the Reliability of Cooperative Concurrent Systems with Exception Flow Analysis. Journal of Systems and Software, 82(5), 2009. Pages 874-890.
 
 
-### 2008
+### **2008**
 
 Fernando Castor Filho, Fabio Kon, Raphael Y. Camargo, and Augusta Marques. A Group Membership Service for Large-Scale Grids. In Proceedings of the Middleware'2008 Workshop on Middleware for Grid Computing (MGC'2008). Leuven, Belgium. December 2008.
 
@@ -254,7 +254,7 @@ Nelio Cacho, Fernando Castor Filho, Alessandro Garcia, and Eduardo Figueiredo. E
 Eduardo Figueiredo, Nelio Cacho, Claudio Sant'Anna, Mario Monteiro, Uira Kulesza, Alessandro Garcia, Sergio Soares, Fabiano Ferrari, Safoora Khan, Fernando Castor Filho, Francisco Dantas. Evolving Software Product Lines with Aspects: An Empirical Study on Design Stability. In Proceedings of the 30th ACM/IEEE International Conference on Software Engineering (ICSE'2008). Leipzig, Germany, May 2008.
 
 
-### 2007
+### **2007**
 
 Fernando Castor Filho, Alessandro Garcia, and Cecilia Mary F. Rubira. Extracting Error Handling to Aspects: A Cookbook. In Proceedings of the 23rd IEEE International Conference on Software Maintenance (ICSM'2007). Paris, France. October 2007. Pages 134-143.
 
@@ -265,7 +265,7 @@ E. Sonoda, F. Castor Filho, R. Y. Camargo, F. Kon, S. W. Song, A. Goldman, M. Fi
 Fernando Castor Filho, Alessandro Garcia, and Cecilia Mary F. Rubira. Error Handling as an Aspect. In AOSD'2007 Workshop on Best Practices in Aspect-Oriented Software Development. Vancouver, Canada. March 2007.
 
 
-### 2006
+### **2006**
 
 Fernando Castor Filho, Patrick Henrique da S. Brito, and Cecilia Mary F. Rubira. Specification of Exception Flow in Software Architectures. Journal of Systems and Software, 79, 2006. Pages 1397-1418.
 
@@ -280,7 +280,7 @@ Fernando Castor Filho, Alexander Romanovsky, and Cecilia Mary F. Rubira. Verific
 Thais Batista, Christina von Flach Chavez, Alessandro Garcia, Claudio Sant'Anna, Uira Kulesza, Awais Rashid, and Fernando Castor Filho. Reflections on Architectural Connection: Seven Issues on Aspects and ADLs. ICSE'2006 Early Aspects workshop, 2006.
 
 
-### 2005
+### **2005**
 
 Fernando Castor Filho, Paulo Asterio de C. Guerra, Vinicius A. Pagano, and Cecilia Mary F. Rubira. A Systematic Approach for Structuring Exception Handling in Robust Component-Based Software. Journal of the Brazilian Computer Society, 10(3), 2005. Pages 5-19.
 
@@ -297,7 +297,7 @@ Fernando Castor Filho, Patrick H. S. Brito, and Cecilia Mary F. Rubira. Modeling
 Fernando Castor Filho, Patrick H. S. Brito, and Cecilia Mary F. Rubira. A Framework for Analyzing Exception Flow in Software Architectures. In ICSE'2005 Workshop on Architecting Dependable Systems, St. Louis, USA, May 2005. Also appeared in ACM SIGSOFT Software Engineering Notes, 30(4).
 
 
-### 2004
+### **2004**
 
 Paulo Asterio de C. Guerra, Fernando Castor Filho, Vinicius Asta Pagano, and Cecilia Mary F. Rubira. Structuring Exception Handling for Dependable Component-Based Software Systems. In Proceedings of the Euromicro 2004 Conference. Rennes France. IEEE Computer Society Press, September 2004. Pages 575-582.
 
@@ -310,14 +310,14 @@ Patrick H. S. Brito, Fernando Castor Filho, and Cecilia Mary F. Rubira. A Method
 Rodrigo T. Tomita, Fernando Castor Filho, Paulo Asterio de C. Guerra, and Cecilia Mary F. Rubira. Bellatrix: An Environment Providing Architectural Support for Component-Based Development (in portuguese). In Proceedings of the IV Brazilian Workshop on Component-Based Development (WDBC'20044). Joao Pessoa, Brazil. September 2004.
 
 
-### 2003
+### **2003**
 
 Fernando Castor Filho, Paulo Asterio de C. Guerra, and Cecilia Mary F. Rubira. An Architectural-Level Exception Handling System for Component-Based Applications. Proceedings of the First Latin-American Symposium on Dependable Computing. LNCS 2847, Springer-Verlag, October 2003. Pages 321-340.
 
 Fernando Castor Filho, Paulo Asterio de C. Guerra, and Cecilia Mary F. Rubira. FaTC2: An Object-Oriented Framework for Developing Fault-Tolerant Component-Based Systems. In ICSE'2003 Workshop on Software Architectures for Dependable Systems. Portland, US. May 2003. Pages 13-18.
 
 
-### 2001
+### **2001**
 
 Fernando Castor, Mariano Cravo, and Alejandro Frery. JDIPF: Java Digital Image Processing Framework. In Proceedings of the XIV Brazilian Symposium on Computer Graphics and Image Processing. Florianopolis, Santa Catarina, Brazil. IEEE Computer Society Press, October 2001. Page 401.
 
@@ -327,6 +327,6 @@ Fernando Castor and Paulo Borba. A Language for Specifying Java Transformations.
 
 
 
-Copyright notice
+### **Copyright notice**
 
 *This material is presented to ensure timely dissemination of scholarly and technical work. Copyright and all rights therein are retained by authors or by other copyright holders. All persons copying this information are expected to adhere to the terms and constraints invoked by each author s copyright. In most cases, these works may not be reposted without the explicit permission of the copyright holder.*
