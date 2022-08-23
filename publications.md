@@ -7,11 +7,15 @@ permalink: /publications/
 
 ### **2022**
 
-Carlos Zimmerle, Kiev Gama, Fernando Castor, José Murilo Filho. Mining the Usage of Reactive Programming APIs: A Study on GitHub and Stack Overflow. Proceedings of the 19th International Conference on Mining Software Repositories. May 2022. Accepted for publication.
+Filipe de Matos, Paulo Rego, Fernando Trinta, Fernando Castor, Wellington Oliveira. Multi-Language Offloading Service: An Android Service Aimed at Mitigating the Network Consumption During Computation Offloading. Proceedings of the XXVIII Brazilian Symposium on Multimedia and Web. Curitiba, Brazil. November 2022. Accepted for publication. 
 
-Felipe Ebert, Alexander Serebrenik, Christoph Treude, Nicole Novielli, Fernando Castor. On Recruiting Experienced GitHub Contributors for Interviews and Surveys on Prolific. Proceedings of the 1st International Workshop on Recruiting Participants for Empirical Software Engineering (RoPES’22), co-located with ICSE'2022. May 2022. Accepted for publication.
+Victoria Bogachenkova, Linh Nguyen, Felipe Ebert, Fernando Castor and Alexander Serebrenik. Evolution of Atoms of Confusion across Pull Requests. Proceedings of the 38th IEEE International Conference on Software Maintenance and Evolution. Limassol, Cyprus. October 2022. Accepted for publication.
 
-Michel Muszynski, Sven Lugtheid, Fernando Castor, and Sjaak Brinkkemper. A study on the Software Architecture Documentation Practices and Maturity in Open-Source Software Development. Proceedings of the 19th IEEE International Conference on Software Architecture. Honolulu, USA. March 2022. Accepted for publication. 
+Carlos Zimmerle, Kiev Gama, Fernando Castor, José Murilo Filho. Mining the Usage of Reactive Programming APIs: A Study on GitHub and Stack Overflow. Proceedings of the 19th International Conference on Mining Software Repositories. May 2022. 
+
+Felipe Ebert, Alexander Serebrenik, Christoph Treude, Nicole Novielli, Fernando Castor. On Recruiting Experienced GitHub Contributors for Interviews and Surveys on Prolific. Proceedings of the 1st International Workshop on Recruiting Participants for Empirical Software Engineering (RoPES’22), co-located with ICSE'2022. May 2022. 
+
+Michel Muszynski, Sven Lugtheid, Fernando Castor, and Sjaak Brinkkemper. A study on the Software Architecture Documentation Practices and Maturity in Open-Source Software Development. Proceedings of the 19th IEEE International Conference on Software Architecture. Honolulu, USA. March 2022. 
 
 
 ### **2021**
@@ -44,7 +48,7 @@ Gilson Rocha, Fernando Castor, Gustavo Pinto. Comprehending Energy Behaviors of 
 
 Wellington Oliveira Jr, Renato Oliveira dos Santos, Gustavo Pinto, Benito Fernandes, Fernando Castor. Recommending Energy-Efficient Java Collections. Proceedings of the 16th International Conference on Mining Software Repositories. Montreal, Canada. May 2019. 
 
-Hugo Matalonga, Bruno Cabral, Fernando Castor, Marco Couto. Rui Pereira, Simão Melo de Sousa, and João Paulo Fernandes. GreenHub Farmer: Real-world data for Android Energy Mining. Proceedings of the 16th International Conference on Mining Software Repositories -- Data Showcase. Montreal, Canada. May 2019. Special mention!
+Hugo Matalonga, Bruno Cabral, Fernando Castor, Marco Couto. Rui Pereira, Simão Melo de Sousa, and João Paulo Fernandes. GreenHub Farmer: Real-world data for Android Energy Mining. Proceedings of the 16th International Conference on Mining Software Repositories -- Data Showcase. Montreal, Canada. May 2019. **Special mention!**
 
 Luís Gabriel Lima, Gilberto Melfe, Francisco Soares-Neto, Paulo Lieuthier, João Paulo Fernandes, Fernando Castor. On Haskell and Energy Efficiency. Journal of Systems and Software 149, March 2019.
 
