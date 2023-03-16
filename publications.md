@@ -5,6 +5,17 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
+### **2023**
+
+Adriano Torres, Caio Oliveira, Márcio Okimoto, Diego Marcílio, Pedro Queiroga, Fernando Castor, Rodrigo Bonifácio, Edna Dias Canedo, Márcio Ribeiro, Eduardo Monteiro. An Investigation of Confusing Code Patterns in JavaScript. Journal of Systems and Software, 2023. Accepted for publication.
+
+José Aldo Silva da Costa, Rohit Gheyi, Fernando Castor, Pablo Roberto Fernandes de Oliveira, Márcio Ribeiro, Baldoino Fonseca. Seeing Confusion Through a New Lens: On the Impact of Atoms of Confusion on Novices’ Code Comprehension. Empirical Software Engineering, 2023. Accepted for publication.
+
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes. Analyzing the Resource Usage Overhead of Mobile App Development Frameworks. Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering. Oulu, Finland, 2023. Accepted for publication.
+
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes.  Ebserver: Automating Resource-Usage Data Collection of Android Applications. Proceedings of the 10th IEEE/ACM International Conference on Mobile Software Engineering and Systems. Melbourne, Australia, 2023. Accepted for publication.
+
+
 ### **2022**
 
 Filipe de Matos, Paulo Rego, Fernando Trinta, Fernando Castor, Wellington Oliveira. Multi-Language Offloading Service: An Android Service Aimed at Mitigating the Network Consumption During Computation Offloading. Proceedings of the XXVIII Brazilian Symposium on Multimedia and Web. Curitiba, Brazil. November 2022. Accepted for publication. 
