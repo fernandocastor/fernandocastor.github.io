@@ -11,16 +11,16 @@ Adriano Torres, Caio Oliveira, Márcio Okimoto, Diego Marcílio, Pedro Queiroga,
 
 José Aldo Silva da Costa, Rohit Gheyi, Fernando Castor, Pablo Roberto Fernandes de Oliveira, Márcio Ribeiro, Baldoino Fonseca. Seeing Confusion Through a New Lens: On the Impact of Atoms of Confusion on Novices’ Code Comprehension. Empirical Software Engineering, 2023. Accepted for publication.
 
-Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes. Analyzing the Resource Usage Overhead of Mobile App Development Frameworks. Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering. Oulu, Finland, 2023. Accepted for publication.
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes. Analyzing the Resource Usage Overhead of Mobile App Development Frameworks. Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering. Oulu, Finland. June 2023. Accepted for publication.
 
-Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes.  Ebserver: Automating Resource-Usage Data Collection of Android Applications. Proceedings of the 10th IEEE/ACM International Conference on Mobile Software Engineering and Systems. Melbourne, Australia, 2023. Accepted for publication.
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes.  Ebserver: Automating Resource-Usage Data Collection of Android Applications. Proceedings of the 10th IEEE/ACM International Conference on Mobile Software Engineering and Systems. Melbourne, Australia. May 2023. Accepted for publication.
 
 
 ### **2022**
 
-Filipe de Matos, Paulo Rego, Fernando Trinta, Fernando Castor, Wellington Oliveira. Multi-Language Offloading Service: An Android Service Aimed at Mitigating the Network Consumption During Computation Offloading. Proceedings of the XXVIII Brazilian Symposium on Multimedia and Web. Curitiba, Brazil. November 2022. Accepted for publication. 
+Filipe de Matos, Paulo Rego, Fernando Trinta, Fernando Castor, Wellington Oliveira. Multi-Language Offloading Service: An Android Service Aimed at Mitigating the Network Consumption During Computation Offloading. Proceedings of the XXVIII Brazilian Symposium on Multimedia and Web. Curitiba, Brazil. November 2022.  
 
-Victoria Bogachenkova, Linh Nguyen, Felipe Ebert, Fernando Castor and Alexander Serebrenik. Evolution of Atoms of Confusion across Pull Requests. Proceedings of the 38th IEEE International Conference on Software Maintenance and Evolution. Limassol, Cyprus. October 2022. Accepted for publication.
+Victoria Bogachenkova, Linh Nguyen, Felipe Ebert, Fernando Castor and Alexander Serebrenik. Evolution of Atoms of Confusion across Pull Requests. Proceedings of the 38th IEEE International Conference on Software Maintenance and Evolution. Limassol, Cyprus. October 2022. 
 
 Carlos Zimmerle, Kiev Gama, Fernando Castor, José Murilo Filho. Mining the Usage of Reactive Programming APIs: A Study on GitHub and Stack Overflow. Proceedings of the 19th International Conference on Mining Software Repositories. May 2022. 
 
