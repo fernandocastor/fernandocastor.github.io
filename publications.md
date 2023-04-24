@@ -7,6 +7,8 @@ permalink: /publications/
 
 ### **2023**
 
+Delano Oliveira, Reydne Bruno, Fernanda Madeiral, Hidehiko Masuhara, Fernando Castor. A Systematic Literature Review on the Impact of Formatting Elements on Program Understandability. Journal of Systems and Software, 2023. Accepted for publication.
+
 Adriano Torres, Caio Oliveira, Márcio Okimoto, Diego Marcílio, Pedro Queiroga, Fernando Castor, Rodrigo Bonifácio, Edna Dias Canedo, Márcio Ribeiro, Eduardo Monteiro. An Investigation of Confusing Code Patterns in JavaScript. Journal of Systems and Software, 2023. Accepted for publication.
 
 José Aldo Silva da Costa, Rohit Gheyi, Fernando Castor, Pablo Roberto Fernandes de Oliveira, Márcio Ribeiro, Baldoino Fonseca. Seeing Confusion Through a New Lens: On the Impact of Atoms of Confusion on Novices’ Code Comprehension. Empirical Software Engineering, 2023. Accepted for publication.
