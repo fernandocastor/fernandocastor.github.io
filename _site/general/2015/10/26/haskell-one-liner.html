@@ -10,8 +10,8 @@
   <meta name="description" content="One of these days, @1HaskellADay posted the following programming challenge:">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://fernandocastor.github.io/general/2015/10/26/haskell-one-liner.html">
-  <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/general/2015/10/26/haskell-one-liner.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Fernando Castor's rants</a>
+    <a class="site-title" href="/">Fernando Castor</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -35,11 +35,21 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/about/">About</a>
+        
+          
+        
           
         
           
         
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
           
         
           
@@ -68,11 +78,11 @@
 
 <p>My answer to the challenge was fairly straightforward:</p>
 
-<div class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="nf">dual</span> <span class="n">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="n">dual</span> <span class="n">f</span> <span class="o">=</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></figure>
 
 <p>It’s not bad, but nothing compared to <a href="http://www.twitter.com/frsoares">Francisco Soares</a>’</p>
 
-<div class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="nf">dual</span> <span class="ow">=</span> <span class="n">uncurry</span><span class="o">.</span><span class="n">flip</span><span class="o">.</span><span class="n">curry</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"> <span class="n">dual</span> <span class="o">=</span> <span class="n">uncurry</span><span class="o">.</span><span class="n">flip</span><span class="o">.</span><span class="n">curry</span></code></pre></figure>
 
 <p>This is how real Haskell programmers do it. Those that <a href="http://www.bernstein-plus-sons.com/RPDEQ.html" title="Real programmers don't eat quiche">do not eat quiche</a>.</p>
 
@@ -119,12 +129,12 @@ s.setAttribute('data-timestamp', +new Date());
 
   <div class="wrapper">
 
-<!--    <h2 class="footer-heading">Fernando Castor's rants</h2> -->
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>Fernando Castor's rants</li>
+          <li>Fernando Castor</li>
           <li><a href="mailto:"></a></li>
         </ul>
       </div>

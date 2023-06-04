@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Some Considerations about Swift as a First Programming Language</title>
+  <meta name="description" content="Swift is a modern, multiparadigm language that combines imperative, object-oriented, protocol-oriented, and functional programming. It was developed by Apple...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/academia/2017/11/02/swift_first_language.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Some Considerations about Swift as a First Programming Language</h1>
+    <p class="post-meta">Nov 2, 2017</p>
+  </header>
+
+  <article class="post-content">
+    <p><a href="https://swift.org/">Swift</a> is a modern, multiparadigm language that combines imperative, object-oriented, protocol-oriented, and functional programming. It was developed by <a href="http://www.apple.com">Apple</a> and announced in 2014 as a replacement for <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">Objective-C</a>, an object-oriented programming language that has been employed within Apple since 1996 and used to be the only choice for building MacOS and iOS apps. It also seems to be fairly <a href="http://redmonk.com/sogrady/2017/06/08/language-rankings-6-17/">popular</a>. I have a strong interest in Swift. In the past, I’ve written in this blog about its <a href="http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">error handling mechanism</a>, <a href="http://fernandocastor.github.io/general/2016/05/19/usage-of-swift-error-handling.html">how apps use that mechanism</a>, and <a href="http://fernandocastor.github.io/general/2015/12/08/swift.html">why it’s become open source</a>. Here I’d like to talk about my thoughts on using Swift as a first programming language, based on my personal experience with 12 programming novices.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>Recently, I’ve had the opportunity of being an instructor of a course on app development for the iOS ecosystem as part of the <a href="http://academy.cin.ufpe.br/">Apple Developer Academy</a> program at <a href="http://www.ufpe.br">UFPE</a>. The course includes classes on coding, design, and business. More information about its syllabus is available <a href="https://sites.google.com/a/cin.ufpe.br/ios/">here</a> (Portuguese only). One of the distinguishing features of this course is that it is also an Introduction to Programming course. Our students exhibit backgrounds that range from programming novices to last-year, programming contest-level undergrads. By the end of the course, the students organized in 4-person teams are expected to build a working iOS app. The teams are formed so that novices cannot be in the same group as students with programming experience. In this manner, we hope that every programming novice will have to learn how to code, otherwise they won’t be able to finish their apps. Overall, the first instance  of the course had 20 students, 4 of them without any prior programming experience. We are currently running the second instance of the course, this time with 8 novices out of 21 students.</p>
+
+<p>Since the focus of this course is on iOS development, we use Swift as our main programming language. The course covers typical programming 101 subjects, such as variables, functions, loops, etc., and also some less often addressed topics (at least in Programming 101 courses), such as optional data types and closures. We start with command-line Swift, no GUIs, and only after more than 20h of classes transition to GUI-based app development. Our reasoning is that this reduces subject conflation at the expense of having to organize the course in two blocks (more on this later).</p>
+
+<p>In the remainder of this post, I discuss some impressions and opinions about our experience of using Swift as a first language, organized in terms of <strong>Obstacles</strong> and <strong>Aids</strong>. I’d like to emphasize that this is a personal perspective. At the same time, it also leverages opinions and views of the students themselves and what I and some colleagues observed during the course.</p>
+
+<h1 id="obstacles">Obstacles</h1>
+
+<p>In our course, I believe these were the greatest obstacles to using Swift. I try to stick to issues that (I think) are specific to Swift.</p>
+
+<p><strong>Optionals</strong>: In my opinion, optionals are the greatest obstacle to adopting Swift as a first language. Optional types and optional values are not simple concepts and they have to be introduced very early on since they are employed pervasively in Swift and in Apple’s frameworks and libraries. For example, an <code class="language-plaintext highlighter-rouge">Int</code> initializer that takes a <code class="language-plaintext highlighter-rouge">String</code> and produces an <code class="language-plaintext highlighter-rouge">Int</code> (equivalent to C’s <code class="language-plaintext highlighter-rouge">atoi</code> function) yields an optional value. The same goes for the <code class="language-plaintext highlighter-rouge">readLine:</code> method for reading user input from the command line. Unwrapping optionals requires students to learn additional syntax when they are still learning basic Swift constructs. In particular, optional binding is a hurdle for programming novices, since they are still learning to use basic constructs, such as <code class="language-plaintext highlighter-rouge">if</code> statements. In our experience, suggesting that they use forced unwrapping and only afterwards teaching <code class="language-plaintext highlighter-rouge">if-let</code> blocks seems to lower the entry barrier. Another obstacle is understanding the different kinds of optional types (regular and implicitly unwrapped) and unwrapping approaches (forced unwrapping, optional chaining, and optional binding). We believe the best approach is to use regular optional types (the ones including the <code class="language-plaintext highlighter-rouge">?</code> character), since they more explicitly embody the notion of being optional, and forced unwrapping, since it has a lower syntactic and cognitive overhead. More advanced subjects should only be introduced after they have mastered control structures and the two aforementioned subjects. Furthermore, it is difficult for novices to see the difference between an expression producing nothing (<code class="language-plaintext highlighter-rouge">nil</code>) and producing 0 or an empty <code class="language-plaintext highlighter-rouge">String</code>. It is important to provide multiple examples.</p>
+
+<p><strong>There is a lot to learn</strong> if students are expected to develop apps. Optional types, closures, and object-oriented programming are all mandatory subjects. In some case, generics also become visible (<code class="language-plaintext highlighter-rouge">Set</code>, <code class="language-plaintext highlighter-rouge">Array</code>). Similary, error handling often appears in the form of <code class="language-plaintext highlighter-rouge">throws</code> or <code class="language-plaintext highlighter-rouge">rethrows</code> clauses in libraries. This means that a large number of concepts must be grasped in a relatively short amount of time. If the goal is, as in our case, to develop apps, it is also necessary to learn at least the <code class="language-plaintext highlighter-rouge">UIKit</code> framework and, in most practical situation, something else, such as <code class="language-plaintext highlighter-rouge">MapKit</code>, <code class="language-plaintext highlighter-rouge">CoreLocation</code>, <code class="language-plaintext highlighter-rouge">GrandCentralDispatch</code>, <code class="language-plaintext highlighter-rouge">CloudKit</code>, and other frameworks.</p>
+
+<p><strong>String manipulation</strong> could be more direct. Languages such as C, Java, Haskell, Python, and others attempt to treat strings similarly to their most popular collection type (lists in Haskell, lists in Python, arrays in C, arrays+objects in Java). Swift, on the other hand, probably due to its powerful Unicode support, handles strings a bit awkwardly. Even though it is possible to traverse a string very straightforwardly using <code class="language-plaintext highlighter-rouge">for</code> loops, getting the character at the <em>nth</em> position of a string is a bit more work. One cannot simply index a string using a position, as would be possible to do in all the aforementioned languages. For example, in Python, the code to get the 5th character of a string looks like this: <code class="language-plaintext highlighter-rouge">string[4]</code>. In Swift, it looks like this: <code class="language-plaintext highlighter-rouge">string.index (string.startIndex, offsetBy: 4)</code>. It may be a bit overwhelming because they have to think about (i) a method named <code class="language-plaintext highlighter-rouge">index</code>, (ii) a property named <code class="language-plaintext highlighter-rouge">startIndex</code>, which is an object of an internal class of <code class="language-plaintext highlighter-rouge">String</code> called <code class="language-plaintext highlighter-rouge">Index</code>, and (iii) the offset (not the position!). This is not a big problem for a programmer, but it hinders the use of simple string manipulation exercises that are commonplace in programming 101 courses. Moreover, if you want to start from an index other than the first one, it is not possible to just add an <code class="language-plaintext highlighter-rouge">Int</code> to and <code class="language-plaintext highlighter-rouge">Index</code>, which is not intuitive, since the an <code class="language-plaintext highlighter-rouge">Index</code> should correspond to a position.</p>
+
+<p><strong>Transition from basic programming to App Development</strong>. In spite of these obstacles, Swift is a straightforward language to learn, or at least the students in the course thought so. However, their feedback about app development was consistent: it is hard to make the transition from basic, command-line Swift programming to app development. It is necessary to learn new concepts. Moreover, the app development process is split between coding and building a user interface. The latter part usually involves interface builder, a separate tool whose connection with the code requires links between UI and program elements (<code class="language-plaintext highlighter-rouge">IBOutlets</code> and <code class="language-plaintext highlighter-rouge">IBActions</code>). Furthermore, program actions are started by the <code class="language-plaintext highlighter-rouge">UIKit</code>framework (because of user interactions) whereas, if we start with command line tools, students feel more in control of what their programs do. We could probably have reduced this obstacle if we started with app development from the outset. However, this could have lead to a different set of problems, since there would be a large conflation of subjects. Maybe it is the right way to go, though.</p>
+
+<h1 id="aids">Aids</h1>
+
+<p>Swift also has features that make it easier to learn. I use other languages such as Python, Java, C, and Pascal, as a baseline for comparison. These are all languages that I’ve used or seen used as programming 101 languages. I am not claiming that Swift is better or generally easier to learn than these languages. Instead, I think that the feature set listed in this section sets Swift apart. In the remainder of this section I discuss the main aids Swift presents to novice programmers.</p>
+
+<p><strong>Type inference</strong> makes programs easier to read and write. I do not think that types such as <code class="language-plaintext highlighter-rouge">Int</code>, <code class="language-plaintext highlighter-rouge">String</code>, <code class="language-plaintext highlighter-rouge">Bool</code>, and the overall notion of values having types is difficult to understand. However, not having to write types everywhere makes coding more agile. Swift code looks like it was written in a dynamically type language, like Python, even though Swift is actually statically type. It also postpones the need to introduce the notion that variables also have types, which in my experience is a bit less intuitive.</p>
+
+<p><strong>Playgrounds</strong> are a powerful learning resource. Even though REPL-based tools such as Node.js, Python’s IDLE, and JShell (Java’s interpreter, which will appear in Java 9) are very useful for learners, Swift’s Playgrounds go a step further by providing a user-friendly interpreter that makes it easy to examine how loops unfold, the results of each different instruction in a program’s text, and even the graphics that a program produces. Furthermore, Swift playgrounds can be saved for later use and be annotated in a <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming</a> style. This means that they are a very rich learning resource that can be used to write tutorials that developers can experiment with. A great list of interesting Swift playgrounds is available <a href="https://github.com/uraimo/Awesome-Swift-Playgrounds">here</a>. 
+I am not familiar with the more advanced tools usually associated with Python and other scripting languages, but Swift playgrounds are the best REPL tool I am aware of by far.</p>
+
+<p><strong>Value-based semantics for assignment</strong>. Swift uses both value and reference semantics. Nonetheless, unlike Java, the former is not constrained to values of simple, built-in types, such as <code class="language-plaintext highlighter-rouge">Int</code> and <code class="language-plaintext highlighter-rouge">Bool</code>. Arrays, dictionaries, and structs also use value semantics. Thus, it is possible to explain collections and structured data without having to mention pointers or the heap. This differs from Python, for example, which uses a reference semantics for lists. The same goes for Java arrays, which are just objects and thus use a reference semantics. In our prior experiences with introductory programming using Java and Python, by the time we reach arrays (lists in Python), students must have a grasp of both reference and value semantics, which is not ideal.</p>
+
+<p><strong>Structs also reduce the learning curve</strong>. This is related to the previous topic. Swift supports both objects, which use a reference semantics, and structs, which employ a value semantics. Since structs can have both fields (“properties”) and functions, they serve as an intermediate step between purely structured programming and object-oriented programming. A struct with state and functions is similar to an object (or a class, if you’re thinking about it at development time), but without subclassing and dynamic dispatch. If we add protocols, we also have dynamic dispatch. In this manner, object-oriented programming can be explained in terms of something the students are already familiar with, and concepts such as inheritance and inclusion polymorphism can be introduced incrementally.</p>
+
+<h1 id="concluding-remarks">Concluding remarks</h1>
+
+<p>I hope these observations can be useful to other instructors thinking about using Swift as a first programming language. In the next year, there’ll be at least four more instances of this course and, hopefully, a lot a new lessons will arise.</p>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/*
+
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+*/
+var disqus_developer = 1;
+var disqus_shortname = 'fernandocastor'; 
+var disqus_identifier = "/academia/2017/11/02/swift_first_language.html";
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//fernandocastor.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+         
+  </article>
+
+</div>
+
+       
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script id="dsq-count-scr" src="//fernandocastor.disqus.com/count.js" async></script>
+  </body>
+
+</html>

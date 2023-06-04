@@ -10,8 +10,8 @@
   <meta name="description" content="While reading tutorials and other forms of documentation about Swift’s error handling mechanism, I noticed that most of them are superficial. Two notable exc...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://fernandocastor.github.io/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">
-  <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/general/2016/04/29/the-many-flavors-of-swift-error-handling.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Fernando Castor's rants</a>
+    <a class="site-title" href="/">Fernando Castor</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -35,11 +35,21 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/about/">About</a>
+        
+          
+        
           
         
           
         
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
           
         
           
@@ -62,297 +72,297 @@
   </header>
 
   <article class="post-content">
-    <p>While reading tutorials and other forms of documentation about Swift’s error handling mechanism, I noticed that most of them are superficial. Two notable exceptions are the <a href="https://realm.io/news/testing-swift-error-type/">exploration</a> of the <code>ErrorType</code> protocol that <a href="https://twitter.com/mrackwitz">Marcus Rackwitz</a> performed and the <a href="https://github.com/apple/swift/blob/master/docs/ErrorHandlingRationale.rst">document</a> presenting the rationale and proposal for Swift error handling. Nevertheless, I couldn’t find a single place that presents the numerous ways in which Swift programmers can define, signal, and capture errors. Therefore I decided to analyze this in more depth. Here I attempt to summarize this investigation. I assume that you have at least a passing familiarity with exception handling in some other language and with the basic building blocks of Swift (classes, structs, enums).</p>
+    <p>While reading tutorials and other forms of documentation about Swift’s error handling mechanism, I noticed that most of them are superficial. Two notable exceptions are the <a href="https://realm.io/news/testing-swift-error-type/">exploration</a> of the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol that <a href="https://twitter.com/mrackwitz">Marcus Rackwitz</a> performed and the <a href="https://github.com/apple/swift/blob/master/docs/ErrorHandlingRationale.rst">document</a> presenting the rationale and proposal for Swift error handling. Nevertheless, I couldn’t find a single place that presents the numerous ways in which Swift programmers can define, signal, and capture errors. Therefore I decided to analyze this in more depth. Here I attempt to summarize this investigation. I assume that you have at least a passing familiarity with exception handling in some other language and with the basic building blocks of Swift (classes, structs, enums).</p>
 
 <p>It is important to stress that this post received more than a few contributions from <a href="https://twitter.com/frsoares">Francisco Soares</a>.</p>
 
 <h3 id="the-required-swift-error-handling-primer">The Required Swift Error Handling Primer</h3>
 
-<p>If you’ve ever developed a program in a language that includes an exception handling mechanism, e.g., Java, C#, Ruby, C++, Python, among so many others, Swift error handling is straightforward. Errors are values of types that conform to the <code>ErrorType</code> protocol, which will become <code>ErrorProtocol</code> in Swift 3.0. The <code>throw</code> statement signals the occurrence of an error. A method that signals an error has two options: (i) either it <code>catch</code>es the error; or (ii) it indicates in its signature that it <code>throws</code> an error. Most tutorials I’ve found on error handling in Swift start out by explaining that it is easy to define errors using an <code>enum</code>, for example:</p>
+<p>If you’ve ever developed a program in a language that includes an exception handling mechanism, e.g., Java, C#, Ruby, C++, Python, among so many others, Swift error handling is straightforward. Errors are values of types that conform to the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol, which will become <code class="language-plaintext highlighter-rouge">ErrorProtocol</code> in Swift 3.0. The <code class="language-plaintext highlighter-rouge">throw</code> statement signals the occurrence of an error. A method that signals an error has two options: (i) either it <code class="language-plaintext highlighter-rouge">catch</code>es the error; or (ii) it indicates in its signature that it <code class="language-plaintext highlighter-rouge">throws</code> an error. Most tutorials I’ve found on error handling in Swift start out by explaining that it is easy to define errors using an <code class="language-plaintext highlighter-rouge">enum</code>, for example:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">enum</span> <span class="nl">IOError</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="n">FileNotFound</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
-  <span class="k">case</span> <span class="n">ConnectionTimedOut</span>
-  <span class="k">case</span> <span class="n">ExceededNumberOfRetries</span><span class="p">(</span><span class="nl">number</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">enum</span> <span class="kt">IOError</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="kt">FileNotFound</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+  <span class="k">case</span> <span class="kt">ConnectionTimedOut</span>
+  <span class="k">case</span> <span class="kt">ExceededNumberOfRetries</span><span class="p">(</span><span class="nv">number</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
 
-<p><code>IOError</code> is an enum with three enumeration cases (or constructors, if you come from a functional programming background). Each of these cases represents a different kind of error, as its name indicates. <code>ExceededNumberOfRetries</code> and <code>FileNotFound</code> are particularly interesting because they are errors that carry contextual information, the name of the file that was not found and the number of retries that were attempted before the error was signaled, respectively. This information can be employed to capture errors in more specific situations. Since each case is a value that represents an error, it can be <code>throw</code>n:</p>
+<p><code class="language-plaintext highlighter-rouge">IOError</code> is an enum with three enumeration cases (or constructors, if you come from a functional programming background). Each of these cases represents a different kind of error, as its name indicates. <code class="language-plaintext highlighter-rouge">ExceededNumberOfRetries</code> and <code class="language-plaintext highlighter-rouge">FileNotFound</code> are particularly interesting because they are errors that carry contextual information, the name of the file that was not found and the number of retries that were attempted before the error was signaled, respectively. This information can be employed to capture errors in more specific situations. Since each case is a value that represents an error, it can be <code class="language-plaintext highlighter-rouge">throw</code>n:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">readFromFile</span><span class="p">(</span><span class="nl">path</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="bp">NSFileManager</span><span class="p">.</span><span class="n">defaultManager</span><span class="p">().</span><span class="n">fileExistsAtPath</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">throw</span> <span class="n">IOError</span><span class="p">.</span><span class="n">FileNotFound</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span> <span class="c1">// throws an error!</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">readFromFile</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">NSFileManager</span><span class="o">.</span><span class="nf">defaultManager</span><span class="p">()</span><span class="o">.</span><span class="nf">fileExistsAtPath</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="kt">IOError</span><span class="o">.</span><span class="kt">FileNotFound</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span> <span class="c1">// throws an error!</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-     <span class="p">...</span> <span class="c1">// do something useful here.</span>
+     <span class="o">...</span> <span class="c1">// do something useful here.</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
-<p>The <code>throws</code> clause in the signature of <code>readFromFile</code> is required by the Swift compiler. Methods invoking <code>readFromFile</code> must either also have a <code>throws</code> clause in their signatures or explicitly <code>catch</code> the error. In addition, calls to <code>readFromFile</code> must be preceded by the <code>try</code> keyword to explicitly indicate that those statements may throw an error. The code snippet below presents an example of a method that invokes <code>readFromFile</code> and <code>catch</code>es the  <code>FileNotFound</code> error (and others, as explained below).</p>
+<p>The <code class="language-plaintext highlighter-rouge">throws</code> clause in the signature of <code class="language-plaintext highlighter-rouge">readFromFile</code> is required by the Swift compiler. Methods invoking <code class="language-plaintext highlighter-rouge">readFromFile</code> must either also have a <code class="language-plaintext highlighter-rouge">throws</code> clause in their signatures or explicitly <code class="language-plaintext highlighter-rouge">catch</code> the error. In addition, calls to <code class="language-plaintext highlighter-rouge">readFromFile</code> must be preceded by the <code class="language-plaintext highlighter-rouge">try</code> keyword to explicitly indicate that those statements may throw an error. The code snippet below presents an example of a method that invokes <code class="language-plaintext highlighter-rouge">readFromFile</code> and <code class="language-plaintext highlighter-rouge">catch</code>es the  <code class="language-plaintext highlighter-rouge">FileNotFound</code> error (and others, as explained below).</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">fileContents</span> <span class="o">=</span> <span class="n">try</span> <span class="n">readFromFile</span><span class="p">(</span><span class="nl">path</span><span class="p">:</span> <span class="n">filePath</span><span class="p">)</span>
-    <span class="p">...</span> <span class="c1">// do something useful here</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">IOError</span><span class="p">.</span><span class="n">FileNotFound</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;File not found: \(filePath).&quot;</span><span class="p">)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="k">let</span> <span class="nv">fileContents</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">readFromFile</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="n">filePath</span><span class="p">)</span>
+    <span class="o">...</span> <span class="c1">// do something useful here</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">IOError</span><span class="o">.</span><span class="kt">FileNotFound</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"File not found: </span><span class="se">\(</span><span class="n">filePath</span><span class="se">)</span><span class="s">."</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>To catch an error, it is necessary to place the code that may throw errors within a <code>do</code> block. That block can have one or more associated <code>catch</code> clauses. The code snippet above has two such clauses. The first one catches <code>FileNotFound</code> errors, whereas the second one catches any other error. The latter is required by Swift to guarantee that any other errors are also caught. The first <code>catch</code> clause does not specify the name of the file that triggered the error. I come back to this topic later. In the second block, <code>error</code> is a predefined variable that represents the caught error. It is accessible within the body of the generic <code>catch</code> block.</p>
+<p>To catch an error, it is necessary to place the code that may throw errors within a <code class="language-plaintext highlighter-rouge">do</code> block. That block can have one or more associated <code class="language-plaintext highlighter-rouge">catch</code> clauses. The code snippet above has two such clauses. The first one catches <code class="language-plaintext highlighter-rouge">FileNotFound</code> errors, whereas the second one catches any other error. The latter is required by Swift to guarantee that any other errors are also caught. The first <code class="language-plaintext highlighter-rouge">catch</code> clause does not specify the name of the file that triggered the error. I come back to this topic later. In the second block, <code class="language-plaintext highlighter-rouge">error</code> is a predefined variable that represents the caught error. It is accessible within the body of the generic <code class="language-plaintext highlighter-rouge">catch</code> block.</p>
 
-<p>Swift has additional constructs for error handling. It is possible to write <code>try?</code> before an expression that may throw an error to convert the error into an optional value.<br />
-As pointed out in Apple’s <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html">tutorial</a> on error handling in Swift, this construct is syntactic sugar for a common pattern of usage of <code>do-catch</code> blocks.
-On the other hand, errors thrown by an expression preceded by <code>try!</code> are turned into a runtime error, more specifically, the same one that occurs when attempting to dereference <code>nil</code>. These errors cannot be captured by Swift. Hereafter I do not cover the use of either construct.</p>
+<p>Swift has additional constructs for error handling. It is possible to write <code class="language-plaintext highlighter-rouge">try?</code> before an expression that may throw an error to convert the error into an optional value.<br />
+As pointed out in Apple’s <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html">tutorial</a> on error handling in Swift, this construct is syntactic sugar for a common pattern of usage of <code class="language-plaintext highlighter-rouge">do-catch</code> blocks.
+On the other hand, errors thrown by an expression preceded by <code class="language-plaintext highlighter-rouge">try!</code> are turned into a runtime error, more specifically, the same one that occurs when attempting to dereference <code class="language-plaintext highlighter-rouge">nil</code>. These errors cannot be captured by Swift. Hereafter I do not cover the use of either construct.</p>
 
 <h3 id="many-flavors">Many Flavors</h3>
 
-<p>There are many different approaches to define errors in Swift. Values of any type can be used as errors since even predefined types can be made to conform to <code>ErrorType</code> by means of extensions. Moreover, these approaches to define errors induce different methods to capture them. In this section I talk about both, definition and capture of errors.</p>
+<p>There are many different approaches to define errors in Swift. Values of any type can be used as errors since even predefined types can be made to conform to <code class="language-plaintext highlighter-rouge">ErrorType</code> by means of extensions. Moreover, these approaches to define errors induce different methods to capture them. In this section I talk about both, definition and capture of errors.</p>
 
 <h4 id="enumerations">Enumerations</h4>
 
-<p>The previous section covered only one approach to define errors, namely, to create an enumeration that conforms to the <code>ErrorType</code> protocol, and one to catch errors, using pattern matching on the enumeration cases. In the above example, to add another <code>catch</code> clause for the <code>ExceededNumberOfRetries</code> case, we could do so for a specific number of retries, as follows:</p>
+<p>The previous section covered only one approach to define errors, namely, to create an enumeration that conforms to the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol, and one to catch errors, using pattern matching on the enumeration cases. In the above example, to add another <code class="language-plaintext highlighter-rouge">catch</code> clause for the <code class="language-plaintext highlighter-rouge">ExceededNumberOfRetries</code> case, we could do so for a specific number of retries, as follows:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before, including first catch clause</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">IOError</span><span class="p">.</span><span class="n">ExceededNumberOfRetries</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// do something when number of retries is one  </span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">IOError</span><span class="p">.</span><span class="n">ExceededNumberOfRetries</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// do something when number of retries is something other than 1  </span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before, including first catch clause</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">IOError</span><span class="o">.</span><span class="kt">ExceededNumberOfRetries</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// do something when number of retries is one  </span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">IOError</span><span class="o">.</span><span class="kt">ExceededNumberOfRetries</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// do something when number of retries is something other than 1  </span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>In this example, the first <code>catch</code> clause will be selected when the <code>ExceededNumberOfRetries</code> error is constructed with argument 1. In the second one, an <code>ExceededNumberOfRetries</code> error will be caught independently of the argument. Since <code>catch</code> clauses are analyzed in textual order at runtime, there is no danger of the first one not being selected when it should be.</p>
+<p>In this example, the first <code class="language-plaintext highlighter-rouge">catch</code> clause will be selected when the <code class="language-plaintext highlighter-rouge">ExceededNumberOfRetries</code> error is constructed with argument 1. In the second one, an <code class="language-plaintext highlighter-rouge">ExceededNumberOfRetries</code> error will be caught independently of the argument. Since <code class="language-plaintext highlighter-rouge">catch</code> clauses are analyzed in textual order at runtime, there is no danger of the first one not being selected when it should be.</p>
 
-<p>The possibility of describing very specific conditions for capturing an error (it is also possible to add a <code>where</code> clause to a <code>catch</code> clause to specify a boolean condition) highlights an important difference between Swift and some statically-typed languages that make extensive use of exception handling mechanisms: error capture in the examples we have seen so far is by value and not by type (it’s pattern matching, after all). This is the reason why the last <code>catch</code> clause associated with a <code>do</code> block must always be generic. It is not possible to statically guarantee the absence of uncaught errors when capturing errors by pattern matching without such generic <code>catch</code> clause.</p>
+<p>The possibility of describing very specific conditions for capturing an error (it is also possible to add a <code class="language-plaintext highlighter-rouge">where</code> clause to a <code class="language-plaintext highlighter-rouge">catch</code> clause to specify a boolean condition) highlights an important difference between Swift and some statically-typed languages that make extensive use of exception handling mechanisms: error capture in the examples we have seen so far is by value and not by type (it’s pattern matching, after all). This is the reason why the last <code class="language-plaintext highlighter-rouge">catch</code> clause associated with a <code class="language-plaintext highlighter-rouge">do</code> block must always be generic. It is not possible to statically guarantee the absence of uncaught errors when capturing errors by pattern matching without such generic <code class="language-plaintext highlighter-rouge">catch</code> clause.</p>
 
 <h4 id="classes">Classes</h4>
 
-<p>In this section I examine the use of classes to define errors. For this case, we will redefine <code>ExceededNumberOfRetries</code> and <code>FileNotFound</code> as classes that are subtypes of another class named <code>IOError</code>.  The latter conforms to the <code>ErrorType</code> protocol. This structure is presented below.</p>
+<p>In this section I examine the use of classes to define errors. For this case, we will redefine <code class="language-plaintext highlighter-rouge">ExceededNumberOfRetries</code> and <code class="language-plaintext highlighter-rouge">FileNotFound</code> as classes that are subtypes of another class named <code class="language-plaintext highlighter-rouge">IOError</code>.  The latter conforms to the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol. This structure is presented below.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="nl">IOError</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{}</span>
-<span class="k">class</span> <span class="nl">ExceededNumberOfRetries</span> <span class="p">:</span> <span class="n">IOError</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">numRetries</span> <span class="p">:</span> <span class="n">Int</span>
-  <span class="k">init</span><span class="p">(</span><span class="nl">num</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span> <span class="n">numRetries</span> <span class="o">=</span> <span class="n">num</span> <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">IOError</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{}</span>
+<span class="kd">class</span> <span class="kt">ExceededNumberOfRetries</span> <span class="p">:</span> <span class="kt">IOError</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">numRetries</span> <span class="p">:</span> <span class="kt">Int</span>
+  <span class="nf">init</span><span class="p">(</span><span class="nv">num</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span> <span class="n">numRetries</span> <span class="o">=</span> <span class="n">num</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">class</span> <span class="nl">FileNotFound</span> <span class="p">:</span> <span class="n">IOError</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">path</span> <span class="p">:</span> <span class="n">String</span>
-  <span class="k">init</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span> <span class="n">path</span> <span class="o">=</span> <span class="n">filePath</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="kd">class</span> <span class="kt">FileNotFound</span> <span class="p">:</span> <span class="kt">IOError</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">path</span> <span class="p">:</span> <span class="kt">String</span>
+  <span class="nf">init</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span> <span class="n">path</span> <span class="o">=</span> <span class="n">filePath</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>To use the class definitions above, the only change that needs to be applied to the <code>readFromFile</code> function is that the <code>IOError.</code> prefix must be removed from the line that throws the error. This is necessary because <code>FileNotFound</code> is now a full-fledged type, instead of just an enumeration case for <code>IOError</code>. For function <code>processText</code>, modifications are necessary because Swift does not know, by default, how to pattern match on values that are instances of classes. However, it is also possible to capture errors by type in Swift, more similarly to how it’s done in Java and C#. Nevertheless, it is important to bear in mind that, behind the scenes, it’s still pattern matching.
-The following example is a modified version of the first version of <code>processText</code>, adapted to work with this approach:</p>
+<p>To use the class definitions above, the only change that needs to be applied to the <code class="language-plaintext highlighter-rouge">readFromFile</code> function is that the <code class="language-plaintext highlighter-rouge">IOError.</code> prefix must be removed from the line that throws the error. This is necessary because <code class="language-plaintext highlighter-rouge">FileNotFound</code> is now a full-fledged type, instead of just an enumeration case for <code class="language-plaintext highlighter-rouge">IOError</code>. For function <code class="language-plaintext highlighter-rouge">processText</code>, modifications are necessary because Swift does not know, by default, how to pattern match on values that are instances of classes. However, it is also possible to capture errors by type in Swift, more similarly to how it’s done in Java and C#. Nevertheless, it is important to bear in mind that, behind the scenes, it’s still pattern matching.
+The following example is a modified version of the first version of <code class="language-plaintext highlighter-rouge">processText</code>, adapted to work with this approach:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="k">let</span> <span class="n">fileError</span> <span class="kt">as</span> <span class="n">FileNotFound</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;File not found: \(fileError.path).&quot;</span><span class="p">)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">fileError</span> <span class="k">as</span> <span class="kt">FileNotFound</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"File not found: </span><span class="se">\(</span><span class="n">fileError</span><span class="o">.</span><span class="n">path</span><span class="se">)</span><span class="s">."</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>In the code snippet, the first <code>catch</code> clause and its body were modified. The <code>catch</code> clause now captures errors whose type is <code>FileNotFound</code> and binds them to variable <code>fileError</code>. The error value, an object, is then accessible within the <code>catch</code> block. If the captured error is not of that type, it is handled by the generic <code>catch</code> block. In case it is not necessary to access the error object within the <code>catch</code> blocks, one can use the <code>is</code> operator, which checks whether the value on the left has the type on its right, instead of as:</p>
+<p>In the code snippet, the first <code class="language-plaintext highlighter-rouge">catch</code> clause and its body were modified. The <code class="language-plaintext highlighter-rouge">catch</code> clause now captures errors whose type is <code class="language-plaintext highlighter-rouge">FileNotFound</code> and binds them to variable <code class="language-plaintext highlighter-rouge">fileError</code>. The error value, an object, is then accessible within the <code class="language-plaintext highlighter-rouge">catch</code> block. If the captured error is not of that type, it is handled by the generic <code class="language-plaintext highlighter-rouge">catch</code> block. In case it is not necessary to access the error object within the <code class="language-plaintext highlighter-rouge">catch</code> blocks, one can use the <code class="language-plaintext highlighter-rouge">is</code> operator, which checks whether the value on the left has the type on its right, instead of as:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="kt">is</span> <span class="n">FileNotFound</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;File not found.&quot;</span><span class="p">)</span> <span class="c1">// error is not accessible</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="k">is</span> <span class="kt">FileNotFound</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"File not found."</span><span class="p">)</span> <span class="c1">// error is not accessible</span>
   <span class="p">}</span>
-<span class="p">...</span> <span class="c1">// same as before</span></code></pre></div>
+<span class="o">...</span> <span class="c1">// same as before</span></code></pre></figure>
 
-<p>As usual for pattern matching, when capturing errors matching patterns by type it is important to keep <code>catch</code> clauses for more generic types after ones for more specific types. In the following example, the second <code>catch</code> clause will never be selected because the first one captures errors of type <code>IOError</code>, a superclass of <code>FileNotFound</code>.</p>
+<p>As usual for pattern matching, when capturing errors matching patterns by type it is important to keep <code class="language-plaintext highlighter-rouge">catch</code> clauses for more generic types after ones for more specific types. In the following example, the second <code class="language-plaintext highlighter-rouge">catch</code> clause will never be selected because the first one captures errors of type <code class="language-plaintext highlighter-rouge">IOError</code>, a superclass of <code class="language-plaintext highlighter-rouge">FileNotFound</code>.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="k">let</span> <span class="n">IOError</span> <span class="kt">as</span> <span class="n">IOError</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="k">let</span> <span class="n">fileError</span> <span class="kt">as</span> <span class="n">FileNotFound</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// Will never be reached.</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">IOError</span> <span class="k">as</span> <span class="kt">IOError</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">fileError</span> <span class="k">as</span> <span class="kt">FileNotFound</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// Will never be reached.</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <h4 id="structs">Structs</h4>
 
-<p>Structs defining errors are similar to classes, with the differences that <code>IOError</code> must be a protocol, since inheritance between structs is not possible, and that initializers become unnecessary:</p>
+<p>Structs defining errors are similar to classes, with the differences that <code class="language-plaintext highlighter-rouge">IOError</code> must be a protocol, since inheritance between structs is not possible, and that initializers become unnecessary:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="nl">IOError2</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{}</span>
-<span class="k">struct</span> <span class="nl">ExceededNumberOfRetries</span> <span class="p">:</span> <span class="n">IOError</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">numRetries</span> <span class="p">:</span> <span class="n">Int</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">protocol</span> <span class="kt">IOError2</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{}</span>
+<span class="kd">struct</span> <span class="kt">ExceededNumberOfRetries</span> <span class="p">:</span> <span class="kt">IOError</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">numRetries</span> <span class="p">:</span> <span class="kt">Int</span>
 <span class="p">}</span>
-<span class="k">struct</span> <span class="nl">FileNotFound</span> <span class="p">:</span> <span class="n">IOError</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">path</span> <span class="p">:</span> <span class="n">String</span>
-<span class="p">}</span></code></pre></div>
+<span class="kd">struct</span> <span class="kt">FileNotFound</span> <span class="p">:</span> <span class="kt">IOError</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">path</span> <span class="p">:</span> <span class="kt">String</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>Using these definitions of the errors, function <code>processText</code> can be used as is, i.e., capturing errors by type. One relevant question is whether it is also possible to capture error structs based on their value. The short answer is yes (and the same applies to classes!), but with limitations.</p>
+<p>Using these definitions of the errors, function <code class="language-plaintext highlighter-rouge">processText</code> can be used as is, i.e., capturing errors by type. One relevant question is whether it is also possible to capture error structs based on their value. The short answer is yes (and the same applies to classes!), but with limitations.</p>
 
-<p><a href="https://twitter.com/mrackwitz">Marcus Rackwitz</a>, in his  <a href="https://realm.io/news/testing-swift-error-type/">exploration</a> of the <code>ErrorType</code> protocol shows how one can pattern match with struct values to capture errors. Using the <a href="http://lldb.llvm.org/">LLDB</a> debugger for the <a href="http://www.llvm.org">LLVM</a> compiler infrastructure, he noticed that the <code>ErrorType</code> protocol is defined as follows, behind the scenes:  </p>
+<p><a href="https://twitter.com/mrackwitz">Marcus Rackwitz</a>, in his  <a href="https://realm.io/news/testing-swift-error-type/">exploration</a> of the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol shows how one can pattern match with struct values to capture errors. Using the <a href="http://lldb.llvm.org/">LLDB</a> debugger for the <a href="http://www.llvm.org">LLVM</a> compiler infrastructure, he noticed that the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol is defined as follows, behind the scenes:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="n">ErrorType</span> <span class="p">{</span>
-  <span class="k">var</span> <span class="nl">_domain</span><span class="p">:</span> <span class="n">Swift</span><span class="p">.</span><span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
-  <span class="k">var</span> <span class="nl">_code</span><span class="p">:</span> <span class="n">Swift</span><span class="p">.</span><span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">protocol</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">_domain</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+  <span class="k">var</span> <span class="nv">_code</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <!---_ --->
 
-<p>It is interesting to note that types conforming to this protocol do not need to define these properties. In order to capture errors by pattern matching on the error values, one needs to first define the struct representing errors and then overload the pattern matching operator (<code>~=</code>). The only downside is that it is only possible to pattern match using the properties defined by <code>ErrorType</code>, <code>_domain</code> and <code>_code</code>. Nevertheless, it is useful to avoid having to define a new struct type for each error, in case one wants to use structs or classes to define errors.</p>
+<p>It is interesting to note that types conforming to this protocol do not need to define these properties. In order to capture errors by pattern matching on the error values, one needs to first define the struct representing errors and then overload the pattern matching operator (<code class="language-plaintext highlighter-rouge">~=</code>). The only downside is that it is only possible to pattern match using the properties defined by <code class="language-plaintext highlighter-rouge">ErrorType</code>, <code class="language-plaintext highlighter-rouge">_domain</code> and <code class="language-plaintext highlighter-rouge">_code</code>. Nevertheless, it is useful to avoid having to define a new struct type for each error, in case one wants to use structs or classes to define errors.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">Error</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nl">domain</span><span class="p">:</span> <span class="n">String</span>
-    <span class="k">let</span> <span class="nl">code</span><span class="p">:</span> <span class="n">Int</span>    
-    <span class="k">var</span> <span class="nl">_domain</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">Error</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">domain</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">Int</span>    
+    <span class="k">var</span> <span class="nv">_domain</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">domain</span>
     <span class="p">}</span>
-    <span class="k">var</span> <span class="nl">_code</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">_code</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">code</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="o">~=</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Error</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">_domain</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">_domain</span>
-        <span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="p">.</span><span class="n">_code</span>   <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">_code</span>
-<span class="p">}</span></code></pre></div>
+<span class="kd">func</span> <span class="o">~=</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">lhs</span><span class="o">.</span><span class="n">_domain</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">_domain</span>
+        <span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="o">.</span><span class="n">_code</span>   <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">_code</span>
+<span class="p">}</span></code></pre></figure>
 
 <!---_ --->
 
 <p>With this scaffolding in place, it is possible to catch errors defined by structs based on the values of these two properties:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">Error</span><span class="p">(</span><span class="nl">domain</span><span class="p">:</span> <span class="s">&quot;FileNotFound&quot;</span><span class="p">,</span> <span class="nl">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">Error</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="s">"FileNotFound"</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>The limitation of this approach is that it only employs the properties that exist in <code>ErrorType</code> for pattern matching, even if the struct has other properties. In the example below, the values of the new property <code>additionalInfo</code> of <code>Error</code> will not be taken into account by the <code>catch</code> clauses. The overload of <code>~=</code> cannot account for <code>additionalInfo</code>, since this property is not defined in <code>ErrorType</code>. Thus, the second <code>catch</code> clause will never be selected.</p>
+<p>The limitation of this approach is that it only employs the properties that exist in <code class="language-plaintext highlighter-rouge">ErrorType</code> for pattern matching, even if the struct has other properties. In the example below, the values of the new property <code class="language-plaintext highlighter-rouge">additionalInfo</code> of <code class="language-plaintext highlighter-rouge">Error</code> will not be taken into account by the <code class="language-plaintext highlighter-rouge">catch</code> clauses. The overload of <code class="language-plaintext highlighter-rouge">~=</code> cannot account for <code class="language-plaintext highlighter-rouge">additionalInfo</code>, since this property is not defined in <code class="language-plaintext highlighter-rouge">ErrorType</code>. Thus, the second <code class="language-plaintext highlighter-rouge">catch</code> clause will never be selected.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">Error</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// definitions of domain and code</span>
-    <span class="k">let</span> <span class="nl">additionalInfo</span><span class="p">:</span> <span class="n">String</span>
-    <span class="p">...</span> <span class="c1">// definitions of _domain and _code</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">Error</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// definitions of domain and code</span>
+    <span class="k">let</span> <span class="nv">additionalInfo</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="o">...</span> <span class="c1">// definitions of _domain and _code</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="n">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">Error</span><span class="p">(</span><span class="nl">domain</span><span class="p">:</span> <span class="s">&quot;FileNotFound&quot;</span><span class="p">,</span> <span class="nl">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nl">additionalInfo</span><span class="p">:</span> <span class="s">&quot;config.sys&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">Error</span><span class="p">(</span><span class="nl">domain</span><span class="p">:</span> <span class="s">&quot;FileNotFound&quot;</span><span class="p">,</span> <span class="nl">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nl">additionalInfo</span><span class="p">:</span> <span class="s">&quot;autoexec.bat&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">Error</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="s">"FileNotFound"</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nv">additionalInfo</span><span class="p">:</span> <span class="s">"config.sys"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">Error</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="s">"FileNotFound"</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nv">additionalInfo</span><span class="p">:</span> <span class="s">"autoexec.bat"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <!---_ --->
 
-<p>It is possible to use Swift’s optional casting operator (<code>as?</code>) or its forced variant (<code>as!</code>) to work around this limitation and  account for additional struct and class properties. For optional casting, all we need to do is use an <code>if let ...</code> block to cast to <code>Error</code> and add the struct type-specific code inside the block. To use forced casting, we need to check whether the second parameter of the pattern matching operator has the struct type (<code>Error</code>, in the examples) and, in case it does, force cast the argument from <code>ErrorType</code> to the struct type.</p>
+<p>It is possible to use Swift’s optional casting operator (<code class="language-plaintext highlighter-rouge">as?</code>) or its forced variant (<code class="language-plaintext highlighter-rouge">as!</code>) to work around this limitation and  account for additional struct and class properties. For optional casting, all we need to do is use an <code class="language-plaintext highlighter-rouge">if let ...</code> block to cast to <code class="language-plaintext highlighter-rouge">Error</code> and add the struct type-specific code inside the block. To use forced casting, we need to check whether the second parameter of the pattern matching operator has the struct type (<code class="language-plaintext highlighter-rouge">Error</code>, in the examples) and, in case it does, force cast the argument from <code class="language-plaintext highlighter-rouge">ErrorType</code> to the struct type.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">Error</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nl">domain</span><span class="p">:</span> <span class="n">String</span>
-    <span class="k">let</span> <span class="nl">code</span><span class="p">:</span> <span class="n">Int</span>    
-    <span class="k">let</span> <span class="nl">additionalInfo</span> <span class="p">:</span> <span class="n">Int</span>
-    <span class="k">var</span> <span class="nl">_domain</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">Error</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">domain</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">let</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">Int</span>    
+    <span class="k">let</span> <span class="nv">additionalInfo</span> <span class="p">:</span> <span class="kt">Int</span>
+    <span class="k">var</span> <span class="nv">_domain</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">domain</span>
     <span class="p">}</span>
-    <span class="k">var</span> <span class="nl">_code</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">_code</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">code</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="o">~=</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Error</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="n">result</span> <span class="o">=</span>  <span class="n">lhs</span><span class="p">.</span><span class="n">_domain</span> <span class="o">==</span> <span class="n">newRHS</span><span class="p">.</span><span class="n">_domain</span>
-               <span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="p">.</span><span class="n">_code</span>   <span class="o">==</span> <span class="n">newRHS</span><span class="p">.</span><span class="n">_code</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="n">newRHS</span> <span class="o">=</span> <span class="n">rhs</span> <span class="kt">as</span><span class="o">?</span> <span class="n">Error</span> <span class="p">{</span>
-      <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">additionalInfo</span> <span class="o">==</span> <span class="n">newRHS</span><span class="p">.</span><span class="n">additionalInfo</span><span class="p">)</span>
+<span class="kd">func</span> <span class="o">~=</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">result</span> <span class="o">=</span>  <span class="n">lhs</span><span class="o">.</span><span class="n">_domain</span> <span class="o">==</span> <span class="n">newRHS</span><span class="o">.</span><span class="n">_domain</span>
+               <span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="o">.</span><span class="n">_code</span>   <span class="o">==</span> <span class="n">newRHS</span><span class="o">.</span><span class="n">_code</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">newRHS</span> <span class="o">=</span> <span class="n">rhs</span> <span class="k">as?</span> <span class="kt">Error</span> <span class="p">{</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">lhs</span><span class="o">.</span><span class="n">additionalInfo</span> <span class="o">==</span> <span class="n">newRHS</span><span class="o">.</span><span class="n">additionalInfo</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">result</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <!---_ --->
 
-<p>With these definitions, any attribute from <code>Error</code> can be used for pattern matching when capturing errors. Thus, in the following example, the second <code>catch</code> clause will be selected normally.</p>
+<p>With these definitions, any attribute from <code class="language-plaintext highlighter-rouge">Error</code> can be used for pattern matching when capturing errors. Thus, in the following example, the second <code class="language-plaintext highlighter-rouge">catch</code> clause will be selected normally.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">Error</span><span class="p">(</span><span class="nl">domain</span><span class="p">:</span> <span class="s">&quot;FileNotFound&quot;</span><span class="p">,</span> <span class="nl">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nl">additionalInfo</span><span class="p">:</span> <span class="s">&quot;config.sys&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">Error</span><span class="p">(</span><span class="nl">domain</span><span class="p">:</span> <span class="s">&quot;FileNotFound&quot;</span><span class="p">,</span> <span class="nl">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nl">additionalInfo</span><span class="p">:</span> <span class="s">&quot;autoexec.bat&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// handle the error</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">Error</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="s">"FileNotFound"</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nv">additionalInfo</span><span class="p">:</span> <span class="s">"config.sys"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">Error</span><span class="p">(</span><span class="nv">domain</span><span class="p">:</span> <span class="s">"FileNotFound"</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="nv">additionalInfo</span><span class="p">:</span> <span class="s">"autoexec.bat"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="c1">// handle the error</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>Swift 2.1.1 behaves non-intuitively when overloading the pattern matching operator for structs and classes. The code snippet below defines a struct and a class and makes both of them conform to <code>ErrorType</code>. It also overloads the pattern matching operator for both types (using just the <code>code</code> property). When executed, the program prints <em>“catch block for ErrorStruct”</em>, instead of <em>“catch block for ErrorClass”</em>, even though we are throwing <code>ErrorClass(code: 10)</code>. I assume that, under the hood, Swift invokes the overloaded version of <code>~=</code> that best matches the type of the error object. Since this implementation disregards the object type (it only looks at the value of <code>code</code>), the matching will depend only on the value of the <code>code</code> property.</p>
+<p>Swift 2.1.1 behaves non-intuitively when overloading the pattern matching operator for structs and classes. The code snippet below defines a struct and a class and makes both of them conform to <code class="language-plaintext highlighter-rouge">ErrorType</code>. It also overloads the pattern matching operator for both types (using just the <code class="language-plaintext highlighter-rouge">code</code> property). When executed, the program prints <em>“catch block for ErrorStruct”</em>, instead of <em>“catch block for ErrorClass”</em>, even though we are throwing <code class="language-plaintext highlighter-rouge">ErrorClass(code: 10)</code>. I assume that, under the hood, Swift invokes the overloaded version of <code class="language-plaintext highlighter-rouge">~=</code> that best matches the type of the error object. Since this implementation disregards the object type (it only looks at the value of <code class="language-plaintext highlighter-rouge">code</code>), the matching will depend only on the value of the <code class="language-plaintext highlighter-rouge">code</code> property.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">ErrorStruct</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">code</span> <span class="p">:</span> <span class="n">Int</span>
-  <span class="k">var</span> <span class="nl">_code</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">code</span> <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="kt">ErrorStruct</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">code</span> <span class="p">:</span> <span class="kt">Int</span>
+  <span class="k">var</span> <span class="nv">_code</span> <span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">code</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">class</span> <span class="nl">ErrorClass</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nl">code</span> <span class="p">:</span> <span class="n">Int</span>
-  <span class="k">var</span> <span class="nl">_code</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">code</span> <span class="p">}</span>
+<span class="kd">class</span> <span class="kt">ErrorClass</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">code</span> <span class="p">:</span> <span class="kt">Int</span>
+  <span class="k">var</span> <span class="nv">_code</span> <span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">code</span> <span class="p">}</span>
 
-  <span class="k">init</span><span class="p">(</span><span class="nl">code</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">{</span> <span class="nb">self</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span> <span class="p">}</span>
+  <span class="nf">init</span><span class="p">(</span><span class="nv">code</span> <span class="p">:</span><span class="kt">Int</span><span class="p">)</span> <span class="p">{</span> <span class="k">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="o">~=</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">ErrorClass</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">_code</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">_code</span>
+<span class="kd">func</span> <span class="o">~=</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">ErrorClass</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">lhs</span><span class="o">.</span><span class="n">_code</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">_code</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="o">~=</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">ErrorStruct</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-<span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">_code</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">_code</span>
+<span class="kd">func</span> <span class="o">~=</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">ErrorStruct</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">ErrorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+<span class="k">return</span> <span class="n">lhs</span><span class="o">.</span><span class="n">_code</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">_code</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="n">f</span><span class="p">()</span> <span class="n">throws</span> <span class="p">{</span>
-  <span class="n">throw</span> <span class="n">ErrorClass</span><span class="p">(</span><span class="nl">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="k">throws</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="kt">ErrorClass</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="n">try</span> <span class="n">f</span><span class="p">()</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">ErrorStruct</span><span class="p">(</span><span class="nl">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;catch block for ErrorStruct&quot;</span><span class="p">)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">ErrorClass</span><span class="p">(</span><span class="nl">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;catch block for ErrorClass&quot;</span><span class="p">)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="k">try</span> <span class="nf">f</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">ErrorStruct</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"catch block for ErrorStruct"</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="kt">ErrorClass</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"catch block for ErrorClass"</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">g</span><span class="p">()</span></code></pre></div>
+<span class="nf">g</span><span class="p">()</span></code></pre></figure>
 
 <!---_ --->
 
 <h4 id="nserror-and-other-predefined-types">NSError and other predefined types</h4>
 
-<p>The traditional approach for Objective-C applications to signal errors is to return instances of the <code>NSError</code> class. This class seems to have a special status when it comes to throwing and capturing errors in Swift. It <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html">adopts</a> the <code>ErrorType</code> protocol, similarly to other types defining errors we have examined. However, a <code>catch</code> clause for <code>NSError</code> works as a generic <code>catch</code> clause. Thus, the following three <code>catch</code> clauses seem to be equivalent in the sense that any other two could be removed and the Swift compiler would still be satisfied. For the second case (<code>ErrorType</code>), Xcode emits a warning stating that <em>“as test is always true”</em>.</p>
+<p>The traditional approach for Objective-C applications to signal errors is to return instances of the <code class="language-plaintext highlighter-rouge">NSError</code> class. This class seems to have a special status when it comes to throwing and capturing errors in Swift. It <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html">adopts</a> the <code class="language-plaintext highlighter-rouge">ErrorType</code> protocol, similarly to other types defining errors we have examined. However, a <code class="language-plaintext highlighter-rouge">catch</code> clause for <code class="language-plaintext highlighter-rouge">NSError</code> works as a generic <code class="language-plaintext highlighter-rouge">catch</code> clause. Thus, the following three <code class="language-plaintext highlighter-rouge">catch</code> clauses seem to be equivalent in the sense that any other two could be removed and the Swift compiler would still be satisfied. For the second case (<code class="language-plaintext highlighter-rouge">ErrorType</code>), Xcode emits a warning stating that <em>“as test is always true”</em>.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// same as before</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="k">let</span> <span class="n">error</span> <span class="kt">as</span> <span class="bp">NSError</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">).</span><span class="s">&quot;)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="k">let</span> <span class="n">error</span> <span class="kt">as</span> <span class="n">ErrorType</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">).</span><span class="s">&quot;)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="o">...</span> <span class="c1">// same as before</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="k">as</span> <span class="kt">NSError</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="s">")
+  } catch let error as ErrorType {
+    print(error)."</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>It is interesting to note that <code>NSError</code> already defines properties <code>code</code> and <code>domain</code>. Thus, to use pattern matching on value of type <code>NSError</code>, one needs only to redefine the <code>~=</code> operator as we have done in the previous section.</p>
+<p>It is interesting to note that <code class="language-plaintext highlighter-rouge">NSError</code> already defines properties <code class="language-plaintext highlighter-rouge">code</code> and <code class="language-plaintext highlighter-rouge">domain</code>. Thus, to use pattern matching on value of type <code class="language-plaintext highlighter-rouge">NSError</code>, one needs only to redefine the <code class="language-plaintext highlighter-rouge">~=</code> operator as we have done in the previous section.</p>
 
-<p>One relevant question is whether it is possible to throw instances of <code>NSException</code> using Swift’s <code>throw</code> statement. By default, <code>NSException</code> does not conform to <code>ErrorType</code>. Thus, its instances cannot be thrown. However, by extending it to make it adopt <code>ErrorType</code>, it becomes possible to both throw and capture errors of type <code>NSException</code>.</p>
+<p>One relevant question is whether it is possible to throw instances of <code class="language-plaintext highlighter-rouge">NSException</code> using Swift’s <code class="language-plaintext highlighter-rouge">throw</code> statement. By default, <code class="language-plaintext highlighter-rouge">NSException</code> does not conform to <code class="language-plaintext highlighter-rouge">ErrorType</code>. Thus, its instances cannot be thrown. However, by extending it to make it adopt <code class="language-plaintext highlighter-rouge">ErrorType</code>, it becomes possible to both throw and capture errors of type <code class="language-plaintext highlighter-rouge">NSException</code>.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// errors of type NSException can now be thrown and caught as we&#39;ve seen before.</span>
-<span class="k">extension</span> <span class="nl">NSException</span><span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{</span> <span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// errors of type NSException can now be thrown and caught as we've seen before.</span>
+<span class="kd">extension</span> <span class="kt">NSException</span><span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span> <span class="p">}</span></code></pre></figure>
 
-<p>Making <code>NSException</code> an error is not the same, though, as dealing with Objective-C exceptions. Errors thrown from Swift code are different from exceptions thrown from Objective-C code. The underlying mechanisms differ considerably. Moreover, Swift code cannot catch exceptions thrown from Objective-C, irrespective of <code>NSException</code> conforming to <code>ErrorType</code>.</p>
+<p>Making <code class="language-plaintext highlighter-rouge">NSException</code> an error is not the same, though, as dealing with Objective-C exceptions. Errors thrown from Swift code are different from exceptions thrown from Objective-C code. The underlying mechanisms differ considerably. Moreover, Swift code cannot catch exceptions thrown from Objective-C, irrespective of <code class="language-plaintext highlighter-rouge">NSException</code> conforming to <code class="language-plaintext highlighter-rouge">ErrorType</code>.</p>
 
-<p>As I’ve mentioned before, it is possible to extend any type to make it conform to <code>ErrorType</code>. This may lead to esoteric code that, for example, throws an integer:</p>
+<p>As I’ve mentioned before, it is possible to extend any type to make it conform to <code class="language-plaintext highlighter-rouge">ErrorType</code>. This may lead to esoteric code that, for example, throws an integer:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="nl">Int</span> <span class="p">:</span> <span class="n">ErrorType</span> <span class="p">{}</span>
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">extension</span> <span class="kt">Int</span> <span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{}</span>
 
-<span class="k">func</span> <span class="n">readFromFile</span><span class="p">(</span><span class="nl">path</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="bp">NSFileManager</span><span class="p">.</span><span class="n">defaultManager</span><span class="p">().</span><span class="n">fileExistsAtPath</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">throw</span> <span class="mi">42</span> <span class="c1">// throws an error!?</span>
+<span class="kd">func</span> <span class="nf">readFromFile</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">NSFileManager</span><span class="o">.</span><span class="nf">defaultManager</span><span class="p">()</span><span class="o">.</span><span class="nf">fileExistsAtPath</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="mi">42</span> <span class="c1">// throws an error!?</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="p">...</span> <span class="c1">// do something useful here.</span>
+    <span class="o">...</span> <span class="c1">// do something useful here.</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="n">processText</span><span class="p">(</span><span class="nl">filePath</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">processText</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">do</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="n">fileContents</span> <span class="o">=</span> <span class="n">try</span> <span class="n">readFromFile</span><span class="p">(</span><span class="nl">path</span><span class="p">:</span> <span class="n">filePath</span><span class="p">)</span>
-    <span class="p">...</span> <span class="c1">// do something useful here</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="n">error</span> <span class="kt">as</span> <span class="n">Int</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="s">&quot;The answer is \(error)&quot;</span><span class="p">)</span>
-  <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="k">let</span> <span class="nv">fileContents</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">readFromFile</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="n">filePath</span><span class="p">)</span>
+    <span class="o">...</span> <span class="c1">// do something useful here</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="n">error</span> <span class="k">as</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"The answer is </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <h3 id="closing-comments">Closing comments</h3>
 
@@ -433,12 +443,12 @@ s.setAttribute('data-timestamp', +new Date());
 
   <div class="wrapper">
 
-<!--    <h2 class="footer-heading">Fernando Castor's rants</h2> -->
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>Fernando Castor's rants</li>
+          <li>Fernando Castor</li>
           <li><a href="mailto:"></a></li>
         </ul>
       </div>

@@ -10,8 +10,8 @@
   <meta name="description" content="Today at SPLASH, there was an OOPSLA session on empirical studies. All the four papers of the session were very interesting and well-presented. Two of them c...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://fernandocastor.github.io/general/2015/10/30/unsafe-java-api.html">
-  <link rel="alternate" type="application/rss+xml" title="Fernando Castor's rants" href="http://fernandocastor.github.io/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/general/2015/10/30/unsafe-java-api.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Fernando Castor's rants</a>
+    <a class="site-title" href="/">Fernando Castor</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -35,11 +35,21 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/about/">About</a>
+        
+          
+        
           
         
           
         
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
           
         
           
@@ -78,17 +88,17 @@
 <h3 id="use-at-your-own-risk-the-java-unsafe-api-in-the-wild">Use at Your Own Risk: The Java Unsafe API in the Wild</h3>
 <p>(http://dl.acm.org/citation.cfm?id=2814313&amp;CFID=555774425&amp;CFTOKEN=10047354) by Luis Mastrangelo, Luca Ponzanelli, Andrea Mocci, Michele Lanza, Matthias Hauswirth, Nathaniel Nystrom</p>
 
-<p>This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and <a href="http://research.microsoft.com/apps/pubs/default.aspx?id=68466">type sound</a>) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as <code>Exception</code>s or, in the worst case scenario (e.g., due to lack of heap space), as an <code>Error</code>. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, <code>sun.misc.Unsafe</code> which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java’s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object.</p>
+<p>This paper investigates one of those not-well-known, dirty little secrets. Java is type safe (and <a href="http://research.microsoft.com/apps/pubs/default.aspx?id=68466">type sound</a>) and memory safe. This means that problems that stop an application from proceeding at runtime should be signaled as <code class="language-plaintext highlighter-rouge">Exception</code>s or, in the worst case scenario (e.g., due to lack of heap space), as an <code class="language-plaintext highlighter-rouge">Error</code>. Thus, in theory, one should never be able to crash the JVM. However, Java has this API, <code class="language-plaintext highlighter-rouge">sun.misc.Unsafe</code> which, as the name implies, is not safe. This means that it is capable of performing operations that violate Java’s safety guarantees. Operations that allow one, for example, to affect memory alignment and to allocate memory without initializing an object.</p>
 
-<p>The study of Mastrangelo and colleagues was exploratory in nature. It aimed to assess the extent to which <code>Unsafe</code> is used and how it is used. For that end, they used Apache’s Maven Central Repository as the data source. This repository has more than 950,000 artifacts (the results of builds). Considering only the latest versions of the artifacts and filtering out the undesired ones, they ended up with a corpus of 86479 artifacts amounting to 74GB of data. Among these artifacts, 817 use <code>Unsafe</code>, less than 1%. This low number led the authors to investigate whether these artifacts are widely used or if they are isolated pieces of software. As it turns out, large-scale, well-known projects employ them. Notable examples include Scala, Ruby, Spring, Hibernate, Grails, Stream, Cassandra, Hadoop, Akka, Storm, and Neo4J. In their corpus, 21,297 artifacts indirectly use <code>Unsafe</code>, almost 25% of all the analyzed artifacts. It is not clear to me whether “indirectly” means transitively or with just one level of indirection. I’ll have to check that out in the paper later.</p>
+<p>The study of Mastrangelo and colleagues was exploratory in nature. It aimed to assess the extent to which <code class="language-plaintext highlighter-rouge">Unsafe</code> is used and how it is used. For that end, they used Apache’s Maven Central Repository as the data source. This repository has more than 950,000 artifacts (the results of builds). Considering only the latest versions of the artifacts and filtering out the undesired ones, they ended up with a corpus of 86479 artifacts amounting to 74GB of data. Among these artifacts, 817 use <code class="language-plaintext highlighter-rouge">Unsafe</code>, less than 1%. This low number led the authors to investigate whether these artifacts are widely used or if they are isolated pieces of software. As it turns out, large-scale, well-known projects employ them. Notable examples include Scala, Ruby, Spring, Hibernate, Grails, Stream, Cassandra, Hadoop, Akka, Storm, and Neo4J. In their corpus, 21,297 artifacts indirectly use <code class="language-plaintext highlighter-rouge">Unsafe</code>, almost 25% of all the analyzed artifacts. It is not clear to me whether “indirectly” means transitively or with just one level of indirection. I’ll have to check that out in the paper later.</p>
 
-<p>Proceeding with the analysis, they investigated which features of <code>Unsafe</code> are often used and why. Examples include instructions to (i) query the memory layout; (ii) put and get elements in specific memory locations, e.g., in the heap; and (iii) compare-and-set instructions, which are very important for concurrent applications. These instructions are often used to improve performance. The authors documented 14 usage patterns, including processing of byte arrays in block, the aforementioned atomic operations and, amazingly, <strong>updates to <code>final</code> fields</strong>! The authors also analyzed questions that developers ask about <code>Unsafe</code> at <a href="http://www.stackoverflow.com">StackOverflow</a>. There don’t seem to be many questions on the topic, which is not surprising. The authors found out that lack of documentation is an important problem, though.</p>
+<p>Proceeding with the analysis, they investigated which features of <code class="language-plaintext highlighter-rouge">Unsafe</code> are often used and why. Examples include instructions to (i) query the memory layout; (ii) put and get elements in specific memory locations, e.g., in the heap; and (iii) compare-and-set instructions, which are very important for concurrent applications. These instructions are often used to improve performance. The authors documented 14 usage patterns, including processing of byte arrays in block, the aforementioned atomic operations and, amazingly, <strong>updates to <code class="language-plaintext highlighter-rouge">final</code> fields</strong>! The authors also analyzed questions that developers ask about <code class="language-plaintext highlighter-rouge">Unsafe</code> at <a href="http://www.stackoverflow.com">StackOverflow</a>. There don’t seem to be many questions on the topic, which is not surprising. The authors found out that lack of documentation is an important problem, though.</p>
 
-<p>This left me (and at least another member of the audience, it seems) wondering about which parts of <code>Unsafe</code> are unsafe-r. The authors did not go that far, however. I’m not sure there is enough data to conduct that study yet.</p>
+<p>This left me (and at least another member of the audience, it seems) wondering about which parts of <code class="language-plaintext highlighter-rouge">Unsafe</code> are unsafe-r. The authors did not go that far, however. I’m not sure there is enough data to conduct that study yet.</p>
 
-<h4 id="the-bottom-line">The bottom line</h4>
+<p>####The bottom line</p>
 
-<p>Both studies raise new avenues for research, as I have discussed previously. In particular, for the first study, it would be interesting to (i) replicate it with different populations; (ii) examine the temporal dimension and how the discovered relationships change throughout system versions; (iii) examine different attributes, e.g., usage of constructs related to concurrency or testing. For the second one, I can imagine a number of controlled experiments focusing on the usage of <code>Unsafe</code> features and examination of bug reports (for a large number of systems) in an attempt to identify the unsafe-st parts of the API.</p>
+<p>Both studies raise new avenues for research, as I have discussed previously. In particular, for the first study, it would be interesting to (i) replicate it with different populations; (ii) examine the temporal dimension and how the discovered relationships change throughout system versions; (iii) examine different attributes, e.g., usage of constructs related to concurrency or testing. For the second one, I can imagine a number of controlled experiments focusing on the usage of <code class="language-plaintext highlighter-rouge">Unsafe</code> features and examination of bug reports (for a large number of systems) in an attempt to identify the unsafe-st parts of the API.</p>
 
 
 
@@ -133,12 +143,12 @@ s.setAttribute('data-timestamp', +new Date());
 
   <div class="wrapper">
 
-<!--    <h2 class="footer-heading">Fernando Castor's rants</h2> -->
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>Fernando Castor's rants</li>
+          <li>Fernando Castor</li>
           <li><a href="mailto:"></a></li>
         </ul>
       </div>

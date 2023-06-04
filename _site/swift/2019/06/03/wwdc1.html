@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Disorganized Notes about WWDC 2019, Day 1, 2019-06-03</title>
+  <meta name="description" content="Every year, Apple promotes its Worldwide Developers Conference, which this year gathered 6000 atendees from more than 70 countries. Sice I am attending, I am...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/swift/2019/06/03/wwdc1.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Disorganized Notes about WWDC 2019, Day 1, 2019-06-03</h1>
+    <p class="post-meta">Jun 3, 2019</p>
+  </header>
+
+  <article class="post-content">
+    <p>Every year, Apple promotes its Worldwide Developers Conference, which this year gathered 6000 atendees from more than 70 countries. Sice I am attending, I am using this blog to publish my completely disorganized and not-for-public-consumption notes.</p>
+
+<h1 id="keynote">Keynote</h1>
+
+<p>The main event of WWDC. Usually, lots of announcements, most of them not for developers.</p>
+
+<h2 id="tvos">tvOS</h2>
+
+<p>AppleTV+ was announced at the Apple event in March. A new TV series exclusive to this service caled <em>For All Manking</em> was introduced.</p>
+
+<p>tvOS now has multiuser support, similarly to what Netflix already supports. tvOS supports music streaming based on Apple Music. It will be possible to also see the lyrics for the songs.</p>
+
+<p>AppleTV, together with the Apple Arcade, will now support XBox One and Playstation 4 controllers. Will that be by default or will it require specific SDKs?</p>
+
+<h2 id="apple-watch">Apple Watch</h2>
+
+<p>More watch faces for Apple Watch. The watch will now be able to emit a sound or a haptic signal each hour.</p>
+
+<p>More Apple apps brought to the watch: Audiobooks, Voice Memos, and Calculator. The latter has a special “tip” calculation button.</p>
+
+<p>Apple Watch will now support independent iPhone apps, without the need for an iPhone counterpart.</p>
+
+<p>New Streaming Audio API to stream audio independently.</p>
+
+<p>The App Store is now available at the Apple Watch, accessible by dictation, Siri. It is possible to directly install an app in the watch.</p>
+
+<p>New feature for watchOS 6: Activity trends. Captures historical data about physical activity, similarly to what is already available in apps such as Runkeeper.</p>
+
+<p>The presenter also talked about hearing health. There is a new app called Noise that monitors environmental noise and measures it so as to alert the user about excessive noise. Apple does not record the noise.</p>
+
+<p>Apple Watch now also has an app about menstrual cycle tracking. Supports monitoring of flow level, notifies about upcoming (expected) cycles. The app will also keep historical data. Cycle tracking will also be available for iOS.</p>
+
+<p>The Health app will present multiple pieces of information, employing ML to propose the ones that may be the most relevant to the user.</p>
+
+<h2 id="ios">iOS</h2>
+
+<p>iOS 13 will be released this year, in the fall. It includes multiple optimizations to run faster. Downloads will (hopefully) be 50% smaller and updates 60% smaller. Apps will launch faster. The main reason is that apps will be packaged differently.</p>
+
+<p>iOS will now support a Dark Mode. Also, it will finally support  swiping for typing. Apple Music will be able to play music with time-synchred lyrics. “Intelligent sharing”: iOS will suggest people with whom the user customarily shares stuff.</p>
+
+<p>Reminders was rewritten from scratch. It will evaluate the reminders at write time to understand when the remider should be triggered.</p>
+
+<p>Maps now includes a lot more information. For the US, this will be available this year. Data for more countries will be available next year. Maps now supports Waze-like and Google Street View-like functionality. Strong emphasis on respecting privacy in terms of identity and visited places.</p>
+
+<p>To better protect privacy, three new features: Allow just once, background tracking alerts, Wi-fi and bluetooth protections</p>
+
+<p>There is now a “Sign In With Apple” option for sites that exhibit login options such as “sign in with Google” or “sign in with Facebook”. Does not collect any information. In addition, for situations where one needs to provide an email address, Apple can create a random email address aimed at hiding the the actual email address of the user. Works with Android and Windows devices as well.</p>
+
+<p>HomeKit Secure Video. Will enable security cameras to upload video footage to iCloud in a secure way. Also, HomeKit-enabled browsers.</p>
+
+<p>The Messages app will now support sharing of user names and images, memoji, and animoji. High level of customization for the (ani)moji. In addition, Messages will iunclude memoji stickers. Integrates emoji with memoji on the same place. This can be integrated with other apps, such as WeChat.</p>
+
+<p>Camera now includes multiple adjustments and filters for photos <strong>and</strong> videos. Videos can even be rotated. Camera will also use ML to remove duplicate and emphasize the “best shots” instead. This feature is called <em>Days</em>. <em>Months</em> instead organizes the photos as albums. These features aim to greatly improve the photo browsing experience. <em>Years</em> is similar.</p>
+
+<p>AirPods, HomePod, Siri: Siri can now read messages as soon as they arrive and responses can be sent immediately. It is also possible to share music via airpods. HomePod now supports Handoff. Siri can now play live radio from multiple services, such as IHeartRadio and TuneIn. iOS Shortcuts is now available by default in iOS. This apps supports users in creating multi-step instructions via Siri. Siri’s reading capabilities have also been improved. It even supports parameterized, user-built Siri shortcuts.</p>
+
+<p>“Big changes coming to iPad this year”: <strong>iPadOS</strong>. Supports pining widgets to the launch screen. Apps can be slid over the main app running on the screen, for example, messages can appear on the right hand side while one browsers the Web. iPadOS supports something similar to multiple windows. In fact, Expose is now part of the OS. Files supports column view, besides icon and list view. iCloud drive now supports folder sharing. iPad now also supports SD cards and flash drives. Desktop-browsing to the iPad: instead of seeing the mobile site, it will be possible to see the desktop version of the site. Safari will also include a download manager. The iPad version now includes a scroll indicator. Undos are now executed by a three-finger swipe and this finger is supported for every app, not just the Apple ones. They’ve also improved the Apple Pencil latency by means of software, bringing its latency down to 9ms (used to be 20ms). <strong>PencilKit API for iPad!!!!!</strong> 
+<em>Since there’s now both iOS and iPadOS, does that mean that the work required to build an app that runs on both will be significantly greater? In case not, what will be the relationship between <strong>iOS</strong> and MacOS apps?</em></p>
+
+<h2 id="macos-and-macs">MacOS and Macs</h2>
+
+<p>New Mac Pro. New display.</p>
+
+<p>New MacOS: Catalina. Three new apps: Apple Music, Apple Podcasts, Apple TV. Apple Music synching features are now integrated with Finder. Apple now uses ML to analyze the spoken contents of podcasts and creates podcast indexes based on that. iPads can now be used as secondary screens for Macs.</p>
+
+<p>MacOS can now be entirely controlled by voice. This is also the case for iOS. It supports rich dictation and editing, comprehensive navigation, iOS attention awareness.</p>
+
+<p>FindMy is a new app based on FindMyiPhone. It works even when the device is offline. The Mac works as a beacon, relaying info about the computer to nearby Apple devices, which relay it to the network. This data is obviosuly encrypted.</p>
+
+<p>Project Catalyst: supports the migration of iPad apps to the Mac. Apparently, it is not very hard to use. The idea of having only one codebase for a project that runs on both Macs and iPads sounds really cool.</p>
+
+<p><strong>RealityKit</strong>: native integration with ARKit and support for the construction and execution of elements in an AR environment. It is available for both Mac and iOS. Reality Kit is a “modern, high performance 3D engine designed from the ground up for AR”. Works together with a tool called RealityComposer. The latter lays out AR experiences. Works in both the Mac and the iPad.</p>
+
+<p>ARKit now supports more sophisticated people occlusion, requiring less manual work. It also includes more sophisticated support for motion capture.</p>
+
+<p>450000 apps using Swift in the app store.</p>
+
+<p>New framework for building apps built from the ground up in Swift: <strong>SwiftUI</strong>. Unbelievably more compact approach for app construction. <strong>This will change the Foundations course completely</strong>!!!!!! Lots of code can be created by drag and drop. Apparently, the construction of a view does not require OOP anymore (they’ve created a view using a struct). Live editing for apps in execution <strong>on the device</strong>. Seems like a combination of playgrounds and actual projects in a completely different way. <strong>SwiftUI will be available across all the Apple platforms. That’s the missing link!</strong></p>
+
+<p>All the platforms will be available as a beta today.</p>
+
+<h1 id="platforms-state-of-the-union">Platforms State of the Union</h1>
+
+<p><em>This keynote basically presents the development parts of the main keynote in a bit more detail.</em></p>
+
+<p>Next year, building apps that apply to different screen sizes will be an App Store requirement.</p>
+
+<p>SwiftUI supports the construction of UIs in a declarative manner. For example, when an image is created, it is not stored in a variable. The code simply stastes that there will be an image on the screen with specific characteristics. SwiftUI is built upon four principles: (i) Declarative; (ii) Automatic; (iii) Compositional; (iv) Consistent. Lots of stuff are built automaticaly. To what extent can we customize that? Even animations are automated. The way stuff is declared is weird. For example, if textfields have to appear within a Stack, the syntax looks like a trailing closure. Is that really the case or is it really new syntax? Very little mutable state in the framework. Most of the tine, it is not necessary to build and run the app explicitly.</p>
+
+<p>Xcode supports live programming for production, differently from what happens with playgrounds.</p>
+
+<p>Previews make it possible to view what an app will look like for multiple different modes of exhibition (including different pieces of data) at the same time!</p>
+
+<p>SwiftUI and Xcode also support playground-like documentation that, in addition, is interactive.</p>
+
+<p>ABI Stability: reduces the size of an app by ensuring that there is only a single, consistent Swift runtime (this has been introduced prior).</p>
+
+<p>Xcode now supports Swift packages and Github is adding them to its package directory. In addition, Xcode allows the creation of multiple editors, however the users likes it. Renaming functionality has been improved: renaming a variable in one place affects multiple parts of the program. Version control is integrated live with the Xcode editor,showing, for example, how the code used to be prior to a modification. Xcode conditions supports simulation of multiple different practical situations such as different device temperatures.</p>
+
+<p>TestPlan  is a lot like using TravisCI for continuous integration based on multiple platforms.</p>
+
+<p>Xcode now supports something called <strong>Code Review Mode</strong>.</p>
+
+<p>Almost the entire iOS API has been ported to MacOS, except for some parts that are specific to mobile features. Making an app available for the Mac seems to be a matter of basically just clicking a button.</p>
+
+<p>Operating system and user data will now be kept on separate volumes and the former will be a read-only volume.</p>
+
+<p>Notifications can now be sent directly to the watch. Also, three different approaches to stream audio directly to the watch: Network.framework, AVFoundation, forgot the last one. Finally, SwiftUI will also work for watchOS. More operations are now available for the construction of UIs for the watch.  Making a watch app independent from the phone is a matter of marking a checkbox.</p>
+
+<p>Something interesting from SwiftUI: Text($username, …). What does this <code class="language-plaintext highlighter-rouge">"$username"</code> mean in the declaration of this textfield? Is it some kind of direct conneciton where the contents of the textfield are seamlessly stored in the username variable?</p>
+
+<p>SF Symbols: icons that behave like a font and thus support resizing and different weights.</p>
+
+<p>UIWindowScene API for iPad. Window scene separates the app delegate and a scene delegate. This supports the creation multiple windows in the iPad screen. NSUserActivity is employed to help manage the state of these multiple windows.</p>
+
+<p>Voice Control is available for developers to test apps. One can try to use it to find accessibility problems, for example, a screen element that does not have a good label for voice control, like an image showing a name but without that same name being associated with it. In this scenario, trying to control the app using that name will fail. Accessibility APIs are available for all platforms.</p>
+
+<p>CreateML: a Mac app that supports the construction of machine learning models without the need to actually write code for that.</p>
+
+<p><em>Metal</em>: The iOS simulator now supports Metal as well. In addition, the Xcode now includes a Metal memory debugger. Metal is now organized around three families of GPUs: common features, Apple GPU features, and Mac GPU features. Metal now provides support for advanced numerical computation not necessarily associated with graphics. This is based on a C++ API.</p>
+
+<h1 id="apple-design-awards">Apple Design Awards</h1>
+
+<p>The winners were</p>
+
+<ul>
+  <li>Flow by Moleskine</li>
+  <li>Ordia</li>
+  <li>The Gardens Between</li>
+  <li>Alphalt 9: Legends</li>
+  <li>Pixelmator Photo</li>
+  <li>Eloh</li>
+  <li>Butterfly iQ</li>
+  <li>Thumper</li>
+  <li>HomeCourt</li>
+</ul>
+
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/*
+
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+*/
+var disqus_developer = 1;
+var disqus_shortname = 'fernandocastor'; 
+var disqus_identifier = "/swift/2019/06/03/wwdc1.html";
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//fernandocastor.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+         
+  </article>
+
+</div>
+
+       
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script id="dsq-count-scr" src="//fernandocastor.disqus.com/count.js" async></script>
+  </body>
+
+</html>

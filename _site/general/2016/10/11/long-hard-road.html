@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Long Hard Road to Get Our Beautiful Paper Published</title>
+  <meta name="description" content="CIn-UFPE promotes every year an award ceremony to encourage its professors to publish papers in journals. This is important because, in Brazil, research-focu...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/general/2016/10/11/long-hard-road.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">The Long Hard Road to Get Our Beautiful Paper Published</h1>
+    <p class="post-meta">Oct 11, 2016</p>
+  </header>
+
+  <article class="post-content">
+    <p><a href="http://www.cin.ufpe.br">CIn-UFPE</a> promotes every year an award ceremony to encourage its professors to publish papers in journals. This is important because, in Brazil, research-focused departments are evaluated mostly based on their output of published journal papers, even though that does not make a lot of sense for Computer Science departments. During the ceremony, some of the awarded faculty members make short presentations about papers they co-authored that were published in journals the previous year. This time around, I was invited to present one of mine. As soon as I received the invitation, I decided that I’d present the paper “A Large-scale Study on the Usage of Java’s Concurrent Programming Constructs”. Notwithstanding, I would not go for the regular, technical kind of presentation. Instead, I’d talk about the long, hard road me and my coauthors had to tread from having an idea about an empirical study all the way until actually having the paper published.</p>
+
+<h1 id="setting-up">Setting up</h1>
+
+<p>Our story starts in the second semester of 2010. At that time, I had decided to change my research focus a bit and ride on the multicore wave. Concurrency is a subject that fascinated me since I was an undergrad, but up until that point I had not devoted much effort to studying it as a research topic. Being new to the area and having a Software Engineering background, the first question that came to my mind was: “What’s the state of the practice in the development of concurrent software?”. I had been reading a lot about high level concurrent and parallel programming abstractions and about alternatives to locking such as <a href="https://en.wikipedia.org/wiki/Software_transactional_memory">software transactional memory</a>. I had no idea, however, whether this kind of thing was actually used by developers and whether solutions proposed by researchers would be applicable to a wide range of real-world systems. In order to understand this, it was necessary to look at real, complex software systems.</p>
+
+<p>I decided, together with some students of mine at the time, to take a look at <a href="http://www.sourceforge.net">SourceForge</a>. SourceForge has many end-user applications (instead of just developer tools and pet projects) and at the time <a href="http://www.github.com">Github</a> still wasn’t as popular as it currently is. The focus would be on Java, since it’s a language with built-in support for concurrent programming from its initial releases. Moreover, we’d look at stable and mature projects (as indicated by the project owners) with more than 1000 lines of code. Nowadays, that kind of study could be conducted much more easily with support from tools such as <a href="http://boa.cs.iastate.edu/">Boa</a>, <a href="http://ghtorrent.org/">GHTorrent</a>, and the <a href="https://www.githubarchive.org/">Github Archive</a>. That wasn’t the case at the time. Obtaining the list of projects required crawling the SourceForge website since project repositories used different version control systems and organizations. Moreover, since we wanted to analyze the source code of the projects, we did not want to run into the risk of using a broken or unfinished version. Therefore, we decided to aim just for releases, which could easily be identified because they are zipped files in project home pages at SourceForge. We built a simple infrastructure to perform all these tasks automatically. It took more than a week for it to crawl  through SourceForge, obtain the list of projects, download all the zip files, and unzip them. Even then, lots of manual filtering had to be performed, for example, to remove test files. After removing some projects, e.g., because we could not identify whether zip files corresponded to one or multiple versions, we ended up with <strong>2227 projects</strong>, amounting to more than <strong>600 million lines of code</strong>.</p>
+
+<h1 id="minor-detail-summary-of-study-results">Minor detail: summary of study results</h1>
+
+<p>Our approach consisted of collecting dozens of metrics pertaining to the usage of the concurrent programming constructs available in the Java language, .e.g, number of uses of <code class="language-plaintext highlighter-rouge">synchronized</code> blocks and number of classes implementing the <code class="language-plaintext highlighter-rouge">Runnable</code>interface, and carrying out some simple statistical tests considering the most recent version of each project in isolation and also comparing the oldest version (from 2005 onwards, since 2005 was the year when the <code class="language-plaintext highlighter-rouge">java.util.concurrent</code> library was released) and the most recent one. Later we also considered some intermediate versions, when available. Since the goal of this post is not to discuss the results of the study, I’ll just summarize a few of them below, considering the various iterations of the paper:</p>
+
+<ul>
+  <li>
+    <p><strong>More than 75%</strong> of the latest versions of the stable and mature projects at SourceForge either explicitly create threads or employ some concurrency control mechanism;</p>
+  </li>
+  <li>
+    <p>More than half of these projects exhibit at least 47 <code class="language-plaintext highlighter-rouge">synchronized</code> methods and 3 implementations of the <code class="language-plaintext highlighter-rouge">Runnable</code> interface per 100KLoC, which means that not only concurrent programming constructs are used <strong>often</strong> but they are also employed <strong>intensively</strong>;</p>
+  </li>
+  <li>
+    <p>The adoption of the <code class="language-plaintext highlighter-rouge">java.util.concurrent</code> library is only moderate (approximately 23% of the concurrent projects employ it);</p>
+  </li>
+  <li>
+    <p>Efficient and thread-safe data structures, such as <code class="language-plaintext highlighter-rouge">ConcurrentHashMap</code>, are not yet widely used, despite the fact that they present numerous advantages.</p>
+  </li>
+  <li>
+    <p>Usage of <code class="language-plaintext highlighter-rouge">synchronized</code> methods seems to be diminishing throughout the years whereas usage of <code class="language-plaintext highlighter-rouge">synchronized</code> blocks seem to be growing. This sounds particularly interesting because the latter are <strong>more flexible and support finer-grained concurrency control</strong> than the former.</p>
+  </li>
+</ul>
+
+<h1 id="the-first-three-rejections">The first three rejections</h1>
+
+<p>By early 2011, we thought we already had enough material to write a paper about this study. These findings, albeit simple, were based on a large <strong>software population</strong> and, at the time, represented the best anyone knew about the state of the practice of the usage of concurrent programming constructs in open source software. We wrote a paper and submitted it to the 2011 edition of the <a href="http://cbsoft.org/sblp2016">Brazilian Symposium on Programming Languages</a> (SBLP), an event I care deeply about in spite of its mostly local reach. I was fairly confident of the acceptance of the paper, considering the large amount of data and the (to me) obvious practical appeal. To our surprise, the paper was rejected. To this day, I still think this was an unfair rejection. I think even the PC chair thought the rejection was unfair, at least to some extent. So much so that he invited me to present the paper even though it would not be included in the proceedings.</p>
+
+<p>Since we believed that this first rejection was <strong>extremely unfair</strong> and the <strong>feedback not very good</strong>, we prepared the paper for a new submission right after the SBLP result came out. We decided to submit to the <a href="http://2016.gpce.org/">Symposium on Generative Programming and Component Engineering</a> (GPCE), even though it fell a little outside the scope of this symposium. We submitted and the paper, as expected, it got rejected, partly for not fitting within the scope. Some of the referee’s comments hurt a little, like this one:</p>
+
+<p><em>“I think the effort is interesting, although the findings are generally weak, nothing deep or surprising.”</em></p>
+
+<p>Overall, however, albeit hard, <strong>the reviews were thoughtful, useful, and fair</strong>. We did not think this submission was a waste of time, although it made us think that perhaps we still did not have a deep enough study to aim for a full-fledged symposium. Therefore, we decided to target a workshop. SPLASH 2011 had one called Workshop on <a href="http://splashcon.org/2011/program/workshops/148-tmc-transitioning-to-multicore">Transitioning to Multicore</a> (TMC), where our paper would fit like a glove. We submitted the paper, it got accepted, and we presented it. With researchers such as Doug Lea as members of the audience, we left the workshop really enthusiastic. Each round of reviews made the paper stronger and the feedback from TMC was very positive.</p>
+
+<p>We worked five more months on the paper and around March or April 2012 made a submission to the <a href="http://icsme2016.github.io/">IEEE International Conference on Software Maintenance</a>. Our rationale was that maybe we should give the paper a Software Engineering twist, highlighting its usefulness for reengineering efforts. Once again we had a rejection and it was not pretty. The first reviewer was fair, careful, and seemed to have an overall positive attitude towards the paper. The third one was hard to gauge, in terms of disposition. The second one, however, was infuriating. Just one sentence from the review:</p>
+
+<p><em>“Unfortunately, the discussion of actual implications of this research is generic and unconvincing.”</em></p>
+
+<p>This comment came from a <strong>two-paragraph review that, IMO, was both generic and unconvincing</strong>. This is the kind of review that gets you really frustrated with the whole anonymous peer review system. This result struck hard our motivation. By that time, more than one year had passed since the SBLP submission and we started to seriously doubt our results. Maybe the study was not as interesting as we initially thought. The thing is, the submission and peer-review process is hard for everyone. A researcher has to really believe his/her work in order to overcome the many challenges and I really believed in this work. Thus, after letting it rest for a few months, we decided to try again, this time aiming for a journal. The journal submission process, albeit requiring a lot more work, tends to be more rational since outright rejections based on unfair reviewers tend to be rarer. At least we hoped so.</p>
+
+<h1 id="a-journal-submission">A journal submission</h1>
+
+<p>Our first submission for <a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-SPE.html">Software: Practice &amp; Experience</a> (SPE) was in the beginning of 2013. The paper had grown to be at least twice as big as the SBLP paper. Almost three months later, we received the result: <strong>Accepted after Major Revision</strong>. In other words, we’d have to work hard but, if we did so, there was a very high probability that the paper would actually be published. Two of the reviewers had a clearly positive attitude towards the paper. The third one was less so and required some changes that we considered were not within the scope of the study we presented. We focused strongly on source code and on performing analyses on a large scale. This would not be possible if we decided to study informal documentation, such as bug reports, although that was precisely what that reviewer asked us to do, among other things.</p>
+
+<p>For months we worked on improving every aspect of the paper. Besides polishing, we conducted a survey with more than 100 developers to better contrast their expectations with what we actually found. We also made our analysis deeper by using multiple releases of the projects, instead of just the first and the last ones (between 2005 and 2012). Furthermore, we conducted a small exploratory study just to show that our data collection methodology was reliable. The paper grew more than 30% when compared to the initial SPE submission and we were confident and proud of the result. To our surprise, instead of the final paper acceptance, we were asked to perform another round of reviews. Two of the reviewers just accepted the paper but the third one actually changed his/her decision from Accept after Major Revision to <strong>Reject</strong> and emphasized the need for us to base part of our study on a 3-page extended abstract published on a doctoral symposium. After a few moments of outrage, we sent the editor an email informing that some of the comments of said reviewer were utterly and entirely unreasonable, falling almost entirely outside the scope of the paper, and we would <strong>not</strong> perform those modifications. The editor then asked us to work on the paper and submit it again. He would find a fourth reviewer. We resubmitted. In three months, the decision arrived by email: <strong>Rejected</strong>, due to the fourth reviewer’s recommendation. Ironically, the adversarial reviewer who stopped the paper from being accepted had, at that point, changed his recommendation to <strong>Accept</strong>, which didn’t make any difference.</p>
+
+<p><img src="https://raw.githubusercontent.com/fernandocastor/fernandocastor.github.io/master/images/bambam.gif" alt="ANGRY!!!!" /></p>
+
+<h1 id="a-moment-of-reflection">A moment of reflection</h1>
+
+<p>Based on the SPE result, once again I had to revisit my assumptions. Was this work as interesting as I had initially envisioned? In 2010, when it all started, maybe due to my naivety, I was pretty sure. However, we had reached 2014 and the paper still hadn’t been published. The landscape changes a lot in four years in the area of Computer Science and one has the obligation to ask him/herself whether a piece of work is still relevant and try to gauge its value to the scientific community. I reflected for a few days and, once again, reached the conclusion that we had a relevant piece of work in our hands. We still could not find any paper in the literature with a scope as broad as ours and a specific focus on concurrent programming constructs. This led me to once more rally my students and a colleague at UFPE to make a new submission.</p>
+
+<h1 id="acceptance">Acceptance</h1>
+
+<p>We submitted to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a> in the first months of 2014. In two months, the result arrived: <strong>Revision</strong> (it was not clear whether it was a major or a minor one). We had become so oversensitive to reviewer criticism that we took every comment as a potential threat to the acceptance of the paper. My colleague at the time commented that, based on his experience, the reviewers seemed to have liked the paper very much. Nonetheless, I told him we would not take any chances. <em>Six months</em> of hard work addressing every reviewer comment from every possible angle later, we re-submitted. In less than two months, the result arrived: <strong>Accepted</strong></p>
+
+<p><img src="http://i.makeagif.com/media/7-21-2015/6IKtMa.gif" alt="We like to party!" /></p>
+
+<p>We were obviously delighted with the results. It was the outcome of years of hard work, frustration, and an unwavering belief that we were working towards a worthy goal. Ok, our belief sometimes wavered, but not for long.</p>
+
+<h1 id="epilogue">Epilogue</h1>
+
+<p>Now that the paper is published for more than a year, I can still say that I am proud of the results and happy that they have finally reached the academic community at large. The experience was humbling and a great learning opportunity, although at the cost of a large load of (at least partially unnecessary) frustration. Beyond the overall positive result and the obvious hurt feelings, we also lost the timing of the publication. A couple of papers published while we were fighting to get ours published actually reduced (though didn’t eliminate) the relevance of our work. Timing is very important in science.</p>
+
+<p>I wish I had interesting and thoughtful takeaway messages about our experience, but I don’t have any. Believing in your own work is a basic assumption if you want to follow a career in science, since there are quite a few people who seem like they want you to think otherwise. We learn from the very early stages that <strong>if we don’t believe in our own work, no one will</strong>. Also, being critical of your work, besides being a given, will not save you from adversarial, overworked, or lazy reviewers. There’s a <strong>disturbing percentage of luck involved in getting your paper accepted</strong>. Even though we had very bad luck with our first journal submission, conferences emphasize this luck factor even more strongly. One thing I would have done differently, however, is to <strong>publish the non-peer-reviewed version of the paper in arXiv or PeerJ Preprints</strong>. At least in this manner the paper would be accessible to interested researchers earlier.</p>
+
+<p>But hey, I’m not complaining. <strong>Our paper is beautiful</strong> and you should definitely <strong>read it</strong> <a href="http://www.sciencedirect.com/science/article/pii/S0164121215000849">here</a> (published version) or <a href="https://sites.google.com/a/cin.ufpe.br/castor/Pinto_2015_LSS_JSS.pdf?attredirects=0&amp;d=1">here</a> (preprint, without the paywall).</p>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/*
+
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+*/
+var disqus_developer = 1;
+var disqus_shortname = 'fernandocastor'; 
+var disqus_identifier = "/general/2016/10/11/long-hard-road.html";
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//fernandocastor.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+         
+  </article>
+
+</div>
+
+       
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script id="dsq-count-scr" src="//fernandocastor.disqus.com/count.js" async></script>
+  </body>
+
+</html>

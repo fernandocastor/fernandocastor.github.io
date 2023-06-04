@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Disorganized Notes about WWDC 2019, Day 4, 2019-06-06</title>
+  <meta name="description" content="Every year, Apple promotes its Worldwide Developers Conference, which this year gathered 6000 atendees from more than 70 countries. Sice I am attending, I am...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/swift/2019/06/06/wwdc4.html">
+  <link rel="alternate" type="application/rss+xml" title="Fernando Castor" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Fernando Castor</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/posts/">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications/">Publications</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Disorganized Notes about WWDC 2019, Day 4, 2019-06-06</h1>
+    <p class="post-meta">Jun 6, 2019</p>
+  </header>
+
+  <article class="post-content">
+    <p>Every year, Apple promotes its Worldwide Developers Conference, which this year gathered 6000 atendees from more than 70 countries. Sice I am attending, I am using this blog to publish my completely disorganized, not revised, and not-for-public-consumption notes.</p>
+
+<h1 id="dataflow-through-swiftui">DataFlow through SwiftUI</h1>
+
+<p><code class="language-plaintext highlighter-rouge">@State</code> not only makes a property managed (in the sense of ensuring updates of all the views that depend on the property when it changes) by SwiftUI; it also makes the property writable. This is relevant because it is a property of a struct (views are now structs) and they are, by default, immutable. Every time a variable is marked as <code class="language-plaintext highlighter-rouge">@State</code> it becomes a source of truth (which should be unique for each piece of data).</p>
+
+<p><strong>Important:</strong> <em>Views are a function of state, not a sequence of events</em></p>
+
+<p>A <code class="language-plaintext highlighter-rouge">@Binding</code> defines a dependency between a property and a source of truth. Passing a binding to a function requires prepending it with the <code class="language-plaintext highlighter-rouge">$</code> character. Sort of like a reference semantics. If the function updates the variable marked as <code class="language-plaintext highlighter-rouge">@Binding</code>, the source of truth is updated as well. <code class="language-plaintext highlighter-rouge">@Binding</code>s can be associated to other <code class="language-plaintext highlighter-rouge">@Binding</code>s.</p>
+
+<p>One of the main takeaway messages of SwiftUI is that <strong>controllers are not really necessary anymore</strong>. In <code class="language-plaintext highlighter-rouge">ÙIKit</code>, a controller is responsible for keeping views and data in sync and up-to-date. In SwifUI, this task is entirely delegated to the framework.</p>
+
+<p>SwiftUI manages external state changes by treating external sources of change, such as notifications and timers, as publishers. On the main thread, the app should use the <code class="language-plaintext highlighter-rouge">.receive(on)</code> operator. This operator takes a second parameter, a handler for the event. This operator is associated to the view.</p>
+
+<p><code class="language-plaintext highlighter-rouge">@EnvironmentObject</code> is a way to encapsulate the model and all of its properties while having binding-like behavior in terms of view update. If one needs to pass around the model through the view hierarchy, it may be more convenient than keeping a set of <code class="language-plaintext highlighter-rouge">@State</code>s and <code class="language-plaintext highlighter-rouge">@Binding</code>s. If an <code class="language-plaintext highlighter-rouge">@EnvironmentObject</code> is employed, it can be passed to the view in its initializer.</p>
+
+<p><code class="language-plaintext highlighter-rouge">@BindableObject</code>s are references to external sources of data, for example, data stored in a database. They are developer-managed (by the publisher mechanism). Data referring to <code class="language-plaintext highlighter-rouge">@BindableObject</code>should be marked as <code class="language-plaintext highlighter-rouge">@ObjectBinding</code>.</p>
+
+<h1 id="introducing-combine-and-advances-to-foundations">Introducing Combine and Advances to Foundations</h1>
+
+<p>Use <code class="language-plaintext highlighter-rouge">DataProtocol</code> instead of <code class="language-plaintext highlighter-rouge">[UInt8]</code>.</p>
+
+<p>The compression API is now part of Swift. It supports multiple compression algorithms and usage requires just one line of code.</p>
+
+<p><code class="language-plaintext highlighter-rouge">RelativeDataFormatter</code> and <code class="language-plaintext highlighter-rouge">ListFormatter</code> as ways to format dates and lists in a locale-specific way. The former refers to differences in the way in which dates are represented in different places. The latter refers to the separators and conjunctions to be used to combine a list of items , e.g., “and”, “y” and “と” or “、” vs “,”.</p>
+
+<p>Operation queue now support barriers to ensure synchronization between tasks. In this manner, one can be sure that there are no pending tasks in the operation queue prior to the execution of an operation. Operation queue also provides functionality for progress reporting.</p>
+
+<p><strong>Combine</strong>: A new framework for declarative asynchronous programming. Three main concepts: publishers, subscribers, and operators. Unifies the multiple existing approaches for asynchronous programming into a single set of shared, declarative abstractions.</p>
+
+<p>A single value asynchronously: <code class="language-plaintext highlighter-rouge">Future</code>.  Multiple values asynchronously: <code class="language-plaintext highlighter-rouge">Publisher</code>.</p>
+
+<p>Zip works similary to functional languages, but it combines data from multiple upstream sources into a single downstream tuple. It handles synchronization in the sense that all the fields of the tuple must be filled in in order for it to procede.</p>
+
+<p>Combine Latest converts several inputs into a single value. Requires input from any of the upstream sources to proceed. If only one produces a new values, takes the older ones from the other sources and combines it with the lastest.</p>
+
+<h1 id="combine-in-practice">Combine in Practice</h1>
+
+<p>In Combine, every Publisher describes how they can fail. If the error type is <code class="language-plaintext highlighter-rouge">Never</code>, that means that the operation cannot fail or that errors are handled earlier in the stream. Multiple operators for handling errors, such as <code class="language-plaintext highlighter-rouge">assertNoFailure</code>, <code class="language-plaintext highlighter-rouge">retry</code>, <code class="language-plaintext highlighter-rouge">catch</code>, among others. <code class="language-plaintext highlighter-rouge">catch</code> can select a recovery publisher to replace the upstream publisher in case an error happens.</p>
+
+<p>The meaning of <code class="language-plaintext highlighter-rouge">Just</code> is not clear to me in this case. It is necessary in the <code class="language-plaintext highlighter-rouge">catch</code> operator because the latter must return a subscriber and <code class="language-plaintext highlighter-rouge">Just</code> seems to work as a publisher wrapper for data.</p>
+
+<p>There are also scheduling operators that pertain to ordering, timing (<code class="language-plaintext highlighter-rouge">timing</code>)), and pace (<code class="language-plaintext highlighter-rouge">throttle</code>) of data delivery.</p>
+
+<p>Three rules for subscribers:</p>
+
+<ol>
+  <li>A subscriber will receive at most a single subscription</li>
+  <li>Followed by one or more values</li>
+  <li>Eneded by at most one completion and the latter will mean that either the publisher has finished or failed.</li>
+</ol>
+
+<p>A cancellation terminates a subscription early. Any subscriber that can be cancelled must conform to <code class="language-plaintext highlighter-rouge">Cancellable</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Subject</code>s work as both Publisher and Subscriber. Useful for broadcasts. Subjects may be PassThrough or LastValue. The latter keep a record of the last published events that allows subscribers to catch up on previous events.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">@Published</code> annotation can be used to add a publisher to a property.</p>
+
+<h1 id="integrating-swiftui">Integrating SwiftUI</h1>
+
+<p>This talk is about integrating SwiftUI with existing apps that already use UIKit and organize their data models without accounting for SwiftUI.</p>
+
+<p>A Hosting Controller is a basic block in integrating SwiftUI. There are UIHostingController, NSHostingController (for AppKit), and WKHostingController. A Hosting Controller brings a SwiftUI view into an existing app built with AppKit or UIKit. There are also HostingViews, embedded a SwiftUI view into the hierarchy of UIKit or AppKit views of an app.</p>
+
+<p><code class="language-plaintext highlighter-rouge">@IBSegueActions</code> are new to Xcode 11. Avoid the need to use <code class="language-plaintext highlighter-rouge">prepare:for:segue</code>.</p>
+
+<p>There are protocols for UIKit, AppKit, and WatchKit to wrap existing views into SwiftUI views. These are the Representable protocols, e.g., <code class="language-plaintext highlighter-rouge">UIKitRepresentable</code>. They include methods for <code class="language-plaintext highlighter-rouge">make</code>ing a view/controller, <code class="language-plaintext highlighter-rouge">update</code>ing it, and <code class="language-plaintext highlighter-rouge">dismantle</code>ing it. The latter is optional. For example, <code class="language-plaintext highlighter-rouge">makeUIView</code>, <code class="language-plaintext highlighter-rouge">updateUIView</code>, <code class="language-plaintext highlighter-rouge">dismantleUIView</code>.</p>
+
+<p>From what I could understand, a view either comes from UIKit(or AppKit or WatchKit) or from SwiftUI, but not both. They can interact, but the two technologies (event-based and declarative) cannot be mixed in the same view, although they can be part of the same view hierarchy.</p>
+
+<p><code class="language-plaintext highlighter-rouge">BindableObject</code> has a single property, <code class="language-plaintext highlighter-rouge">didChange</code>, through which changes to an existing data model can publish changes to SwiftUI GUIs.</p>
+
+<h1 id="improving-battery-life-and-performance">Improving Battery Life and Performance</h1>
+
+<p><code class="language-plaintext highlighter-rouge">MetricKit</code> a new framework for collecting metrics about stuff such as battery level and performance counters.</p>
+
+<p>For <strong>battery</strong>, some of the available metrics are related to processing, location, display, network, multimedia, camera, accessories. <em>Processing</em> pertains to CPU and <em>GPU** time. Help find issues such as unexpected rendering and CPU spinners. *Location** metrics quantify accuracy buckets, cumulative usage, background usage. Amoong *Display</em> metrics, there is one called Average Pixel Luminance. Different pixels colors consume energy differently and lighter colors consume more. <em>Networking</em> comprise upload and download bytes, connectivity.</p>
+
+<p><strong>CPU metrics</strong> include, for example, <em>Hanging</em> metrics, that is, the amount of time that an app spends unresponsive to user requests. They also include <em>disk</em> and <em>application launch</em> metrics. There are also <em>memory</em> metrics, like peak memory, and average suspended memory.</p>
+
+<p>XCTest can be used to collect a number of metrics during the execution of a test. This is straightforward to use; it is a matter of passing objects that represent the metrics to be collected to the <code class="language-plaintext highlighter-rouge">measure</code> function in the test function. When  using this, it is useful to not attach  the debugger to the process  and to turn  off every possible analyzer or sanitizer, in order to avoid overhead that may mess up the measurement process. It is possible to set <em>baselines</em> for these metrics that determine what would be acceptable values for them. Not meeting the baselines means that the test will fail.</p>
+
+<p>MetricKit can even collect metrics around critical code sections. This functionality leverages <code class="language-plaintext highlighter-rouge">mxSignPost</code>.</p>
+
+<p>Types from which we wish to collect performance and battery metrics must conform to the <code class="language-plaintext highlighter-rouge">MXMetricManagerSubscriber</code>protocol.</p>
+
+<p><strong>Xcode Metrics Organizer</strong> (under Window &gt; Organizer) is a data analytics service for MetricsKit. Involves sending collected metrics to Apple. Using this does not require any modification to the app. Provides a neat way, for example, to see which components are consuming more battery during the execution of an app, in terms of the % of user battery consumed per day. It also helps to detect how much of the battery is being consumed in the foreground and how much in the background. This functionality is mainly under the <em>Metrics</em> and <em>Energy</em> tabs.</p>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/*
+
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+*/
+var disqus_developer = 1;
+var disqus_shortname = 'fernandocastor'; 
+var disqus_identifier = "/swift/2019/06/06/wwdc4.html";
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//fernandocastor.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+         
+  </article>
+
+</div>
+
+       
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--    <h2 class="footer-heading">Fernando Castor</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Fernando Castor</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fernandocastor">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fernandocastor">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fernandocastor</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">The opinions expressed here are the sole responsibility of the author.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script id="dsq-count-scr" src="//fernandocastor.disqus.com/count.js" async></script>
+  </body>
+
+</html>
