@@ -7,15 +7,17 @@ permalink: /publications/
 
 ### **2023**
 
-Delano Oliveira, Reydne Bruno, Fernanda Madeiral, Hidehiko Masuhara, Fernando Castor. A Systematic Literature Review on the Impact of Formatting Elements on Program Understandability. Journal of Systems and Software, 2023. Accepted for publication.
+Alessandra Pereira, Carlos Zimmerle, Kiev Gama, Fernando Castor. Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow. Proceedings of the 37th Brazilian Symposium on Software Engineering. Campo Grande, Brazil. September 2023. Accepted for publication. 
 
-Adriano Torres, Caio Oliveira, Márcio Okimoto, Diego Marcílio, Pedro Queiroga, Fernando Castor, Rodrigo Bonifácio, Edna Dias Canedo, Márcio Ribeiro, Eduardo Monteiro. An Investigation of Confusing Code Patterns in JavaScript. Journal of Systems and Software, 2023. Accepted for publication.
+Delano Oliveira, Reydne Bruno, Fernanda Madeiral, Hidehiko Masuhara, Fernando Castor. A Systematic Literature Review on the Impact of Formatting Elements on Program Understandability. Journal of Systems and Software 203: 111728, 2023. 
 
-José Aldo Silva da Costa, Rohit Gheyi, Fernando Castor, Pablo Roberto Fernandes de Oliveira, Márcio Ribeiro, Baldoino Fonseca. Seeing Confusion Through a New Lens: On the Impact of Atoms of Confusion on Novices’ Code Comprehension. Empirical Software Engineering, 2023. Accepted for publication.
+Adriano Torres, Caio Oliveira, Márcio Okimoto, Diego Marcílio, Pedro Queiroga, Fernando Castor, Rodrigo Bonifácio, Edna Dias Canedo, Márcio Ribeiro, Eduardo Monteiro. An Investigation of Confusing Code Patterns in JavaScript. Journal of Systems and Software 203: 111731, 2023.
 
-Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes. Analyzing the Resource Usage Overhead of Mobile App Development Frameworks. Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering. Oulu, Finland. June 2023. Accepted for publication.
+José Aldo Silva da Costa, Rohit Gheyi, Fernando Castor, Pablo Roberto Fernandes de Oliveira, Márcio Ribeiro, Baldoino Fonseca. Seeing Confusion Through a New Lens: On the Impact of Atoms of Confusion on Novices’ Code Comprehension. Empirical Software Engineering 28(4): 81, 2023.
 
-Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes.  Ebserver: Automating Resource-Usage Data Collection of Android Applications. Proceedings of the 10th IEEE/ACM International Conference on Mobile Software Engineering and Systems. Melbourne, Australia. May 2023. Accepted for publication.
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes. Analyzing the Resource Usage Overhead of Mobile App Development Frameworks. Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering. Oulu, Finland. June 2023. 
+
+Wellington Oliveira, Bernardo Moraes, Fernando Castor, João Paulo Fernandes.  Ebserver: Automating Resource-Usage Data Collection of Android Applications. Proceedings of the 10th IEEE/ACM International Conference on Mobile Software Engineering and Systems. Melbourne, Australia. May 2023.
 
 
 ### **2022**
