@@ -31,6 +31,6 @@ University of Twente, Faculty EEMCS<br>
 Formal Methods and Tools<br>
 Building Zilverling, room 3098<br>
 P.O. Box 217, 7500 AE Enschede, The Netherlands
-</font></span></div><div style="padding:4px"><p style="color:rgb(0,0,0);font-family:Times;font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:0px;line-height:23px;margin:0px;padding-bottom:0px;padding-top:0px;text-decoration:none;text-transform:none"><br /></p>
+</font></div><div style="padding:4px"><p style="color:rgb(0,0,0);font-family:Times;font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:0px;line-height:23px;margin:0px;padding-bottom:0px;padding-top:0px;text-decoration:none;text-transform:none"><br /></p>
 <p style="color:rgb(0,0,0);font-family:Times;font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:0px;line-height:23px;margin:0px;padding-bottom:0px;padding-top:0px;text-align:left;text-decoration:none;text-indent:0px;text-transform:none"><a href="https://sites.google.com/a/cin.ufpe.br/castor/home/spg.jpg?attredirects=0" imageanchor="1" style="background-color:rgb(255,255,255);font-family:georgia,serif"></a></p>  
 </div>
