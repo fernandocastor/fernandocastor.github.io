@@ -5,9 +5,16 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
+### **2024**
+
+Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Energy Consumption in DL Models Across Different Runtime Infrastructures. Proceedings of the 3rd International Conference on AI Engineering – Software Engineering for AI. Lisboa, Portugal. April 2024. Accepted for publication.
+
+Fernando Oliveira, Fernando Castor. AthenaLLM: Supporting Experiments with Large Language Models in Software Development. Proceedings of the 32nd IEEE/ACM International Conference on Program Comprehension. Lisboa, Portugal. April 2024. Accepted for publication.
+
+
 ### **2023**
 
-Alessandra Pereira, Carlos Zimmerle, Kiev Gama, Fernando Castor. Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow. Proceedings of the 37th Brazilian Symposium on Software Engineering. Campo Grande, Brazil. September 2023. Accepted for publication. 
+Alessandra Pereira, Carlos Zimmerle, Kiev Gama, Fernando Castor. Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow. Proceedings of the 37th Brazilian Symposium on Software Engineering. Campo Grande, Brazil. September 2023. 
 
 Delano Oliveira, Reydne Bruno, Fernanda Madeiral, Hidehiko Masuhara, Fernando Castor. A Systematic Literature Review on the Impact of Formatting Elements on Program Understandability. Journal of Systems and Software 203: 111728, 2023. 
 
