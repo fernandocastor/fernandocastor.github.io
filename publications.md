@@ -7,6 +7,8 @@ permalink: /publications/
 
 ### **2024**
 
+Vitor Jacques, Negar Alizadeh, Fernando Castor. A Study on the Battery Usage of Deep Learning Frameworks on iOS Devices. Proceedings of the 11th International Conference on Mobile Software Engineering and Systems. Lisboa, Portugal. April 2024. Accepted for publication.
+
 Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Energy Consumption in DL Models Across Different Runtime Infrastructures. Proceedings of the 3rd International Conference on AI Engineering – Software Engineering for AI. Lisboa, Portugal. April 2024. Accepted for publication.
 
 Fernando Oliveira, Fernando Castor. AthenaLLM: Supporting Experiments with Large Language Models in Software Development. Proceedings of the 32nd IEEE/ACM International Conference on Program Comprehension. Lisboa, Portugal. April 2024. Accepted for publication.
