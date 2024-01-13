@@ -1,5 +1,4 @@
 ---
-title: Fernando Castor
 layout: default
 ---
 
