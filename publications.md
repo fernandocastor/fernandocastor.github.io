@@ -13,7 +13,7 @@ Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Ener
 
 Fernando Oliveira, Fernando Castor. AthenaLLM: Supporting Experiments with Large Language Models in Software Development. Proceedings of the 32nd IEEE/ACM International Conference on Program Comprehension. Lisboa, Portugal. April 2024. 
 
-Fernando Castor. Estimating the Energy Footprint of Software Systems: a Primer. [https://arxiv.org/pdf/2407.11611](https://arxiv.org/pdf/2407.11611), July 2024. 
+Fernando Castor. Estimating the Energy Footprint of Software Systems: a Primer. <a href="https://arxiv.org/pdf/2407.11611" target="_blank">https://arxiv.org/pdf/2407.11611</a>, July 2024. 
 
 
 ### **2023**
