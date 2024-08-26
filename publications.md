@@ -7,6 +7,8 @@ permalink: /publications/
 
 ### **2024**
 
+Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering, 2024. Accepted for publication.
+
 Vitor Jacques, Negar Alizadeh, Fernando Castor. A Study on the Battery Usage of Deep Learning Frameworks on iOS Devices. Proceedings of the 11th International Conference on Mobile Software Engineering and Systems. Lisboa, Portugal. April 2024. 
 
 Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Energy Consumption in DL Models Across Different Runtime Infrastructures. Proceedings of the 3rd International Conference on AI Engineering – Software Engineering for AI. Lisboa, Portugal. April 2024. 
