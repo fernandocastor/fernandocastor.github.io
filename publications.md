@@ -5,9 +5,17 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
-### **2024**
+
+### **2025**
 
 Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering, 2024. Accepted for publication.
+
+Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. Accepted for publication. 
+
+Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. Language Models in Software Development Tasks: An Experimental Analysis of Energy and Accuracy. Proceedings of the 22nd International Conference on Mining Software Repositories (MSR 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>. Accepted for publication. 
+
+
+### **2024**
 
 Vitor Jacques, Negar Alizadeh, Fernando Castor. A Study on the Battery Usage of Deep Learning Frameworks on iOS Devices. Proceedings of the 11th International Conference on Mobile Software Engineering and Systems. Lisboa, Portugal. April 2024. 
 
