@@ -8,7 +8,7 @@ permalink: /publications/
 
 ### **2025**
 
-Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering, 2024. Accepted for publication.
+Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025.
 
 Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. Accepted for publication. 
 
