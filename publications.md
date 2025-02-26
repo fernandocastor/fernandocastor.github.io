@@ -8,9 +8,9 @@ permalink: /publications/
 
 ### **2025**
 
-Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025.
+Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>
 
-Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. Accepted for publication. 
+Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2410.21990" target="_blank">Preprint</a>. Accepted for publication. 
 
 Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. Language Models in Software Development Tasks: An Experimental Analysis of Energy and Accuracy. Proceedings of the 22nd International Conference on Mining Software Repositories (MSR 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>. Accepted for publication. 
 
@@ -19,7 +19,7 @@ Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Casto
 
 Vitor Jacques, Negar Alizadeh, Fernando Castor. A Study on the Battery Usage of Deep Learning Frameworks on iOS Devices. Proceedings of the 11th International Conference on Mobile Software Engineering and Systems. Lisboa, Portugal. April 2024. 
 
-Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Energy Consumption in DL Models Across Different Runtime Infrastructures. Proceedings of the 3rd International Conference on AI Engineering – Software Engineering for AI. Lisboa, Portugal. April 2024. 
+Negar Alizadeh, Fernando Castor. Green AI: a Preliminary Empirical Study on Energy Consumption in DL Models Across Different Runtime Infrastructures. Proceedings of the 3rd International Conference on AI Engineering – Software Engineering for AI. Lisboa, Portugal. April 2024. <a href="https://arxiv.org/abs/2402.13640" target="_blank">Preprint</a>
 
 Fernando Oliveira, Fernando Castor. AthenaLLM: Supporting Experiments with Large Language Models in Software Development. Proceedings of the 32nd IEEE/ACM International Conference on Program Comprehension. Lisboa, Portugal. April 2024. 
 
