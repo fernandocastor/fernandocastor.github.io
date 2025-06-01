@@ -8,13 +8,16 @@ permalink: /publications/
 
 ### **2025**
 
+Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
+Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  
+
 Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
 
 Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>
 
-Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>. Accepted for publication. 
+Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>. 
 
-Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. Language Models in Software Development Tasks: An Experimental Analysis of Energy and Accuracy. Proceedings of the 22nd International Conference on Mining Software Repositories (MSR 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>. Accepted for publication. 
+Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. Language Models in Software Development Tasks: An Experimental Analysis of Energy and Accuracy. Proceedings of the 22nd International Conference on Mining Software Repositories (MSR 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>.
 
 ### **2024**
 
