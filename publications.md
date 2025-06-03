@@ -9,7 +9,7 @@ permalink: /publications/
 ### **2025**
 
 Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
-Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  
+Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  <a href="https://arxiv.org/abs/2506.01774" target="_blank">Preprint</a>
 
 Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
 
