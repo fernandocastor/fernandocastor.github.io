@@ -12,6 +12,8 @@ Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernánde
 Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  <a href="https://arxiv.org/abs/2506.01774" target="_blank">Preprint</a>
 
 Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
+ <a href="https://arxiv.org/abs/2506.00142" target="_blank">Preprint</a>
+
 
 Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>
 
