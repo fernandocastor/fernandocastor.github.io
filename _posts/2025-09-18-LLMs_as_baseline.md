@@ -6,7 +6,7 @@ date:   2025-09-18 15:30:00
 categories: research
 ---
 
-Large Language Models (LLMs) are often framed as potential replacements for traditional software development tools supporting tasks such as bug fixing, refactoring, and code documentation. I don't think we are quite there yet and it is not clear whether we will ever be. At the moment, I believe a more accurate way to see them is as baselines for these tools rather than direct substitutes. An LLM can produce results that are “good enough” in areas like linting, test generation, bug fixing, and refactoring, but these results are rarely specialized or rigorous enough to replace domain-specific tooling altogether. Instead, they establish a minimum viable capability against which traditional or new tools can be compared.
+Large Language Models (LLMs) are often framed as potential replacements for (semi-)automated software development tools supporting tasks such as bug fixing, refactoring, and code documentation. I don't think we are quite there yet and it is not clear whether we will ever be. At the moment, I believe a more accurate way to see them is as baselines for these tools rather than direct substitutes. An LLM can produce results that are “good enough” in areas like linting, test generation, bug fixing, and refactoring, but these results are rarely specialized or rigorous enough to replace domain-specific tooling altogether. Instead, they establish a minimum viable capability against which traditional or new tools can be compared.
 
 
 ## Why LLMs act as baselines
