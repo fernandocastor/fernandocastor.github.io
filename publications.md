@@ -6,6 +6,11 @@ permalink: /publications/
 <h2>Publications</h2>
 
 
+### **2026**
+
+Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparative Study About the Performance of Multi-Language Tools in Computation Offloading Scenarios. The Journal of Supercomputing, 2026. Accepted for publication.
+
+
 ### **2025**
 
 Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
@@ -20,6 +25,7 @@ Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando
 Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>. 
 
 Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. Language Models in Software Development Tasks: An Experimental Analysis of Energy and Accuracy. Proceedings of the 22nd International Conference on Mining Software Repositories (MSR 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>.
+
 
 ### **2024**
 
