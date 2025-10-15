@@ -10,7 +10,7 @@ permalink: /publications/
 
 ### **2025**
 
-Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparative Study About the Performance of Multi-Language Tools in Computation Offloading Scenarios. J Supercomput 81, 1441 (2025). https://doi.org/10.1007/s11227-025-07921-4
+Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparative Study About the Performance of Multi-Language Tools in Computation Offloading Scenarios. The Journal of Supercomputing 81, 1441 (2025). https://doi.org/10.1007/s11227-025-07921-4
 
 Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
 Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  <a href="https://arxiv.org/abs/2506.01774" target="_blank">Preprint</a>
