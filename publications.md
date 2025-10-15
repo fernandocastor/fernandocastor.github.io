@@ -6,19 +6,17 @@ permalink: /publications/
 <h2>Publications</h2>
 
 
-### **2026**
-
-Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparative Study About the Performance of Multi-Language Tools in Computation Offloading Scenarios. The Journal of Supercomputing, 2026. Accepted for publication.
 
 
 ### **2025**
+
+Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparative Study About the Performance of Multi-Language Tools in Computation Offloading Scenarios. J Supercomput 81, 1441 (2025). https://doi.org/10.1007/s11227-025-07921-4
 
 Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
 Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  <a href="https://arxiv.org/abs/2506.01774" target="_blank">Preprint</a>
 
 Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
  <a href="https://arxiv.org/abs/2506.00142" target="_blank">Preprint</a>
-
 
 Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>
 
