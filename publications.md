@@ -18,7 +18,7 @@ Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Softwa
 Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
  <a href="https://arxiv.org/abs/2506.00142" target="_blank">Preprint</a>
 
-Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>
+Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2410.21990" target="_blank">Preprint</a>
 
 Lola Solovyeva, Sophie Weidmann, Fernando Castor. AI-Powered, But Power-Hungry? Energy Efficiency of LLM-Generated Code. Proceedings of the 2nd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2025). Ottawa, Canada. April 2025. <a href="https://arxiv.org/abs/2502.02412" target="_blank">Preprint</a>. 
 
