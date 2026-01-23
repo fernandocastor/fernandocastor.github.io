@@ -5,7 +5,15 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
+### **2026**
 
+Benedito de Oliveira, Fernando Castor, Leonardo Fernandes, Samuel Amorim. Exploring Mocking Techniques for Managing External Dependencies in Service-Based Systems: A Mapping Study. Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test (AST 2026). Accepted for publication.
+
+Sophie Weidmann, Fernando Castor. An Initial Exploration of Contrastive Prompt Tuning to Generate. Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code 2026). Accepted for publication.
+
+Renato Domingues, Fernando Castor, Fernanda Madeiral. Bug-Fixing in the Age of AI: Human vs. Agentic Pull Requests. Proceedings of the 23rd International Conference on Mining Software Repositories (MSR 2026). Accepted for publication.
+
+Maja Kirkeby, Pepijn de Reus, Ana-Maria Oprescu, Kalle Pronk, Qin Zhao, Fernando Castor, João Paulo Fernandes. Bridging the gap between industry and academia: sustainability in LLM-assisted software engineering. Proceedings of the 10th International Workshop on Green and Sustainable Software (GREENS’26). Accepted for publication. 
 
 
 ### **2025**
