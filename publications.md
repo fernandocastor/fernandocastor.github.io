@@ -7,6 +7,8 @@ permalink: /publications/
 
 ### **2026**
 
+Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 39th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025).  Accepted for publication.
+
 Benedito de Oliveira, Fernando Castor, Leonardo Fernandes, Samuel Amorim. Exploring Mocking Techniques for Managing External Dependencies in Service-Based Systems: A Mapping Study. Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test (AST 2026). Accepted for publication.
 
 Sophie Weidmann, Fernando Castor. An Initial Exploration of Contrastive Prompt Tuning to Generate Energy-Efficient Code. Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code 2026). Accepted for publication.
@@ -23,7 +25,7 @@ Filipe de Matos, Paulo A. L. Rego, Fernando Trinta, Fernando Castor. A Comparati
 Luís Cruz, João Paulo Fernandes, Maja H. Kirkeby, Silverio Martínez-Fernández, June Sallou, Hina Anwar, Enrique Barba Roque, Justus Bogner, Joel Castaño, Fernando Castor, Aadil Chasmawala, Simão Cunha, Daniel Feitosa, Alexandra González, Andreas Jedlitschka, Patricia Lago, Ana Oprescu, Pooja Rani, João Saraiva, Federica Sarro, Raghavendra Selvan, Karthik Vaidhyanathan, Roberto Verdecchia, Ivan P. Yamshchikov, Henry Muccini. Greening AI-enabled Systems with Software Engineering: A
 Research Agenda for Environmentally Sustainable AI Practices. ACM SIGSOFT Software Engineering Notes, 2025. Accepted for publication.  <a href="https://arxiv.org/abs/2506.01774" target="_blank">Preprint</a>
 
-Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). Accepted for publication.
+Reydne Santos, Rafa Prado, Ana Paula de Holanda Silva, Kiev Gama, Fernando Castor and Ronnie de Souza Santos. Understanding Underrepresented Groups in Open Source Software. Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025). 
  <a href="https://arxiv.org/abs/2506.00142" target="_blank">Preprint</a>
 
 Delano Oliveira, Reydne Santos, Benedito de Oliveira, Martin Monperrus, Fernando Castor, Fernanda Madeiral. Understanding Code Understandability Improvements in Code Reviews. IEEE Transactions on Software Engineering 51(1). January 2025. <a href="https://arxiv.org/abs/2410.21990" target="_blank">Preprint</a>
