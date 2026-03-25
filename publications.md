@@ -7,7 +7,7 @@ permalink: /publications/
 
 ### **2026**
 
-Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 39th International Conference on Evaluation and Assessment in Software Engineering (EASE 2025).  Accepted for publication.
+Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 30th International Conference on Evaluation and Assessment in Software Engineering (EASE 2026).  Accepted for publication.
 
 Benedito de Oliveira, Fernando Castor, Leonardo Fernandes, Samuel Amorim. Exploring Mocking Techniques for Managing External Dependencies in Service-Based Systems: A Mapping Study. Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test (AST 2026). Accepted for publication.
 
