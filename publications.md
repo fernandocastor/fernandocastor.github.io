@@ -9,15 +9,15 @@ permalink: /publications/
 
 Negar Alizadeh, Nishant Saurabh, Fernando Castor. Green AI: The Cost of LLM-Based Code Completion. Proceedings of the 20th International Symposium on Empirical Software Engineering and Measurement (ESEM 2026). München, Germany. October 2026. 
 
-Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 30th International Conference on Evaluation and Assessment in Software Engineering (EASE 2026).  Accepted for publication.
+Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 30th International Conference on Evaluation and Assessment in Software Engineering (EASE 2026).  Accepted for publication. <a href="https://arxiv.org/abs/2602.05712" target="_blank">Preprint</a>
 
-Benedito de Oliveira, Fernando Castor, Leonardo Fernandes, Samuel Amorim. Exploring Mocking Techniques for Managing External Dependencies in Service-Based Systems: A Mapping Study. Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test (AST 2026). Accepted for publication.
+Benedito de Oliveira, Fernando Castor, Leonardo Fernandes, Samuel Amorim. Exploring Mocking Techniques for Managing External Dependencies in Service-Based Systems: A Mapping Study. Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test (AST 2026). Accepted for publication. <a href="https://dl.acm.org/doi/10.1145/3793654.3793750" target="_blank">Full paper</a>
 
-Sophie Weidmann, Fernando Castor. An Initial Exploration of Contrastive Prompt Tuning to Generate Energy-Efficient Code. Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code 2026). Accepted for publication.
+Sophie Weidmann, Fernando Castor. An Initial Exploration of Contrastive Prompt Tuning to Generate Energy-Efficient Code. Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code 2026). Accepted for publication. <a href="https://arxiv.org/abs/2604.02352" target="_blank">Preprint</a>
 
-Renato Domingues, Fernando Castor, Fernanda Madeiral. Bug-Fixing in the Age of AI: Human vs. Agentic Pull Requests. Proceedings of the 23rd International Conference on Mining Software Repositories (MSR 2026). Accepted for publication.
+Renato Domingues, Fernando Castor, Fernanda Madeiral. Bug-Fixing in the Age of AI: Human vs. Agentic Pull Requests. Proceedings of the 23rd International Conference on Mining Software Repositories (MSR 2026). <a href="https://dl.acm.org/doi/10.1145/3793302.3793570" target="_blank">Full paper</a>
 
-Maja Kirkeby, Pepijn de Reus, Ana-Maria Oprescu, Kalle Pronk, Qin Zhao, Fernando Castor, João Paulo Fernandes. Bridging the gap between industry and academia: sustainability in LLM-assisted software engineering. Proceedings of the 10th International Workshop on Green and Sustainable Software (GREENS’26). Accepted for publication. 
+Maja Kirkeby, Pepijn de Reus, Ana-Maria Oprescu, Kalle Pronk, Qin Zhao, Fernando Castor, João Paulo Fernandes. Bridging the gap between industry and academia: sustainability in LLM-assisted software engineering. Proceedings of the 10th International Workshop on Green and Sustainable Software (GREENS’26). <a href="https://dl.acm.org/doi/10.1145/3793302.3793570" target="_blank">[Full paper](https://dl.acm.org/doi/full/10.1145/3786148.3788638)</a>
 
 
 ### **2025**
