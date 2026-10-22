@@ -9,6 +9,10 @@ permalink: /publications/
 
 Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. The Cost of AI-Assisted Coding: An Extensive Investigation of Energy vs. Accuracy in Language Models. Empirical Software Engineering, 2026. Accepted for publication. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>
 
+Tim van de Wetering, Lola Solovyeva, and Fernando Castor.	Does Confusing Code Confuse LLMs? A Pilot Study on C++. Proceedings of the The 25th Belgium-Netherlands Software Evolution Workshop. Madrid, Spain. November 2026.
+
+Carlos Pulido, María Ángeles Moraga, Félix García, and Fernando Castor.	Towards Energy-Aware Software Evolution: A Rule-Based Approach to Source-Code Transformation with an Initial Comparison to LLMs. Proceedings of the The 25th Belgium-Netherlands Software Evolution Workshop. Madrid, Spain. November 2026.
+
 Negar Alizadeh, Nishant Saurabh, Fernando Castor. Green AI: The Cost of LLM-Based Code Completion. Proceedings of the 20th International Symposium on Empirical Software Engineering and Measurement (ESEM 2026). München, Germany. October 2026. <a href="https://arxiv.org/abs/2609.33918" target="_blank">Preprint</a> 
 
 Lola Solovyeva, Fernando Castor. Decoding the Cost: A Phase-Level Analysis of LLM Inference in Software Development. Proceedings of the 30th International Conference on Evaluation and Assessment in Software Engineering (EASE 2026).  Accepted for publication. <a href="https://arxiv.org/abs/2602.05712" target="_blank">Preprint</a>
