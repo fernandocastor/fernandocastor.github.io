@@ -5,9 +5,12 @@ permalink: /publications/
 ---
 <h2>Publications</h2>
 
-### **2026**
+### **2027**
 
-Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. The Cost of AI-Assisted Coding: An Extensive Investigation of Energy vs. Accuracy in Language Models. Empirical Software Engineering, 2026. Accepted for publication. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>
+Negar Alizadeh, Boris Belchev, Nishant Saurabh, Patricia Kelbert, Fernando Castor. The Cost of AI-Assisted Coding: An Extensive Investigation of Energy vs. Accuracy in Language Models. Empirical Software Engineering 32, article 69, 2027. Accepted for publication. <a href="https://arxiv.org/abs/2412.00329" target="_blank">Preprint</a>
+
+
+### **2026**
 
 Tim van de Wetering, Lola Solovyeva, and Fernando Castor.	Does Confusing Code Confuse LLMs? A Pilot Study on C++. Proceedings of the The 25th Belgium-Netherlands Software Evolution Workshop. Madrid, Spain. November 2026.
 
